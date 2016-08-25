@@ -57,7 +57,7 @@ Settings:
   -n[ame] n               The name to emit when generating for an expression
 
 Output Options:
-  -f[ile] [foo.d.ts]       Write to foo.d.ts (the default)
+  -f[ile] [filename.d.ts]  Write to a file (default)
   -d[t] [dirName]          Create a folder suitable for DefinitelyTyped
   -s[tdout]                Write to stdout
   -o[verwrite]             Allow overwriting files

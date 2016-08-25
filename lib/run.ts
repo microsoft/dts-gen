@@ -113,7 +113,7 @@ function printHelp() {
 	console.log('  -n[ame] n               The name to emit when generating for an expression');
 	console.log('');
 	console.log('Output Options:');
-	console.log('  -f[ile] [foo.d.ts]       Write to foo.d.ts (the default)');
+	console.log('  -f[ile] [filename.d.ts]  Write to a file (default)');
 	console.log('  -d[t] [dirName]          Create a folder suitable for DefinitelyTyped');
 	console.log('  -s[tdout]                Write to stdout');
 	console.log('  -o[verwrite]             Allow overwriting files');
