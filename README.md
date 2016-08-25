@@ -20,10 +20,11 @@ Some libraries only load in browsers; for this you can use the console-launched 
 
 Let's generate a .d.ts file for the `yargs` NPM module.
 This already has a handwritten definition file, but let's pretend that doesn't exist yet.
+You'll need to first install `dts-gen` if you haven't already, then globally install the module you're generating for.
 
 ```sh
 > npm install -g dts-gen
-> npm install yargs
+> npm install -g yargs
 > dts-gen -m yargs
 ```
 This will generate a file `yargs.d.ts`.
