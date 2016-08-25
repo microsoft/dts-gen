@@ -23,6 +23,7 @@
     "mocha": "^3.0.2",
     "react": "latest"
   },
+  "preferGlobal": true,
   "scripts": {
     "test": "mocha bin/tests/test.js",
     "build-browser": "tsc -p browser && webpack"
