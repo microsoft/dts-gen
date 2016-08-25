@@ -1,0 +1,17 @@
+body {
+    background-color: #294E80;
+    color: white;
+}
+
+div.inferLink {
+    color: #FFA700;
+    cursor: pointer;
+}
+
+div.inferLink:hover {
+    text-decoration: underline;
+}
+
+div.inferLink:active {
+    color: #6F4700;
+}
