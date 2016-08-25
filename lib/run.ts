@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import * as guess from './';
 import * as yargs from 'yargs';
 import * as fs from 'fs';

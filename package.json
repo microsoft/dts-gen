@@ -4,7 +4,7 @@
   "description": "TypeScript Definition File Generator",
   "main": "bin/lib/index.js",
   "bin": {
-    "dts-gen": "node bin/lib/run.js"
+    "dts-gen": "bin/lib/run.js"
   },
   "dependencies": {
     "typescript": "^2.1.0-dev.20160718",
