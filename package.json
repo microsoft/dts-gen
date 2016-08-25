@@ -23,6 +23,9 @@
     "mocha": "^3.0.2",
     "react": "latest"
   },
+  "keywords": [
+    "typescript"
+  ],
   "preferGlobal": true,
   "scripts": {
     "test": "mocha bin/tests/test.js",
