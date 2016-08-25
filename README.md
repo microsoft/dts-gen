@@ -128,6 +128,8 @@ Specify `-o` to allow overwriting of files.
 
 # Browser
 
+# Note: Browser support in progress! This is not quite ready yet
+
 To generate a definition file for a browser-only module, we'll use the in-browser popup window.
 This works by injecting the `dts-gen` script into the current page by adding it as a `script` tag.
 
