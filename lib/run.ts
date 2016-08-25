@@ -102,7 +102,7 @@ try {
 }
 
 function printHelp() {
-	console.log('Usage: tsguess input [settings] [output]');
+	console.log('Usage: dts-gen input [settings] [output]');
 	console.log('');
 	console.log('Input Options:');
 	console.log('  -m[odule] fs            The "fs" node module (must be installed)');
@@ -118,7 +118,7 @@ function printHelp() {
 	console.log('  -s[tdout]                Write to stdout');
 	console.log('  -o[verwrite]             Allow overwriting files');
 	console.log('');
-	console.log('Example: tsguess -m fs');
+	console.log('Example: dts-gen -m fs');
 }
 
 function writeDefinitelyTyped(result: string, folderName: string) {
