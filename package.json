@@ -1,0 +1,39 @@
+{
+  "name": "dts-gen",
+  "version": "0.4.0",
+  "description": "TypeScript Definition File Generator",
+  "main": "bin/lib/index.js",
+  "bin": {
+    "dts-gen": "bin/lib/run.js"
+  },
+  "dependencies": {
+    "typescript": "^2.1.0-dev.20160718",
+    "underscore": "^1.8.3",
+    "webpack": "^1.13.1",
+    "yargs": "^4.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/underscore": "latest",
+    "@types/yargs": "latest",
+    "@types/mocha": "latest",
+    "jquery": "latest",
+    "lodash": "latest",
+    "mocha": "^3.0.2",
+    "react": "latest"
+  },
+  "scripts": {
+    "test": "mocha bin/tests/test.js",
+    "build-browser": "tsc -p browser && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Microsoft/dts-gen.git"
+  },
+  "author": "Ryan Cavanaugh <ryanca@microsoft.com> (https://www.github.com/RyanCavanaugh)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Microsoft/dts-gen/issues"
+  },
+  "homepage": "https://github.com/Microsoft/dts-gen#readme"
+}
