@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "typescript": "^2.1.0-dev.20160718",
+    "underscore": "^1.8.3",
     "yargs": "^4.8.1"
   },
   "devDependencies": {
@@ -15,7 +16,6 @@
     "@types/underscore": "latest",
     "@types/yargs": "latest",
     "@types/mocha": "latest",
-    "underscore": "^1.8.3",
     "webpack": "^1.13.1",
     "jquery": "latest",
     "lodash": "latest",
