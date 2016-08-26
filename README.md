@@ -71,60 +71,60 @@ Example: dts-gen -m fs
 
 Only one of the following inputs may be specified.
 
-#### `module` (`m`)
+#### `--module` (`-m`)
 
-Example: `-module express`
+Example: `--module express`
 
 The name of the node module to generate a file for.
 This string will be `require`'d at runtime, so the normal nodejs rules about the module needing to be installed still apply.
 
-#### `identifier` (`i`)
+#### `--identifier` (`-i`)
 
-Example: `-identifier Math`
+Example: `--identifier Math`
 
 A bare identifier to generate a file for.
 Certain dotted names will work here.
 This string will be `eval`'d to get the value.
 
-#### `expression` (`e`)
+#### `--expression` (`-e`)
 
-Example: `-expression "new Date()"`
+Example: `--expression "new Date()"`
 
 An arbitrary expression to generate a file for.
 By default, this will be assigned to the name `dts_gen_expr` and generated as `dts_gen_expr.d.ts`.
 You can use the `-name` parameter to change this.
 
-#### `name` (`n`)
+#### `--name` (`-n`)
 
-Example: `-name MyVar`
+Example: `--name MyVar`
 
-When using `-expression`, the `-name` parameter changes the global name given to the inferred result.
+When using `--expression`, the `--name` parameter changes the global name given to the inferred result.
 
 ### Output Options
 
 At most one output option may be specified.
-If no output option is given, the default is `-file`.
+If no output option is given, the default is `--file`.
 
-#### `-file` (`f`) 
+#### `--file` (`-f`) 
 
-Example: `-file my.d.ts`
+Example: `--file my.d.ts`
 
 Sets the filename to write to.
 If no filename is specified, the name will be inferred from the module or identifier name.
 
-#### `-stdout` (`s`)
+#### `--stdout` (`-s`)
 
 Writes the output to `stdout`
 
-#### `-dt` (`d`)
+#### `--dt` (`-d`)
 
-Example: `-dt` or `-dt myFolder`
+Example: `--dt` or `--dt myFolder`
 
 Creates a folder suitable for submitting to DefinitelyTyped.
 Before submitting, you'll need to write some tests and fill in the header comments in `index.d.ts`.
 You may change the name of the folder by specifing an argument, otherwise the folder name will be inferred.
 
-#### `-overwrite` (`o`)
+#### `--overwrite` (`-o`)
 
 By default, `dts-gen` will not overwrite existing files on disk.
 Specify `-o` to allow overwriting of files.

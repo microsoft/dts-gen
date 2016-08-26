@@ -121,7 +121,7 @@ function printHelp() {
 	console.log('  -s[tdout]                Write to stdout');
 	console.log('  -o[verwrite]             Allow overwriting files');
 	console.log('');
-	console.log('Example: dts-gen -m fs');
+	console.log('Example: dts-gen -m fs --stdout');
 }
 
 function writeDefinitelyTyped(result: string, folderName: string) {
