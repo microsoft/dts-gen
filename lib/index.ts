@@ -22,6 +22,11 @@ const builtins: { [name: string]: (new (...args: any[]) => any) | undefined } = 
 	"HTMLElement": (typeof HTMLElement !== 'undefined') ? HTMLElement : undefined
 };
 
+function forceAsIdentifier(s: string): string {
+	// TODO: Make this more comprehensive
+	return s.replace(/-/g, '_');
+}
+
 function getValueTypes(value: any): ValueTypes {
 	if (typeof value === 'object') {
 		// Objects can't be callable, so no need to check for class / function
@@ -52,7 +57,8 @@ function hasFunduleProperties(fn: any): boolean {
 }
 
 export function generateModuleDeclarationFile(nameHint: string, root: any) {
-	const decls = getTopLevelDeclarations(nameHint, root);
+	const localName = forceAsIdentifier(nameHint);
+	const decls = getTopLevelDeclarations(localName, root);
 	// If we get back just a namespace, we can avoid writing an export=
 	if (decls.length === 1 && decls[0].kind === 'namespace') {
 		// Hoist out all the declarations and export them
@@ -62,7 +68,7 @@ export function generateModuleDeclarationFile(nameHint: string, root: any) {
 	} else {
 		// Going to have to write an export=
 		const result: string[] = decls.map(d => dom.emit(d));
-		result.unshift(dom.emit(dom.create.exportEquals(nameHint)));
+		result.unshift(dom.emit(dom.create.exportEquals(localName)));
 		return result.join('');
 	}
 }
