@@ -2,7 +2,7 @@
 
 `dts-gen` is a tool that generates TypeScript definition files (.d.ts) from *any* JavaScript object.
 
-`dts-gen` works differently from TypeScript, Flowtype, Tern, etc., because it simply examines the objects as they appear at runtime.
+`dts-gen` works differently from TypeScript, Flowtype, Tern, etc. because it simply examines the objects as they appear at runtime, rather than needing the source code that creates the object.
 This means no matter how the object was written, anything, including native objects, can be given an inferred shape.
 
 This trade-off comes with a price -- you'll see a lot of `any`s in function parameters and return types.
