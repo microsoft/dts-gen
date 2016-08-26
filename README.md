@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/dts-gen.svg)](https://badge.fury.io/js/dts-gen)
+
 # dts-gen: A TypeScript Definition File Generator
 
 `dts-gen` is a tool that generates TypeScript definition files (.d.ts) from *any* JavaScript object.
