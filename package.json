@@ -1,6 +1,6 @@
 {
   "name": "dts-gen",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "TypeScript Definition File Generator",
   "main": "bin/lib/index.js",
   "bin": {
