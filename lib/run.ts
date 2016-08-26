@@ -56,10 +56,10 @@ try {
 		name = args.module;
 		result = guess.generateModuleDeclarationFile(args.module, require(args.module));
 	} else if (args.expression) {
-		if (args.name) throw new ArgsError('Cannot use -name with -expression');
 		name = args.name || name;
 		result = guess.generateIdentifierDeclarationFile(name, eval(args.expression));
 	} else if (args.identifier) {
+		if (args.name) throw new ArgsError('Cannot use -name with -identifier');
 		if (args.module || args.expression) throw new ArgsError('Cannot specify more than one input');
 		name = args.identifier;
 		result = guess.generateIdentifierDeclarationFile(args.identifier, eval(args.identifier));
