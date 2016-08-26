@@ -10,10 +10,19 @@ const testModuleNames = [
 	'yargs'
 ];
 
+class MyClass {
+	constructor(public arg: number) {
+
+	}
+	prototypeMethod(p: any) { }
+	static staticMethod(s: any) { }
+	static staticNum = 32;
+	instanceStr = 'inst';
+}
 const selfRefExpr = {
 	a: 32,
 	b: 'ok',
-	self: <any>null
+	self: <any>null,
 }
 selfRefExpr.self = selfRefExpr;
 
@@ -22,7 +31,8 @@ const expressions: { [s: string]: any } = {
 	'selfref': selfRefExpr,
 	'builtIns': { d: new Date(3), arr: ['x']},
 	'someArray': [ 1, 'foo', Math, null, undefined, false ],
-	'badNames': { "*": 10, "default": true, "with": 10, "  ": 3 }
+	'badNames': { "*": 10, "default": true, "with": 10, "  ": 3 },
+	'someClass': MyClass
 };
 
 function checkDeclarationBaseline(name: string, content: string) {

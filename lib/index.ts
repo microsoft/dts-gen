@@ -146,6 +146,7 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 	function getResult(): dom.NamespaceMember[] {
 		if (typeof obj === 'function') {
 			const funcType = getParameterListAndReturnType(obj as any as Function, parseFunctionBody(obj));
+			const ns = dom.create.namespace(name);
 			let primaryDecl: dom.NamespaceMember;
 			if (isClasslike(obj)) {
 				const cls = dom.create.class(name)
@@ -161,10 +162,26 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 			}
 
 			// Get clodule/fundule members
-			const ns = dom.create.namespace(name);
 			const keys = getKeysOfObject(obj);
 			for (const k of keys) {
-				getTopLevelDeclarations(k!, obj[k!]).forEach(p => ns.members.push(p));
+				getTopLevelDeclarations(k!, obj[k!]).forEach(p => {
+					if (primaryDecl.kind === "class") {
+						// Transform certain declarations into static members
+						switch(p.kind) {
+							case 'const':
+								primaryDecl.members.push(create.property(p.name, p.type, dom.DeclarationFlags.Static));
+								break;
+							case 'function':
+								primaryDecl.members.push(create.method(p.name, p.parameters, p.returnType, dom.DeclarationFlags.Static));
+								break;
+							default:
+								ns.members.push(p);
+								break;							
+						}
+					} else {
+						ns.members.push(p)
+					}
+				});
 				ns.members.sort(declarationComparer);
 			}
 
