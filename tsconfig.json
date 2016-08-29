@@ -15,7 +15,8 @@
         "noImplicitAny": true,
         "strictNullChecks": true,
         "sourceMap": false,
-        "outDir": "./bin"
+        "outDir": "./bin",
+        "newLine": "LF"
     },
     "exclude": [
         "node_modules"
