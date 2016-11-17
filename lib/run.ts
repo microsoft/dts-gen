@@ -54,6 +54,7 @@ try {
 	if (args.module) {
 		if (args.name) throw new ArgsError('Cannot use -name with -module');
 		name = args.module;
+		module['paths'].unshift(process.cwd() + '/node_modules');
 		result = guess.generateModuleDeclarationFile(args.module, require(args.module));
 	} else if (args.expression) {
 		name = args.name || name;
