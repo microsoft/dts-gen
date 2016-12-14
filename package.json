@@ -7,10 +7,10 @@
     "dts-gen": "bin/lib/run.js"
   },
   "dependencies": {
-    "typescript": "^2.1.0-dev.20160718",
+    "dts-dom": "latest",
+    "typescript": "^2.1.4",
     "underscore": "^1.8.3",
-    "yargs": "^4.8.1",
-    "dts-dom": "latest"
+    "yargs": "^4.8.1"
   },
   "devDependencies": {
     "@types/node": "latest",
@@ -29,6 +29,7 @@
   "preferGlobal": true,
   "scripts": {
     "test": "mocha bin/tests/test.js",
+    "build": "tsc",
     "build-browser": "tsc -p browser && webpack"
   },
   "repository": {

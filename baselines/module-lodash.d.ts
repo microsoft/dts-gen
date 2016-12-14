@@ -8,7 +8,7 @@ declare class lodash {
     assignIn(...args: any[]): any;
     assignInWith(...args: any[]): any;
     assignWith(...args: any[]): any;
-    at(...args: any[]): any;
+    at(paths: any): any;
     attempt(...args: any[]): any;
     before(...args: any[]): any;
     bind(...args: any[]): any;
@@ -322,16 +322,16 @@ declare class lodash {
     static add(value: any, other: any): any;
     static after(n: any, func: any, ...args: any[]): any;
     static ary(func: any, n: any, guard: any): any;
-    static assign(...args: any[]): any;
-    static assignIn(...args: any[]): any;
-    static assignInWith(...args: any[]): any;
-    static assignWith(...args: any[]): any;
-    static at(...args: any[]): any;
-    static attempt(...args: any[]): any;
+    static assign(object: any, sources: any): any;
+    static assignIn(object: any, sources: any): any;
+    static assignInWith(object: any, sources: any): any;
+    static assignWith(object: any, sources: any): any;
+    static at(object: any, paths: any): any;
+    static attempt(func: any, args: any): any;
     static before(n: any, func: any, ...args: any[]): any;
-    static bind(...args: any[]): any;
-    static bindAll(...args: any[]): any;
-    static bindKey(...args: any[]): any;
+    static bind(func: any, thisArg: any, partials: any): any;
+    static bindAll(object: any, methodNames: any): any;
+    static bindKey(object: any, key: any, partials: any): any;
     static camelCase(string: any): any;
     static capitalize(string: any): any;
     static castArray(...args: any[]): any;
@@ -356,13 +356,13 @@ declare class lodash {
     static debounce(func: any, wait: any, options: any, ...args: any[]): any;
     static deburr(string: any): any;
     static defaultTo(value: any, defaultValue: any): any;
-    static defaults(...args: any[]): any;
-    static defaultsDeep(...args: any[]): any;
-    static defer(...args: any[]): any;
-    static delay(...args: any[]): any;
-    static difference(...args: any[]): any;
-    static differenceBy(...args: any[]): any;
-    static differenceWith(...args: any[]): any;
+    static defaults(args: any): any;
+    static defaultsDeep(args: any): any;
+    static defer(func: any, args: any): any;
+    static delay(func: any, wait: any, args: any): any;
+    static difference(array: any, values: any): any;
+    static differenceBy(array: any, values: any): any;
+    static differenceWith(array: any, values: any): any;
     static divide(value: any, other: any): any;
     static drop(array: any, n: any, guard: any): any;
     static dropRight(array: any, n: any, guard: any): any;
@@ -377,8 +377,8 @@ declare class lodash {
     static escape(string: any): any;
     static escapeRegExp(string: any): any;
     static every(collection: any, predicate: any, guard: any): any;
-    static extend(...args: any[]): any;
-    static extendWith(...args: any[]): any;
+    static extend(object: any, sources: any): any;
+    static extendWith(object: any, sources: any): any;
     static fill(array: any, value: any, start: any, end: any): any;
     static filter(collection: any, predicate: any): any;
     static find(collection: any, predicate: any, fromIndex: any): any;
@@ -396,8 +396,8 @@ declare class lodash {
     static flattenDepth(array: any, depth: any): any;
     static flip(func: any): any;
     static floor(number: any, precision: any): any;
-    static flow(...args: any[]): any;
-    static flowRight(...args: any[]): any;
+    static flow(funcs: any, ...args: any[]): any;
+    static flowRight(funcs: any, ...args: any[]): any;
     static forEach(collection: any, iteratee: any): any;
     static forEachRight(collection: any, iteratee: any): any;
     static forIn(object: any, iteratee: any): any;
@@ -419,13 +419,13 @@ declare class lodash {
     static includes(collection: any, value: any, fromIndex: any, guard: any): any;
     static indexOf(array: any, value: any, fromIndex: any): any;
     static initial(array: any): any;
-    static intersection(...args: any[]): any;
-    static intersectionBy(...args: any[]): any;
-    static intersectionWith(...args: any[]): any;
+    static intersection(arrays: any): any;
+    static intersectionBy(arrays: any): any;
+    static intersectionWith(arrays: any): any;
     static invert(object: any, iteratee: any): any;
     static invertBy(object: any, iteratee: any): any;
-    static invoke(...args: any[]): any;
-    static invokeMap(...args: any[]): any;
+    static invoke(object: any, path: any, args: any): any;
+    static invokeMap(collection: any, path: any, args: any): any;
     static isArguments(value: any): any;
     static isArray(p0: any): any;
     static isArrayBuffer(value: any): any;
@@ -485,10 +485,10 @@ declare class lodash {
     static mean(array: any): any;
     static meanBy(array: any, iteratee: any): any;
     static memoize(func: any, resolver: any, ...args: any[]): any;
-    static merge(...args: any[]): any;
-    static mergeWith(...args: any[]): any;
-    static method(...args: any[]): any;
-    static methodOf(...args: any[]): any;
+    static merge(object: any, sources: any): any;
+    static mergeWith(object: any, sources: any): any;
+    static method(path: any, args: any): any;
+    static methodOf(object: any, args: any): any;
     static min(array: any): any;
     static minBy(array: any, iteratee: any): any;
     static mixin(object: any, source: any, options: any, ...args: any[]): any;
@@ -499,34 +499,34 @@ declare class lodash {
     static now(): any;
     static nth(array: any, n: any): any;
     static nthArg(n: any): any;
-    static omit(...args: any[]): any;
+    static omit(object: any, paths: any): any;
     static omitBy(object: any, predicate: any): any;
     static once(func: any): any;
     static orderBy(collection: any, iteratees: any, orders: any, guard: any): any;
-    static over(...args: any[]): any;
-    static overArgs(...args: any[]): any;
-    static overEvery(...args: any[]): any;
-    static overSome(...args: any[]): any;
+    static over(iteratees: any): any;
+    static overArgs(func: any, transforms: any): any;
+    static overEvery(iteratees: any): any;
+    static overSome(iteratees: any): any;
     static pad(string: any, length: any, chars: any): any;
     static padEnd(string: any, length: any, chars: any): any;
     static padStart(string: any, length: any, chars: any): any;
     static parseInt(string: any, radix: any, guard: any): any;
-    static partial(...args: any[]): any;
-    static partialRight(...args: any[]): any;
+    static partial(func: any, partials: any): any;
+    static partialRight(func: any, partials: any): any;
     static partition(collection: any, iteratee: any): any;
-    static pick(...args: any[]): any;
+    static pick(object: any, paths: any): any;
     static pickBy(object: any, predicate: any): any;
     static property(path: any): any;
     static propertyOf(object: any): any;
-    static pull(...args: any[]): any;
+    static pull(array: any, values: any): any;
     static pullAll(array: any, values: any): any;
     static pullAllBy(array: any, values: any, iteratee: any): any;
     static pullAllWith(array: any, values: any, comparator: any): any;
-    static pullAt(...args: any[]): any;
+    static pullAt(array: any, indexes: any): any;
     static random(lower: any, upper: any, floating: any): any;
     static range(start: any, end: any, step: any): any;
     static rangeRight(start: any, end: any, step: any): any;
-    static rearg(...args: any[]): any;
+    static rearg(func: any, indexes: any): any;
     static reduce(collection: any, iteratee: any, accumulator: any, ...args: any[]): any;
     static reduceRight(collection: any, iteratee: any, accumulator: any, ...args: any[]): any;
     static reject(collection: any, predicate: any): any;
@@ -547,7 +547,7 @@ declare class lodash {
     static slice(array: any, start: any, end: any): any;
     static snakeCase(string: any): any;
     static some(collection: any, predicate: any, guard: any): any;
-    static sortBy(...args: any[]): any;
+    static sortBy(collection: any, iteratees: any): any;
     static sortedIndex(array: any, value: any): any;
     static sortedIndexBy(array: any, value: any, iteratee: any): any;
     static sortedIndexOf(array: any, value: any): any;
@@ -606,9 +606,9 @@ declare class lodash {
     static truncate(string: any, options: any): any;
     static unary(func: any): any;
     static unescape(string: any): any;
-    static union(...args: any[]): any;
-    static unionBy(...args: any[]): any;
-    static unionWith(...args: any[]): any;
+    static union(arrays: any): any;
+    static unionBy(arrays: any): any;
+    static unionWith(arrays: any): any;
     static uniq(array: any): any;
     static uniqBy(array: any, iteratee: any): any;
     static uniqWith(array: any, comparator: any): any;
@@ -622,25 +622,48 @@ declare class lodash {
     static upperFirst(string: any): any;
     static values(object: any): any;
     static valuesIn(object: any): any;
-    static without(...args: any[]): any;
+    static without(array: any, values: any): any;
     static words(string: any, pattern: any, guard: any): any;
     static wrap(value: any, wrapper: any): any;
-    static xor(...args: any[]): any;
-    static xorBy(...args: any[]): any;
-    static xorWith(...args: any[]): any;
-    static zip(...args: any[]): any;
+    static xor(arrays: any): any;
+    static xorBy(arrays: any): any;
+    static xorWith(arrays: any): any;
+    static zip(array: any): any;
     static zipObject(props: any, values: any): any;
     static zipObjectDeep(props: any, values: any): any;
-    static zipWith(...args: any[]): any;
+    static zipWith(arrays: any): any;
 }
 declare namespace lodash {
+    namespace assign {
+        function toString(): any;
+    }
+    namespace assignIn {
+        function toString(): any;
+    }
+    namespace assignInWith {
+        function toString(): any;
+    }
+    namespace assignWith {
+        function toString(): any;
+    }
+    namespace at {
+        function toString(): any;
+    }
+    namespace attempt {
+        function toString(): any;
+    }
     namespace bind {
         // Circular reference from lodash.bind
         const placeholder: any;
+        function toString(): any;
+    }
+    namespace bindAll {
+        function toString(): any;
     }
     namespace bindKey {
         // Circular reference from lodash.bindKey
         const placeholder: any;
+        function toString(): any;
     }
     namespace curry {
         // Circular reference from lodash.curry
@@ -649,6 +672,54 @@ declare namespace lodash {
     namespace curryRight {
         // Circular reference from lodash.curryRight
         const placeholder: any;
+    }
+    namespace defaults {
+        function toString(): any;
+    }
+    namespace defaultsDeep {
+        function toString(): any;
+    }
+    namespace defer {
+        function toString(): any;
+    }
+    namespace delay {
+        function toString(): any;
+    }
+    namespace difference {
+        function toString(): any;
+    }
+    namespace differenceBy {
+        function toString(): any;
+    }
+    namespace differenceWith {
+        function toString(): any;
+    }
+    namespace extend {
+        function toString(): any;
+    }
+    namespace extendWith {
+        function toString(): any;
+    }
+    namespace flow {
+        function toString(): any;
+    }
+    namespace flowRight {
+        function toString(): any;
+    }
+    namespace intersection {
+        function toString(): any;
+    }
+    namespace intersectionBy {
+        function toString(): any;
+    }
+    namespace intersectionWith {
+        function toString(): any;
+    }
+    namespace invoke {
+        function toString(): any;
+    }
+    namespace invokeMap {
+        function toString(): any;
     }
     namespace memoize {
         class Cache {
@@ -660,12 +731,83 @@ declare namespace lodash {
             set(key: any, value: any): any;
         }
     }
+    namespace merge {
+        function toString(): any;
+    }
+    namespace mergeWith {
+        function toString(): any;
+    }
+    namespace method {
+        function toString(): any;
+    }
+    namespace methodOf {
+        function toString(): any;
+    }
+    namespace omit {
+        function toString(): any;
+    }
+    namespace over {
+        function toString(): any;
+    }
+    namespace overArgs {
+        function toString(): any;
+    }
+    namespace overEvery {
+        function toString(): any;
+    }
+    namespace overSome {
+        function toString(): any;
+    }
     namespace partial {
         // Circular reference from lodash.partial
         const placeholder: any;
+        function toString(): any;
     }
     namespace partialRight {
         // Circular reference from lodash.partialRight
         const placeholder: any;
+        function toString(): any;
+    }
+    namespace pick {
+        function toString(): any;
+    }
+    namespace pull {
+        function toString(): any;
+    }
+    namespace pullAt {
+        function toString(): any;
+    }
+    namespace rearg {
+        function toString(): any;
+    }
+    namespace sortBy {
+        function toString(): any;
+    }
+    namespace union {
+        function toString(): any;
+    }
+    namespace unionBy {
+        function toString(): any;
+    }
+    namespace unionWith {
+        function toString(): any;
+    }
+    namespace without {
+        function toString(): any;
+    }
+    namespace xor {
+        function toString(): any;
+    }
+    namespace xorBy {
+        function toString(): any;
+    }
+    namespace xorWith {
+        function toString(): any;
+    }
+    namespace zip {
+        function toString(): any;
+    }
+    namespace zipWith {
+        function toString(): any;
     }
 }
