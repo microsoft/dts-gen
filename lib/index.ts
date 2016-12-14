@@ -176,7 +176,7 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 								break;
 							default:
 								ns.members.push(p);
-								break;							
+								break;
 						}
 					} else {
 						ns.members.push(p)
@@ -375,7 +375,8 @@ function getParameterListAndReturnType(obj: Function, fn: ts.FunctionExpression)
 				}
 				break;
 			case ts.SyntaxKind.ReturnStatement:
-				if (funcStack.length === 0 && (node as ts.ReturnStatement).expression && (node as ts.ReturnStatement).kind !== ts.SyntaxKind.VoidExpression) {
+				const ret = node as ts.ReturnStatement;
+				if (funcStack.length === 0 && ret.expression && ret.expression.kind !== ts.SyntaxKind.VoidExpression) {
 					hasReturn = true;
 				}
 		}
