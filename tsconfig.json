@@ -1,9 +1,7 @@
 {
-    "files": [
-        "lib/index.ts",
-        "lib/run.ts",
-        "browser/browser.ts",
-        "tests/test.ts"
+    "include": [
+        "lib",
+        "tests"
     ],
     "compilerOptions": {
         "lib": [
@@ -17,8 +15,5 @@
         "sourceMap": false,
         "outDir": "./bin",
         "newLine": "LF"
-    },
-    "exclude": [
-        "node_modules"
-    ]
+    }
 }
