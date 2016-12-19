@@ -1,7 +1,6 @@
 {
     "include": [
         "lib",
-        "browser",
         "tests"
     ],
     "compilerOptions": {
@@ -16,8 +15,5 @@
         "sourceMap": false,
         "outDir": "./bin",
         "newLine": "LF"
-    },
-    "exclude": [
-        "node_modules"
-    ]
+    }
 }
