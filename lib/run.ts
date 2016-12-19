@@ -142,11 +142,11 @@ function prependOurHeader(result: string) {
 }
 
 function getTemplate(templateName: string): string {
-    try {
-        return fs.readFileSync(path.join(templatesDirectory, templateName + ".d.ts"), "utf-8");
-    } catch (e) {
+	try {
+	return fs.readFileSync(path.join(templatesDirectory, templateName + ".d.ts"), "utf-8");
+	} catch (e) {
 		throw new ArgsError(`Could not read template '${templateName}'.`); //Expected one of:\n${allTemplateNames()}`);
-    }
+	}
 }
 
 function allTemplateNames(): string {

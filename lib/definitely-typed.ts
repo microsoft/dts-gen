@@ -22,12 +22,12 @@ export default function writeDefinitelyTypedPackage(indexDtsContent: string, pac
 }
 
 async function run(indexDtsContent: string, packageName: string): Promise<void> {
-    const files: [string, string][] = [
-        ["index.d.ts", await getIndex(indexDtsContent, packageName)],
-        [`${packageName}-tests.ts`, ""],
-        ["tsconfig.json", `${JSON.stringify(getTSConfig(packageName), undefined, 4)}\n`],
-        ["tslint.json", '{ "extends": "../tslint.json" }\n'],
-    ]
+	const files: [string, string][] = [
+		["index.d.ts", await getIndex(indexDtsContent, packageName)],
+		[`${packageName}-tests.ts`, ""],
+		["tsconfig.json", `${JSON.stringify(getTSConfig(packageName), undefined, 4)}\n`],
+		["tslint.json", '{ "extends": "../tslint.json" }\n'],
+	]
 
 	for (const [name, text] of files) {
 		await fs.writeFileSync(path.join(packageName, name), text, "utf-8");
@@ -59,50 +59,50 @@ async function getHeader(packageName: string): Promise<string> {
 }
 
 function getTSConfig(packageName: string): {} {
-    return {
-        "compilerOptions": {
-            "module": "commonjs",
-            "target": "es6",
-            "noImplicitAny": true,
-            "strictNullChecks": true,
-            "baseUrl": "../",
-            "typeRoots": [
-                "../"
-            ],
-            "types": [],
-            "noEmit": true,
-            "forceConsistentCasingInFileNames": true
-        },
-        "files": [
-            "index.d.ts",
-            `${packageName}-tests.ts`
-        ]
-    }
+	return {
+		"compilerOptions": {
+			"module": "commonjs",
+			"target": "es6",
+			"noImplicitAny": true,
+			"strictNullChecks": true,
+			"baseUrl": "../",
+			"typeRoots": [
+				"../"
+			],
+			"types": [],
+			"noEmit": true,
+			"forceConsistentCasingInFileNames": true
+		},
+		"files": [
+			"index.d.ts",
+			`${packageName}-tests.ts`
+		]
+	}
 }
 
 interface Registry {
-    name: string
-    description: string
-    "dist-tags": { latest: string }
-    versions: { [version: string]: Package }
+	name: string
+	description: string
+	"dist-tags": { latest: string }
+	versions: { [version: string]: Package }
 }
 
 interface Package {
-    name: string
-    description: string
-    version: string
-    homepage?: string
+	name: string
+	description: string
+	version: string
+	homepage?: string
 }
 
 function loadString(url: string): Promise<string> {
-    return new Promise((resolve, reject) => {
-        get(url, (res) => {
-            if (res.statusCode !== 200) {
-                return reject(new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`))
-            }
-            let rawData = ""
-            res.on("data", chunk => rawData += chunk)
-            res.on("end", () => resolve(rawData))
-        }).on("error", e => reject(e))
-    })
+	return new Promise((resolve, reject) => {
+		get(url, (res) => {
+			if (res.statusCode !== 200) {
+				return reject(new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`))
+			}
+			let rawData = ""
+			res.on("data", chunk => rawData += chunk)
+			res.on("end", () => resolve(rawData))
+		}).on("error", e => reject(e))
+	})
 }
