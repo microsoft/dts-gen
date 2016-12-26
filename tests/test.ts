@@ -7,7 +7,8 @@ const testModuleNames = [
 	'path',
 	'lodash',
 	'jquery',
-	'yargs'
+	'yargs',
+	'ecurve'
 ];
 
 class MyClass {
