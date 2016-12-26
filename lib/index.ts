@@ -284,7 +284,7 @@ function getPropertyDeclarationsOfObject(obj: any): dom.ObjectTypeMember[] {
 
 function getClassPrototypeMembers(ctor: any): dom.ClassMember[] {
 	const names = Object.getOwnPropertyNames(ctor.prototype);
-	const members = <dom.ClassMember[]>names.filter(n => !isNameToSkip(n)).map(name => getPrototypeMember(name, ctor.prototype[name])).filter(m => m !== undefined);
+	const members = <dom.ClassMember[]>names.filter(n => !isNameToSkip(n)).map(name => getPrototypeMember(name, Object.getOwnPropertyDescriptor(ctor.prototype, name).value)).filter(m => m !== undefined);
 	members.sort();
 	return members;
 
