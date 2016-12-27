@@ -21,7 +21,8 @@
     "jquery": "latest",
     "lodash": "latest",
     "mocha": "^3.0.2",
-    "react": "latest"
+    "react": "latest",
+    "ecurve": "1.0.5"
   },
   "keywords": [
     "typescript"
