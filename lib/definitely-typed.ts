@@ -62,7 +62,9 @@ function getTSConfig(packageName: string): {} {
 	return {
 		"compilerOptions": {
 			"module": "commonjs",
-			"target": "es6",
+			"lib": [
+				"es6"
+			],
 			"noImplicitAny": true,
 			"noImplicitThis": true,
 			"strictNullChecks": true,
