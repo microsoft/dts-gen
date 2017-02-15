@@ -9,9 +9,11 @@
             "dom"
         ],
         "module": "commonjs",
-        "target": "es5",
+        "target": "es6",
         "noImplicitAny": true,
         "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "sourceMap": false,
         "outDir": "./bin",
         "newLine": "LF"

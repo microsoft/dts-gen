@@ -1,6 +1,6 @@
 {
   "name": "dts-gen",
-  "version": "0.4.20",
+  "version": "0.5.0",
   "description": "TypeScript Definition File Generator",
   "main": "bin/lib/index.js",
   "bin": {
@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/Microsoft/dts-gen/issues"
   },
-  "homepage": "https://github.com/Microsoft/dts-gen#readme"
+  "homepage": "https://github.com/Microsoft/dts-gen#readme",
+  "engines": {
+    "node": ">=6.0.0"
+  }
 }
