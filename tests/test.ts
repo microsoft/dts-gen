@@ -15,8 +15,8 @@ class MyClass {
 	constructor(public arg: number) {
 
 	}
-	prototypeMethod(p: any) { }
-	static staticMethod(s: any) { }
+	prototypeMethod(_p: any) { }
+	static staticMethod(_s: any) { }
 	static staticNum = 32;
 	instanceStr = 'inst';
 }

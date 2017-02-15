@@ -5,6 +5,8 @@ import writeDefinitelyTypedPackage from './definitely-typed';
 import * as yargs from 'yargs';
 import * as fs from 'fs';
 import * as path from 'path';
+import { install } from 'source-map-support';
+install();
 
 const templatesDirectory = path.join(__dirname, "..", "..", "templates");
 
@@ -20,6 +22,8 @@ interface Options {
 	dt?: string | boolean;
 	stdout?: boolean;
 	overwrite?: boolean;
+
+	version?: boolean;
 }
 
 const args: Options = yargs
@@ -32,6 +36,7 @@ const args: Options = yargs
 	.alias('s', 'stdout')
 	.alias('o', 'overwrite')
 	.alias('t', 'template')
+	.alias('v', 'version')
 	.argv;
 
 class ArgsError extends Error {
@@ -40,11 +45,13 @@ class ArgsError extends Error {
 	}
 }
 
-const opts: Options = yargs.argv;
-
 let result: string | undefined;
-let name: string = 'dts_gen_expr';
 try {
+	if (args.version) {
+		console.log(require("../../package.json").version);
+		process.exit(0);
+	}
+
 	if (+!!args.dt + +!!args.file + +!!args.stdout > 1) {
 		throw new ArgsError('Cannot specify more than one output mode');
 	}
@@ -56,13 +63,14 @@ try {
 	if (typeof args.module === 'boolean') throw new ArgsError('Must specify a value for "-module"');
 	if (args.overwrite !== undefined && args.overwrite !== true) throw new ArgsError('-overwrite does not accept an argument');
 
+	let name: string;
 	if (args.module) {
 		if (args.name) throw new ArgsError('Cannot use -name with -module');
 		name = args.module;
 		(module as any).paths.unshift(process.cwd() + '/node_modules');
 		result = guess.generateModuleDeclarationFile(args.module, require(args.module));
 	} else if (args.expression) {
-		name = args.name || name;
+		name = args.name || 'dts_gen_expr';
 		result = guess.generateIdentifierDeclarationFile(name, eval(args.expression));
 	} else if (args.identifier) {
 		if (args.name) throw new ArgsError('Cannot use -name with -identifier');

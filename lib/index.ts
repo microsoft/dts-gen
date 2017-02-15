@@ -3,7 +3,7 @@ import * as _ from 'underscore';
 import * as dom from 'dts-dom';
 import { create, reservedWords } from 'dts-dom';
 
-type object = { valueOf: 'oops '; prototype?: object; (): void;[s: string]: any; };
+type ObjectLike = { valueOf: 'oops '; prototype?: object; (): void;[s: string]: any; };
 
 const enum ValueTypes {
 	None = 0,
@@ -63,7 +63,7 @@ export function generateModuleDeclarationFile(nameHint: string, root: any) {
 	if (decls.length === 1 && decls[0].kind === 'namespace') {
 		// Hoist out all the declarations and export them
 		const members = (decls[0] as dom.NamespaceDeclaration).members;
-		for (const m of members) m.flags |= dom.DeclarationFlags.Export;
+		for (const m of members) m.flags = m.flags! | dom.DeclarationFlags.Export;
 		return members.map(m => dom.emit(m)).join('');
 	} else {
 		// Going to have to write an export=
@@ -78,7 +78,7 @@ export function generateIdentifierDeclarationFile(name: string, value: any): str
 	return result.map(d => dom.emit(d)).join('\r\n');
 }
 
-const walkStack = new Map<any, boolean>();
+const walkStack = new Set<any>();
 
 const reservedFunctionProperties = Object.getOwnPropertyNames(function () { });
 function getKeysOfObject(obj: object) {
@@ -117,11 +117,7 @@ function isLegalIdentifier(s: string) {
 	return reservedWords.indexOf(s) < 0;
 }
 
-function isCallable(obj: {}) {
-	return typeof obj === 'function';
-}
-
-function isClasslike(obj: object): boolean {
+function isClasslike(obj: ObjectLike): boolean {
 	return !!(obj.prototype && Object.getOwnPropertyNames(obj.prototype).length > 1);
 }
 
@@ -136,7 +132,7 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 
 	if (!isLegalIdentifier(name)) return [];
 
-	walkStack.set(obj);
+	walkStack.add(obj);
 	keyStack.push(name);
 	const res = getResult();
 	keyStack.pop();
@@ -199,7 +195,6 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 
 			// If anything in here is classlike or functionlike, write it as a namespace.
 			// Otherwise, write as a 'const'
-			const types = getValueTypes(obj);
 			const keys = getKeysOfObject(obj);
 			let constituentTypes = ValueTypes.None;
 			for (const k of keys) {
@@ -254,7 +249,7 @@ function getTypeOfValue(value: any): dom.Type {
 				if (value === null) {
 					return dom.type.any;
 				} else {
-					walkStack.set(value);
+					walkStack.add(value);
 					const members = getPropertyDeclarationsOfObject(value);
 					walkStack.delete(value);
 					members.sort(declarationComparer);
@@ -268,7 +263,7 @@ function getTypeOfValue(value: any): dom.Type {
 }
 
 function getPropertyDeclarationsOfObject(obj: any): dom.ObjectTypeMember[] {
-	walkStack.set(obj);
+	walkStack.add(obj);
 	const keys = getKeysOfObject(obj);
 	const result = keys.map(getProperty);
 	walkStack.delete(obj);
@@ -313,7 +308,6 @@ function getClassInstanceMembers(ctor: any): dom.ClassMember[] {
 		return [];
 	}
 
-	const body = parseFunctionBody(ctor);
 	const members: dom.ClassMember[] = [];
 
 	function visit(node: ts.Node) {
@@ -395,7 +389,7 @@ function getParameterListAndReturnType(obj: Function, fn: ts.FunctionExpression)
 
 }
 
-function inferParameterType(fn: ts.FunctionExpression, param: ts.ParameterDeclaration): dom.Type {
+function inferParameterType(_fn: ts.FunctionExpression, _param: ts.ParameterDeclaration): dom.Type {
 	// TODO: Inspect function body for clues
 	return dom.type.any;
 }
@@ -411,8 +405,4 @@ function parseFunctionBody(fn: any): ts.FunctionExpression {
 
 function isNativeFunction(fn: any) {
 	return fn.toString().indexOf('{ [native code] }') > 0;
-}
-
-function makeIdentifier(s: string) {
-	return s.replace(/-/g, '_');
 }
