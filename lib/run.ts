@@ -42,6 +42,7 @@ const args: Options = yargs
 class ArgsError extends Error {
 	constructor(public argsError: string) {
 		super();
+		Object.setPrototypeOf(this, ArgsError.prototype);
 	}
 }
 
