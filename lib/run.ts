@@ -40,6 +40,9 @@ const args: Options = yargs
 class ArgsError extends Error {
 	constructor(public argsError: string) {
 		super();
+		this.name = 'ArgsError';
+		this.message = argsError;
+
 		Object.setPrototypeOf(this, ArgsError.prototype);
 	}
 }
