@@ -5,8 +5,6 @@ import writeDefinitelyTypedPackage from './definitely-typed';
 import * as yargs from 'yargs';
 import * as fs from 'fs';
 import * as path from 'path';
-import { install } from 'source-map-support';
-install();
 
 const templatesDirectory = path.join(__dirname, "..", "..", "templates");
 
@@ -42,11 +40,10 @@ const args: Options = yargs
 class ArgsError extends Error {
 	constructor(public argsError: string) {
 		super();
-
 		this.name = 'ArgsError';
 		this.message = argsError;
 
-		Error.captureStackTrace(this, this.constructor);
+		Object.setPrototypeOf(this, ArgsError.prototype);
 	}
 }
 
