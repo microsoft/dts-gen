@@ -104,8 +104,8 @@ function loadString(url: string): Promise<string> {
 				return reject(new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`))
 			}
 			let rawData = ""
-			res.on("data", chunk => rawData += chunk)
+			res.on("data", (chunk: any) => rawData += chunk)
 			res.on("end", () => resolve(rawData))
-		}).on("error", e => reject(e))
+		}).on("error", (e: Error) => reject(e))
 	})
 }
