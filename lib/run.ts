@@ -11,6 +11,7 @@ const templatesDirectory = path.join(__dirname, "..", "..", "templates");
 interface Options {
 	module?: string;
 	expression?: string;
+	'expression-file': string;
 	identifier?: string;
 	template?: string;
 
@@ -57,7 +58,7 @@ try {
 	if (+!!args.dt + +!!args.file + +!!args.stdout > 1) {
 		throw new ArgsError('Cannot specify more than one output mode');
 	}
-	if (+!!args.identifier + +!!args.expression + +!!args.module  + +!!args.template!== 1) {
+	if (+!!args.identifier + +!!args.expression + +!!args.module + +!!args['expression-file']  + +!!args.template!== 1) {
 		throw new ArgsError('Must specify exactly one input');
 	}
 	if (typeof args.name === 'boolean') throw new ArgsError('Must specify a value for "-name"');
@@ -74,6 +75,13 @@ try {
 	} else if (args.expression) {
 		name = args.name || 'dts_gen_expr';
 		result = guess.generateIdentifierDeclarationFile(name, eval(args.expression));
+	} else if (args['expression-file']) {
+		if (args.name) throw new ArgsError('Cannot use -name with -expression-file');
+		const filename = args['expression-file'];
+		name = path.basename(filename, path.extname(filename)).replace(/[^A-Za-z0-9]/g, '_');
+		(module as any).paths.unshift(process.cwd() + '/node_modules');
+		const fileContent = fs.readFileSync(filename, "utf-8");
+		result = guess.generateIdentifierDeclarationFile(name, eval(fileContent));
 	} else if (args.identifier) {
 		if (args.name) throw new ArgsError('Cannot use -name with -identifier');
 		if (args.module || args.expression) throw new ArgsError('Cannot specify more than one input');
