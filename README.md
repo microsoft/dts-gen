@@ -151,7 +151,7 @@ This works by injecting the `dts-gen` script into the current page by adding it 
 
 Run this in your browser's developer console:
 ```js
-var s = document.createElement('script'); s.src = 'https://microsoft.github.io/dts-gen/dts-gen.js'; document.body.appendChild(s);
+var s = document.createElement('script'); s.src = 'https://unpkg.com/dts-gen/bin/browser-bundle.js'; document.body.appendChild(s);
 ```
 If this script is blocked by the same-origin content policy of the page, go to http://microsoft.githubs.io/dts-gen/manual.html
 and copy the script text shown on the page.
