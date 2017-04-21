@@ -2,7 +2,8 @@ import * as fs from 'fs';
 import { get, STATUS_CODES } from "http";
 import * as path from "path";
 
-export default function writeDefinitelyTypedPackage(indexDtsContent: string, packageName: string, overwrite: boolean): void {
+export default function writeDefinitelyTypedPackage(
+	indexDtsContent: string, packageName: string, overwrite: boolean): void {
 	// Check for overwrite
 	if (!overwrite) {
 		if (fs.existsSync(packageName)) {
@@ -22,12 +23,12 @@ export default function writeDefinitelyTypedPackage(indexDtsContent: string, pac
 }
 
 async function run(indexDtsContent: string, packageName: string): Promise<void> {
-	const files: [string, string][] = [
+	const files: Array<[string, string]> = [
 		["index.d.ts", await getIndex(indexDtsContent, packageName)],
 		[`${packageName}-tests.ts`, ""],
 		["tsconfig.json", `${JSON.stringify(getTSConfig(packageName), undefined, 4)}\n`],
 		["tslint.json", '{ "extends": "../tslint.json" }\n'],
-	]
+	];
 
 	for (const [name, text] of files) {
 		await fs.writeFileSync(path.join(packageName, name), text, "utf-8");
@@ -39,8 +40,9 @@ async function getIndex(content: string, packageName: string): Promise<string> {
 }
 
 async function getHeader(packageName: string): Promise<string> {
-	let version = "x.x"
-	let project = "https://github.com/baz/foo (Does not have to be to GitHub, but prefer linking to a source code repository rather than to a project website.)";
+	let version = "x.x";
+	let project = "https://github.com/baz/foo " +
+		"(Does not have to be to GitHub, but prefer linking to a source code repository rather than to a project website.)";
 	try {
 		const reg: Registry = JSON.parse(await loadString(`http://registry.npmjs.org/${packageName}`));
 		const { latest } = reg["dist-tags"];
@@ -60,52 +62,48 @@ async function getHeader(packageName: string): Promise<string> {
 
 function getTSConfig(packageName: string): {} {
 	return {
-		"compilerOptions": {
-			"module": "commonjs",
-			"lib": [
-				"es6"
-			],
-			"noImplicitAny": true,
-			"noImplicitThis": true,
-			"strictNullChecks": true,
-			"baseUrl": "../",
-			"typeRoots": [
-				"../"
-			],
-			"types": [],
-			"noEmit": true,
-			"forceConsistentCasingInFileNames": true
+		compilerOptions: {
+			module: "commonjs",
+			lib: ["es6"],
+			noImplicitAny: true,
+			noImplicitThis: true,
+			strictNullChecks: true,
+			baseUrl: "../",
+			typeRoots: ["../"],
+			types: [],
+			noEmit: true,
+			forceConsistentCasingInFileNames: true,
 		},
-		"files": [
+		files: [
 			"index.d.ts",
-			`${packageName}-tests.ts`
-		]
-	}
+			`${packageName}-tests.ts`,
+		],
+	};
 }
 
 interface Registry {
-	name: string
-	description: string
-	"dist-tags": { latest: string }
-	versions: { [version: string]: Package }
+	name: string;
+	description: string;
+	"dist-tags": { latest: string };
+	versions: { [version: string]: Package };
 }
 
 interface Package {
-	name: string
-	description: string
-	version: string
-	homepage?: string
+	name: string;
+	description: string;
+	version: string;
+	homepage?: string;
 }
 
 function loadString(url: string): Promise<string> {
 	return new Promise((resolve, reject) => {
-		get(url, (res) => {
+		get(url, res => {
 			if (res.statusCode !== 200) {
-				return reject(new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`))
+				return reject(new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`));
 			}
-			let rawData = ""
-			res.on("data", (chunk: any) => rawData += chunk)
-			res.on("end", () => resolve(rawData))
-		}).on("error", (e: Error) => reject(e))
-	})
+			let rawData = "";
+			res.on("data", (chunk: any) => rawData += chunk);
+			res.on("end", () => resolve(rawData));
+		}).on("error", (e: Error) => reject(e));
+	});
 }
