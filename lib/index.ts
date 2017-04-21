@@ -1,7 +1,6 @@
 import * as dom from 'dts-dom';
 import { create, reservedWords } from 'dts-dom';
 import * as ts from 'typescript';
-import * as _ from 'underscore';
 
 const enum ValueTypes {
 	None = 0,
@@ -87,7 +86,8 @@ function getKeysOfObject(obj: object) {
 		keys = keys.concat(Object.getOwnPropertyNames(chain));
 		chain = Object.getPrototypeOf(chain);
 	} while (chain !== Object.prototype && chain !== Function.prototype);
-	keys = _.unique(keys).filter(s => isVisitableName(s));
+	keys = Array.from(new Set(keys));
+	keys = keys.filter(s => isVisitableName(s));
 	if (typeof obj === 'function') {
 		keys = keys.filter(k => reservedFunctionProperties.indexOf(k) < 0);
 	}
