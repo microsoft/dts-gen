@@ -26,7 +26,7 @@ async function run(indexDtsContent: string, packageName: string): Promise<void> 
 		["index.d.ts", await getIndex(indexDtsContent, packageName)],
 		[`${packageName}-tests.ts`, ""],
 		["tsconfig.json", `${JSON.stringify(getTSConfig(packageName), undefined, 4)}\n`],
-		["tslint.json", '{ "extends": "../tslint.json" }\n'],
+		["tslint.json", '{ "extends": "dtslint/dt.json" }\n'],
 	]
 
 	for (const [name, text] of files) {
