@@ -1,37 +1,39 @@
-import * as fs from 'fs';
+import { existsSync, mkdirSync, writeFileSync } from 'fs';
 import { get, STATUS_CODES } from "http";
-import * as path from "path";
+import { join as joinPaths } from "path";
 
 export default function writeDefinitelyTypedPackage(
-	indexDtsContent: string, packageName: string, overwrite: boolean): void {
+		indexDtsContent: string, packageName: string, overwrite: boolean): void {
+	const packageDir = joinPaths("types", packageName);
+
 	// Check for overwrite
 	if (!overwrite) {
-		if (fs.existsSync(packageName)) {
-			console.log(`Folder ${packageName} already exists and -overwrite was not specified; exiting.`);
+		if (existsSync(packageDir)) {
+			console.log(`Directory ${packageDir} already exists and -overwrite was not specified; exiting.`);
 			process.exit(2);
 		}
 	}
 
-	if (!fs.existsSync(packageName)) {
-		fs.mkdirSync(packageName);
+	if (!existsSync(packageDir)) {
+		mkdirSync(packageDir);
 	}
 
-	run(indexDtsContent, packageName).catch(e => {
+	run(indexDtsContent, packageName, packageDir).catch(e => {
 		console.error(e);
 		process.exit(1);
 	});
 }
 
-async function run(indexDtsContent: string, packageName: string): Promise<void> {
+async function run(indexDtsContent: string, packageName: string, packageDir: string): Promise<void> {
 	const files: Array<[string, string]> = [
 		["index.d.ts", await getIndex(indexDtsContent, packageName)],
 		[`${packageName}-tests.ts`, ""],
 		["tsconfig.json", `${JSON.stringify(getTSConfig(packageName), undefined, 4)}\n`],
-		["tslint.json", '{ "extends": "../tslint.json" }\n'],
+		["tslint.json", '{ "extends": "dtslint/dt.json" }\n'],
 	];
 
 	for (const [name, text] of files) {
-		await fs.writeFileSync(path.join(packageName, name), text, "utf-8");
+		await writeFileSync(joinPaths(packageDir, name), text, "utf-8");
 	}
 }
 
