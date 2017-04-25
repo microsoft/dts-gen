@@ -1,0 +1,23 @@
+{
+    "extends": "tslint:latest",
+    "rules": {
+        "arrow-parens": [true, "ban-single-arg-parens"],
+        "indent": [true, "tabs"],
+        "interface-name": [true, "never-prefix"],
+        "member-access": [true, "no-public"],
+
+        "ban-types": false,
+        "curly": false,
+        "member-ordering": false,
+        "no-angle-bracket-type-assertion": false,
+        "no-bitwise": false,
+        "no-console": false,
+        "no-empty": false,
+        "no-eval": false,
+        "no-shadowed-variable": false,
+        "no-var-requires": false,
+        "object-literal-sort-keys": false,
+        "quotemark": false,
+        "variable-name": false
+    }
+}

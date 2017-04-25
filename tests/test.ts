@@ -1,6 +1,7 @@
-import * as tsg from '../lib';
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
+
+import * as tsg from '../lib';
 
 const testModuleNames = [
 	'fs',
@@ -8,7 +9,7 @@ const testModuleNames = [
 	'lodash',
 	'jquery',
 	'yargs',
-	'ecurve'
+	'ecurve',
 ];
 
 class MyClass {
@@ -23,17 +24,17 @@ class MyClass {
 const selfRefExpr = {
 	a: 32,
 	b: 'ok',
-	self: <any>null,
-}
+	self: <any> null,
+};
 selfRefExpr.self = selfRefExpr;
 
 const expressions: { [s: string]: any } = {
-	'Math': Math,
-	'selfref': selfRefExpr,
-	'builtIns': { d: new Date(3), arr: ['x']},
-	'someArray': [ 1, 'foo', Math, null, undefined, false ],
-	'badNames': { "*": 10, "default": true, "with": 10, "  ": 3 },
-	'someClass': MyClass
+	Math,
+	selfref: selfRefExpr,
+	builtIns: { d: new Date(3), arr: ['x']},
+	someArray: [ 1, 'foo', Math, null, undefined, false ],
+	badNames: { "*": 10, "default": true, "with": 10, "  ": 3 },
+	someClass: MyClass,
 };
 
 function checkDeclarationBaseline(name: string, content: string) {
@@ -46,7 +47,7 @@ function checkDeclarationBaseline(name: string, content: string) {
 }
 
 describe("Module tests", () => {
-	for(const moduleName of testModuleNames) {
+	for (const moduleName of testModuleNames) {
 		it(`Generates the same declaration for ${moduleName}`, () => {
 			const result = tsg.generateModuleDeclarationFile(moduleName!, require(moduleName!));
 			checkDeclarationBaseline(`module-${moduleName}.d.ts`, result);
@@ -55,7 +56,7 @@ describe("Module tests", () => {
 });
 
 describe("Expression tests", () => {
-	for(const key of Object.keys(expressions)) {
+	for (const key of Object.keys(expressions)) {
 		it(`Generates the same declaration for ${key}`, () => {
 			const result = tsg.generateIdentifierDeclarationFile(key!, expressions[key!]);
 			checkDeclarationBaseline(`expr-${key}.d.ts`, result);

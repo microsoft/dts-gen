@@ -13,16 +13,17 @@
     "yargs": "^4.8.1"
   },
   "devDependencies": {
+    "@types/mocha": "latest",
     "@types/node": "latest",
     "@types/underscore": "latest",
     "@types/yargs": "latest",
-    "@types/mocha": "latest",
-    "webpack": "^1.13.1",
+    "ecurve": "1.0.5",
     "jquery": "latest",
     "lodash": "latest",
     "mocha": "^3.0.2",
     "react": "latest",
-    "ecurve": "1.0.5"
+    "tslint": "^5.1.0",
+    "webpack": "^1.13.1"
   },
   "keywords": [
     "typescript"
@@ -31,7 +32,8 @@
   "scripts": {
     "test": "mocha bin/tests/test.js",
     "build": "tsc",
-    "build-browser": "tsc -p browser && webpack"
+    "build-browser": "tsc -p browser && webpack",
+    "lint": "tslint --type-check --project tsconfig.json --format stylish"
   },
   "repository": {
     "type": "git",
