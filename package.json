@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "dts-dom": "latest",
+    "source-map-support": "^0.4.14",
     "typescript": "^2.2.0",
     "yargs": "^4.8.1"
   },
