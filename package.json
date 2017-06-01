@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/mocha": "latest",
     "@types/node": "latest",
+    "@types/parse-git-config": "^1.1.0",
     "@types/yargs": "latest",
     "ecurve": "1.0.5",
     "jquery": "latest",
