@@ -9,6 +9,7 @@
   "dependencies": {
     "dts-dom": "latest",
     "mkdirp": "^0.5.1",
+    "parse-git-config": "^1.1.1",
     "typescript": "^2.2.0",
     "yargs": "^4.8.1"
   },
@@ -16,6 +17,7 @@
     "@types/mkdirp": "^0.3.29",
     "@types/mocha": "latest",
     "@types/node": "latest",
+    "@types/parse-git-config": "^1.1.0",
     "@types/yargs": "latest",
     "ecurve": "1.0.5",
     "jquery": "latest",

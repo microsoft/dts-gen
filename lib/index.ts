@@ -21,7 +21,13 @@ const builtins: { [name: string]: (new (...args: any[]) => any) | undefined } = 
 
 function forceAsIdentifier(s: string): string {
 	// TODO: Make this more comprehensive
-	return s.replace(/-/g, '_');
+	let ret = s.replace(/-/g, '_');
+	if (ret.indexOf('@') === 0 && ret.indexOf('/') !== -1) {
+		// we have a scoped module, e.g. @bla/foo
+		// which should be converted to   bla__foo
+		ret = ret.substr(1).replace('/', '__');
+	}
+	return ret;
 }
 
 function getValueTypes(value: any): ValueTypes {

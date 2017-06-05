@@ -1,7 +1,10 @@
 import { existsSync, writeFileSync } from 'fs';
 import { get, STATUS_CODES } from "http";
 import mkdirp = require('mkdirp');
+import { homedir } from 'os';
+import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
+import { format as formatUrl, parse as parseUrl } from 'url';
 
 export default function writeDefinitelyTypedPackage(
 		indexDtsContent: string, packageName: string, overwrite: boolean): void {
@@ -57,9 +60,37 @@ async function getHeader(packageName: string): Promise<string> {
 		console.warn(`Warning: Could not retrieve version/homepage information: ${e.message}`);
 	}
 
+	let authorName = 'My Self';
+	try {
+		const globalGitConfig = parseGitConfig.sync({ cwd: homedir(), path: '.gitconfig' });
+		if (globalGitConfig.user && globalGitConfig.user.name) {
+			authorName = globalGitConfig.user.name;
+		}
+	} catch (e) {
+		console.warn(`Warning: Could not retrieve author name: ${e.message}`);
+	}
+
+	let authorUserName = 'me';
+	try {
+		const repoGitConfig = parseGitConfig.sync({ path: joinPaths('.git', 'config') });
+		if (repoGitConfig['remote "origin"'] && repoGitConfig['remote "origin"'].url) {
+			const url = parseUrl(repoGitConfig['remote "origin"'].url);
+			if (url.hostname === 'github.com' && url.pathname) {
+				authorUserName = url.pathname.split('/')[1] || authorUserName;
+			}
+		}
+	} catch (e) {
+		console.warn(`Warning: Could not retrieve author's user name: ${e.message}`);
+	}
+	const authorUrl = formatUrl({
+		protocol: 'https',
+		hostname: 'github.com',
+		pathname: authorUserName,
+	});
+
 	return `// Type definitions for ${packageName} ${version}
 // Project: ${project}
-// Definitions by: My Self <https://github.com/me>
+// Definitions by: ${authorName} <${authorUrl}>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`;
 }
 
