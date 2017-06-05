@@ -8,12 +8,14 @@
   },
   "dependencies": {
     "dts-dom": "latest",
+    "parse-git-config": "^1.1.1",
     "typescript": "^2.2.0",
     "yargs": "^4.8.1"
   },
   "devDependencies": {
     "@types/mocha": "latest",
     "@types/node": "latest",
+    "@types/parse-git-config": "^1.1.0",
     "@types/yargs": "latest",
     "ecurve": "1.0.5",
     "jquery": "latest",
