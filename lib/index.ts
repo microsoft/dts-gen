@@ -22,7 +22,7 @@ const builtins: { [name: string]: (new (...args: any[]) => any) | undefined } = 
 function forceAsIdentifier(s: string): string {
 	// TODO: Make this more comprehensive
 	let ret = s.replace(/-/g, '_');
-	if (s.indexOf('@') === 0 && s.indexOf('/') !== -1) {
+	if (ret.indexOf('@') === 0 && ret.indexOf('/') !== -1) {
 		// we have a scoped module, e.g. @bla/foo
 		// which should be converted to   bla__foo
 		ret = ret.substr(1).replace('/', '__');
