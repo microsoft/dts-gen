@@ -1,9 +1,6 @@
-import * as ts from 'typescript';
-import * as _ from 'underscore';
 import * as dom from 'dts-dom';
 import { create, reservedWords } from 'dts-dom';
-
-type ObjectLike = { valueOf: 'oops '; prototype?: object; (): void;[s: string]: any; };
+import * as ts from 'typescript';
 
 const enum ValueTypes {
 	None = 0,
@@ -12,19 +9,25 @@ const enum ValueTypes {
 	Object = 1 << 2,
 	Primitive = 1 << 3,
 	NullOrUndefined = 1 << 4,
-	Unknown = 1 << 5
+	Unknown = 1 << 5,
 }
 
 const builtins: { [name: string]: (new (...args: any[]) => any) | undefined } = {
 	Date,
 	RegExp,
-	"Map": (typeof Map !== 'undefined') ? Map : undefined,
-	"HTMLElement": (typeof HTMLElement !== 'undefined') ? HTMLElement : undefined
+	Map: (typeof Map !== 'undefined') ? Map : undefined,
+	HTMLElement: (typeof HTMLElement !== 'undefined') ? HTMLElement : undefined,
 };
 
 function forceAsIdentifier(s: string): string {
 	// TODO: Make this more comprehensive
-	return s.replace(/-/g, '_');
+	let ret = s.replace(/-/g, '_');
+	if (ret.indexOf('@') === 0 && ret.indexOf('/') !== -1) {
+		// we have a scoped module, e.g. @bla/foo
+		// which should be converted to   bla__foo
+		ret = ret.substr(1).replace('/', '__');
+	}
+	return ret;
 }
 
 function getValueTypes(value: any): ValueTypes {
@@ -53,7 +56,7 @@ function hasCloduleProperties(c: any): boolean {
 
 // A function has fundule properties if it has any own properties not belonging to Function.prototype
 function hasFunduleProperties(fn: any): boolean {
-	return getKeysOfObject(fn).some(k => (<any>Function)[k] === undefined);
+	return getKeysOfObject(fn).some(k => (<any> Function)[k] === undefined);
 }
 
 export function generateModuleDeclarationFile(nameHint: string, root: any) {
@@ -74,22 +77,23 @@ export function generateModuleDeclarationFile(nameHint: string, root: any) {
 }
 
 export function generateIdentifierDeclarationFile(name: string, value: any): string {
-	const result = getTopLevelDeclarations(name, value)
+	const result = getTopLevelDeclarations(name, value);
 	return result.map(d => dom.emit(d)).join('\r\n');
 }
 
 const walkStack = new Set<any>();
 
-const reservedFunctionProperties = Object.getOwnPropertyNames(function () { });
+const reservedFunctionProperties = Object.getOwnPropertyNames(() => {});
 function getKeysOfObject(obj: object) {
 	let keys: string[] = [];
 	let chain: {} = obj;
 	do {
 		if (chain == null) break;
-		keys = keys.concat(Object.getOwnPropertyNames(chain))
+		keys = keys.concat(Object.getOwnPropertyNames(chain));
 		chain = Object.getPrototypeOf(chain);
 	} while (chain !== Object.prototype && chain !== Function.prototype);
-	keys = _.unique(keys).filter(s => isVisitableName(s));
+	keys = Array.from(new Set(keys));
+	keys = keys.filter(s => isVisitableName(s));
 	if (typeof obj === 'function') {
 		keys = keys.filter(k => reservedFunctionProperties.indexOf(k) < 0);
 	}
@@ -117,16 +121,17 @@ function isLegalIdentifier(s: string) {
 	return reservedWords.indexOf(s) < 0;
 }
 
-function isClasslike(obj: ObjectLike): boolean {
+function isClasslike(obj: { prototype: any }): boolean {
 	return !!(obj.prototype && Object.getOwnPropertyNames(obj.prototype).length > 1);
 }
 
-let keyStack: string[] = [];
+const keyStack: string[] = [];
 function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] {
 	if (walkStack.has(obj) || keyStack.length > 4) {
 		// Circular or too-deep reference
 		const result = create.const(name, dom.type.any);
-		result.comment = `${walkStack.has(obj) ? 'Circular reference' : 'Too-deep object hierarchy'} from ${keyStack.join('.')}`;
+		result.comment = (walkStack.has(obj) ? 'Circular reference' : 'Too-deep object hierarchy') +
+			` from ${keyStack.join('.')}`;
 		return [result];
 	}
 
@@ -141,11 +146,11 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 
 	function getResult(): dom.NamespaceMember[] {
 		if (typeof obj === 'function') {
-			const funcType = getParameterListAndReturnType(obj as any as Function, parseFunctionBody(obj));
+			const funcType = getParameterListAndReturnType(obj, parseFunctionBody(obj));
 			const ns = dom.create.namespace(name);
 			let primaryDecl: dom.NamespaceMember;
 			if (isClasslike(obj)) {
-				const cls = dom.create.class(name)
+				const cls = dom.create.class(name);
 				getClassInstanceMembers(obj).forEach(m => cls.members.push(m));
 				getClassPrototypeMembers(obj).forEach(m => cls.members.push(m));
 				cls.members.push(dom.create.constructor(funcType[0]));
@@ -153,7 +158,7 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 				primaryDecl = cls;
 			} else {
 				const parsedFunction = parseFunctionBody(obj);
-				const info = getParameterListAndReturnType(obj as {} as Function, parsedFunction);
+				const info = getParameterListAndReturnType(obj, parsedFunction);
 				primaryDecl = dom.create.function(name, info[0], info[1]);
 			}
 
@@ -163,7 +168,7 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 				getTopLevelDeclarations(k!, obj[k!]).forEach(p => {
 					if (primaryDecl.kind === "class") {
 						// Transform certain declarations into static members
-						switch(p.kind) {
+						switch (p.kind) {
 							case 'const':
 								primaryDecl.members.push(create.property(p.name, p.type, dom.DeclarationFlags.Static));
 								break;
@@ -175,7 +180,7 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 								break;
 						}
 					} else {
-						ns.members.push(p)
+						ns.members.push(p);
 					}
 				});
 				ns.members.sort(declarationComparer);
@@ -198,12 +203,12 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 			const keys = getKeysOfObject(obj);
 			let constituentTypes = ValueTypes.None;
 			for (const k of keys) {
-				constituentTypes = constituentTypes | getValueTypes((<any>obj)[k!]);
+				constituentTypes = constituentTypes | getValueTypes((<any> obj)[k!]);
 			}
 			if (constituentTypes & (ValueTypes.Class | ValueTypes.Function)) {
 				const ns = dom.create.namespace(name);
 				for (const k of keys) {
-					const decls = getTopLevelDeclarations(k!, (<any>obj)[k!]);
+					const decls = getTopLevelDeclarations(k!, (<any> obj)[k!]);
 					decls.forEach(d => ns.members.push(d));
 				}
 				ns.members.sort(declarationComparer);
@@ -212,7 +217,7 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 				return [dom.create.const(name, simpleType)];
 			}
 		} else if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
-			return [create.const(name, <dom.Type>(typeof obj))];
+			return [create.const(name, <dom.Type> (typeof obj))];
 		} else {
 			return [create.const(name, dom.type.any)];
 		}
@@ -220,45 +225,41 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 }
 
 function getTypeOfValue(value: any): dom.Type {
-	const res = getResult();
-	return res;
-
-	function getResult() {
-		for (const k in builtins) {
-			if (builtins[k] && value instanceof builtins[k]!) {
-				return create.namedTypeReference(k);
-			}
+	for (const k in builtins) {
+		if (builtins[k] && value instanceof builtins[k]!) {
+			return create.namedTypeReference(k);
 		}
+	}
 
-		if (Array.isArray(value)) {
-			if (value.length > 0) {
-				return create.array(getTypeOfValue(value[0]));
+	if (Array.isArray(value)) {
+		if (value.length > 0) {
+			return create.array(getTypeOfValue(value[0]));
+		} else {
+			return create.array(dom.type.any);
+		}
+	}
+
+	const type = typeof value;
+	switch (type) {
+		case 'string':
+		case 'number':
+		case 'boolean':
+			return type;
+		case 'undefined':
+			return dom.type.any;
+		case 'object':
+			if (value === null) {
+				return dom.type.any;
 			} else {
-				return create.array(dom.type.any);
+				walkStack.add(value);
+				const members = getPropertyDeclarationsOfObject(value);
+				walkStack.delete(value);
+				members.sort(declarationComparer);
+				const objType = dom.create.objectType(members);
+				return objType;
 			}
-		}
-
-		switch (typeof value) {
-			case 'string':
-			case 'number':
-			case 'boolean':
-				return <dom.Type>(typeof value);
-			case 'undefined':
-				return dom.type.any;
-			case 'object':
-				if (value === null) {
-					return dom.type.any;
-				} else {
-					walkStack.add(value);
-					const members = getPropertyDeclarationsOfObject(value);
-					walkStack.delete(value);
-					members.sort(declarationComparer);
-					const objType = dom.create.objectType(members);
-					return objType;
-				}
-			default:
-				return dom.type.any;
-		}
+		default:
+			return dom.type.any;
 	}
 }
 
@@ -279,7 +280,11 @@ function getPropertyDeclarationsOfObject(obj: any): dom.ObjectTypeMember[] {
 
 function getClassPrototypeMembers(ctor: any): dom.ClassMember[] {
 	const names = Object.getOwnPropertyNames(ctor.prototype);
-	const members = <dom.ClassMember[]>names.filter(n => !isNameToSkip(n)).map(name => getPrototypeMember(name, Object.getOwnPropertyDescriptor(ctor.prototype, name).value)).filter(m => m !== undefined);
+	const members = <dom.ClassMember[]> names
+		.filter(n => !isNameToSkip(n))
+		.map(name =>
+			getPrototypeMember(name, Object.getOwnPropertyDescriptor(ctor.prototype, name).value))
+		.filter(m => m !== undefined);
 	members.sort();
 	return members;
 
@@ -317,7 +322,11 @@ function getClassInstanceMembers(ctor: any): dom.ClassMember[] {
 					const lhs = (node as ts.BinaryExpression).left;
 					if (lhs.kind === ts.SyntaxKind.PropertyAccessExpression) {
 						if ((lhs as ts.PropertyAccessExpression).expression.kind === ts.SyntaxKind.ThisKeyword) {
-							members.push(create.property((lhs as ts.PropertyAccessExpression).name.getText(), dom.type.any, dom.DeclarationFlags.None));
+							members.push(
+								create.property(
+									(lhs as ts.PropertyAccessExpression).name.getText(),
+									dom.type.any,
+									dom.DeclarationFlags.None));
 						}
 					}
 				}

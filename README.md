@@ -94,6 +94,19 @@ An arbitrary expression to generate a file for.
 By default, this will be assigned to the name `dts_gen_expr` and generated as `dts_gen_expr.d.ts`.
 You can use the `-name` parameter to change this.
 
+#### `--expression-file`
+
+Example: `--expression-file "expressions.js"`
+##### expressions.js
+```js
+var fs = require('fs');
+fs.lstatSync('.');
+```
+
+A file containing arbitrary expression to generate a file for.
+The file will be named `${basename}.d.ts`, i.e. `expressions.d.ts`.
+The contents of the file will be `eval`'d, and the last statement in the file will be the value used.
+
 #### `--name` (`-n`)
 
 Example: `--name MyVar`
