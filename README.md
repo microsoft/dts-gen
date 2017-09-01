@@ -54,6 +54,8 @@ Input Options:
   -m[odule] fs            The "fs" node module (must be installed)
   -i[dentifier] Math      The global variable "Math"
   -e[xpression] "new C()" The expression "new C()"
+  -t[emplate] module      Name of a template. Templates are:
+                          global-modifying-module, global-plugin, global, module-class, module-function, module-plugin, module
 
 Settings:
   -n[ame] n               The name to emit when generating for an expression
