@@ -1,5 +1,6 @@
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { existsSync, writeFileSync } from 'fs';
 import { get, STATUS_CODES } from "http";
+import mkdirp = require('mkdirp');
 import { homedir } from 'os';
 import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
@@ -18,7 +19,7 @@ export default function writeDefinitelyTypedPackage(
 	}
 
 	if (!existsSync(packageDir)) {
-		mkdirSync(packageDir);
+		mkdirp.sync(packageDir);
 	}
 
 	run(indexDtsContent, packageName, packageDir).catch(e => {

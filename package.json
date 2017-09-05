@@ -8,11 +8,13 @@
   },
   "dependencies": {
     "dts-dom": "latest",
+    "mkdirp": "^0.5.1",
     "parse-git-config": "^1.1.1",
     "typescript": "^2.2.0",
     "yargs": "^4.8.1"
   },
   "devDependencies": {
+    "@types/mkdirp": "^0.3.29",
     "@types/mocha": "latest",
     "@types/node": "latest",
     "@types/parse-git-config": "^1.1.0",
