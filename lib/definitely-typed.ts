@@ -100,6 +100,7 @@ function getTSConfig(packageName: string): {} {
 			lib: ["es6"],
 			noImplicitAny: true,
 			noImplicitThis: true,
+			strictFunctionTypes: true,
 			strictNullChecks: true,
 			baseUrl: "../",
 			typeRoots: ["../"],
