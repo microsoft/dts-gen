@@ -2,13 +2,11 @@ export = yargs;
 declare function yargs(processArgs: any, cwd: any): any;
 declare namespace yargs {
     const $0: string;
-    const argv: {
-        $0: string;
-    };
-    const parsed: boolean;
     function addHelpOpt(p0: any, p1: any): any;
     function alias(p0: any, p1: any): any;
+    const argv: any;
     function array(p0: any): any;
+    function boolean(p0: any): any;
     function check(p0: any): any;
     function choices(p0: any, p1: any): any;
     function command(p0: any, p1: any, p2: any, p3: any): any;
@@ -48,6 +46,7 @@ declare namespace yargs {
     function option(p0: any, p1: any): any;
     function options(p0: any, p1: any): any;
     function parse(p0: any, p1: any): any;
+    const parsed: boolean;
     function pkgConf(p0: any, p1: any): any;
     function require(p0: any, p1: any, p2: any): any;
     function required(p0: any, p1: any, p2: any): any;

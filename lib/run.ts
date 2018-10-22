@@ -26,7 +26,7 @@ interface Options {
 	version?: boolean;
 }
 
-const args: Options = yargs
+const args = yargs
 	.alias('m', 'module')
 	.alias('i', 'identifier')
 	.alias('e', 'expression')
@@ -37,7 +37,7 @@ const args: Options = yargs
 	.alias('o', 'overwrite')
 	.alias('t', 'template')
 	.alias('v', 'version')
-	.argv;
+	.argv as unknown as Options;
 
 class ArgsError extends Error {
 	constructor(public argsError: string) {

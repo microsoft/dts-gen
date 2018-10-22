@@ -7,7 +7,6 @@
     "dts-gen": "bin/lib/run.js"
   },
   "dependencies": {
-    "dts-dom": "latest",
     "parse-git-config": "^1.1.1",
     "typescript": "^2.2.0",
     "yargs": "^4.8.1"
