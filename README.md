@@ -147,7 +147,7 @@ Specify `-o` to allow overwriting of files.
 # Browser
 
 <table><td>
-📝 <strong>Note:</strong> Browser support in progress! This is not quite ready yet
+📝 <strong>Note:</strong> Browser support in progress! This is not quite ready yet.
 </td></table>
 
 To generate a definition file for a browser-only module, we'll use the in-browser popup window.
