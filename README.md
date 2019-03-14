@@ -120,7 +120,7 @@ When using `--expression`, the `--name` parameter changes the global name given 
 At most one output option may be specified.
 If no output option is given, the default is `--file`.
 
-#### `--file` (`-f`) 
+#### `--file` (`-f`)
 
 Example: `--file my.d.ts`
 
@@ -146,7 +146,9 @@ Specify `-o` to allow overwriting of files.
 
 # Browser
 
-# Note: Browser support in progress! This is not quite ready yet
+<table><td>
+📝 <strong>Note:</strong> Browser support in progress! This is not quite ready yet.
+</td></table>
 
 To generate a definition file for a browser-only module, we'll use the in-browser popup window.
 This works by injecting the `dts-gen` script into the current page by adding it as a `script` tag.
@@ -155,8 +157,8 @@ Run this in your browser's developer console:
 ```js
 var s = document.createElement('script'); s.src = 'https://unpkg.com/dts-gen/bin/browser-bundle.js'; document.body.appendChild(s);
 ```
-If this script is blocked by the same-origin content policy of the page, go to http://microsoft.githubs.io/dts-gen/manual.html
-and copy the script text shown on the page.
+If this script is blocked by the same-origin content policy of the page, go to
+https://microsoft.github.io/dts-gen/manual.html and copy the script text shown on the page.
 Paste this into the browser console.
 
 When the window appears, enter an identifier or expression in the textbox and click "Generate".
