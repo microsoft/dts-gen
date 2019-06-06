@@ -41,7 +41,7 @@ function checkDeclarationBaseline(name: string, content: string) {
 	const filename = path.join(__dirname, `../../baselines/${name}`);
 	const existing = fs.existsSync(filename) ? fs.readFileSync(filename, 'utf-8') : '<none>';
 	if (existing !== content) {
-		fs.writeFile(filename, content, 'utf-8');
+		fs.writeFileSync(filename, content, 'utf-8');
 		throw new Error(`Baseline ${name} changed`);
 	}
 }

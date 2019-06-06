@@ -151,7 +151,6 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
 			let primaryDecl: dom.NamespaceMember;
 			if (isClasslike(obj)) {
 				const cls = dom.create.class(name);
-				getClassInstanceMembers(obj).forEach(m => cls.members.push(m));
 				getClassPrototypeMembers(obj).forEach(m => cls.members.push(m));
 				cls.members.push(dom.create.constructor(funcType[0]));
 				cls.members.sort(declarationComparer);
@@ -283,7 +282,7 @@ function getClassPrototypeMembers(ctor: any): dom.ClassMember[] {
 	const members = <dom.ClassMember[]> names
 		.filter(n => !isNameToSkip(n))
 		.map(name =>
-			getPrototypeMember(name, Object.getOwnPropertyDescriptor(ctor.prototype, name).value))
+			getPrototypeMember(name, Object.getOwnPropertyDescriptor(ctor.prototype, name)!.value))
 		.filter(m => m !== undefined);
 	members.sort();
 	return members;
@@ -305,37 +304,6 @@ function getClassPrototypeMembers(ctor: any): dom.ClassMember[] {
 	function isNameToSkip(s: string) {
 		return (s === 'constructor') || (s[0] === '_');
 	}
-}
-
-// Parses assignments to 'this.x' in the constructor into class property declarations
-function getClassInstanceMembers(ctor: any): dom.ClassMember[] {
-	if (isNativeFunction(ctor)) {
-		return [];
-	}
-
-	const members: dom.ClassMember[] = [];
-
-	function visit(node: ts.Node) {
-		switch (node.kind) {
-			case ts.SyntaxKind.BinaryExpression:
-				if ((node as ts.BinaryExpression).operatorToken.kind === ts.SyntaxKind.EqualsToken) {
-					const lhs = (node as ts.BinaryExpression).left;
-					if (lhs.kind === ts.SyntaxKind.PropertyAccessExpression) {
-						if ((lhs as ts.PropertyAccessExpression).expression.kind === ts.SyntaxKind.ThisKeyword) {
-							members.push(
-								create.property(
-									(lhs as ts.PropertyAccessExpression).name.getText(),
-									dom.type.any,
-									dom.DeclarationFlags.None));
-						}
-					}
-				}
-				break;
-		}
-		ts.forEachChild(node, visit);
-	}
-
-	return members;
 }
 
 function declarationComparer(left: any, right: any) {
