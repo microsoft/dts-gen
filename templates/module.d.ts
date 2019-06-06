@@ -30,5 +30,5 @@ export namespace subProp {
      *~   import * as yourMod from 'yourModule';
      *~   yourMod.subProp.foo();
      */
-    export function foo(): void;
+    function foo(): void;
 }
