@@ -4,3 +4,4 @@ declare const badNames: {
     default: boolean;
     with: number;
 };
+
