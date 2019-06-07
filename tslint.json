@@ -2,7 +2,7 @@
     "extends": "tslint:latest",
     "rules": {
         "arrow-parens": [true, "ban-single-arg-parens"],
-        "indent": [true, "tabs"],
+        "indent": [true, "spaces"],
         "interface-name": [true, "never-prefix"],
         "member-access": [true, "no-public"],
 
