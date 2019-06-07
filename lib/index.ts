@@ -103,7 +103,7 @@ function getKeysOfObject(obj: object) {
 }
 
 function isVisitableName(s: string) {
-	return (s[0] !== '_') && (["caller", "arguments", "constructor", "super_"].indexOf(s) < 0);
+	return (s[0] !== '_') && (["caller", "arguments", "constructor", "super_", "prototype"].indexOf(s) < 0);
 }
 
 function isLegalIdentifier(s: string) {
