@@ -33,7 +33,7 @@
     "test": "mocha bin/tests/test.js",
     "build": "tsc",
     "build-browser": "tsc -p browser && webpack",
-    "lint": "tslint --type-check --project tsconfig.json --format stylish"
+    "lint": "tslint --project tsconfig.json --format stylish"
   },
   "repository": {
     "type": "git",

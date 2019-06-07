@@ -9,6 +9,7 @@
         "ban-types": false,
         "curly": false,
         "member-ordering": false,
+        "no-duplicate-imports": false,
         "no-angle-bracket-type-assertion": false,
         "no-bitwise": false,
         "no-console": false,

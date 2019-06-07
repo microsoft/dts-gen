@@ -47,7 +47,8 @@ async function getIndex(content: string, packageName: string): Promise<string> {
 async function getHeader(packageName: string): Promise<string> {
     let version = "x.x";
     let project = "https://github.com/baz/foo " +
-        "(Does not have to be to GitHub, but prefer linking to a source code repository rather than to a project website.)";
+        "(Does not have to be to GitHub, " +
+        "but prefer linking to a source code repository rather than to a project website.)";
     try {
         const reg: Registry = JSON.parse(await loadString(`http://registry.npmjs.org/${packageName}`));
         const { latest } = reg["dist-tags"];
@@ -133,7 +134,8 @@ function loadString(url: string): Promise<string> {
     return new Promise((resolve, reject) => {
         get(url, res => {
             if (res.statusCode !== 200) {
-                return reject(new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`));
+                return reject(
+                    new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`));
             }
             let rawData = "";
             res.on("data", (chunk: any) => rawData += chunk);

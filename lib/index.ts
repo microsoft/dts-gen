@@ -172,7 +172,8 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
                                 primaryDecl.members.push(create.property(p.name, p.type, dom.DeclarationFlags.Static));
                                 break;
                             case 'function':
-                                primaryDecl.members.push(create.method(p.name, p.parameters, p.returnType, dom.DeclarationFlags.Static));
+                                primaryDecl.members.push(
+                                    create.method(p.name, p.parameters, p.returnType, dom.DeclarationFlags.Static));
                                 break;
                             default:
                                 ns.members.push(p);
@@ -192,7 +193,8 @@ function getTopLevelDeclarations(name: string, obj: any): dom.NamespaceMember[] 
             if (typeof simpleType === 'string' || simpleType.kind === 'name' || simpleType.kind === 'array') {
                 const result = dom.create.const(name, simpleType);
                 if (simpleType === 'string') {
-                    result.comment = `Value of string: "${simpleType.substr(0, 100)}${simpleType.length > 100 ? '...' : ''}"`;
+                    const preview = `"${simpleType.substr(0, 100)}${simpleType.length > 100 ? '...' : ''}"`;
+                    result.comment = "Value of string: " + preview;
                 }
                 return [result];
             }

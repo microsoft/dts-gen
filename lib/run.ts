@@ -59,7 +59,8 @@ try {
     if (+!!args.dt + +!!args.file + +!!args.stdout > 1) {
         throw new ArgsError('Cannot specify more than one output mode');
     }
-    if (+!!args.identifier + +!!args.expression + +!!args.module + +!!args['expression-file'] + +!!args.template !== 1) {
+    if (+!!args.identifier + +!!args.expression + +!!args.module + +!!args['expression-file'] + +!!args.template
+        !== 1) {
         throw new ArgsError('Must specify exactly one input');
     }
     if (typeof args.name === 'boolean') throw new ArgsError('Must specify a value for "-name"');
@@ -103,12 +104,8 @@ try {
     } else if (args.stdout) {
         console.log(result);
     } else {
-        let filename: string;
-        if (typeof args.file === 'boolean' || args.file === undefined) {
-            filename = name + '.d.ts';
-        } else {
-            filename = args.file;
-        }
+        let filename =
+            typeof args.file === 'boolean' || args.file === undefined ? name + '.d.ts' : args.file;
         if (!filename.endsWith('.d.ts')) {
             filename = filename + '.d.ts';
         }
