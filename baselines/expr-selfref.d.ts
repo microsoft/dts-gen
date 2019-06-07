@@ -3,3 +3,4 @@ declare const selfref: {
     b: string;
     self: any;
 };
+

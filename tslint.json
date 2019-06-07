@@ -2,13 +2,14 @@
     "extends": "tslint:latest",
     "rules": {
         "arrow-parens": [true, "ban-single-arg-parens"],
-        "indent": [true, "tabs"],
+        "indent": [true, "spaces"],
         "interface-name": [true, "never-prefix"],
         "member-access": [true, "no-public"],
 
         "ban-types": false,
         "curly": false,
         "member-ordering": false,
+        "no-duplicate-imports": false,
         "no-angle-bracket-type-assertion": false,
         "no-bitwise": false,
         "no-console": false,
