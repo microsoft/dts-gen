@@ -63,15 +63,15 @@ try {
         !== 1) {
         throw new ArgsError('Must specify exactly one input');
     }
-    if (typeof args.name === 'boolean') throw new ArgsError('Must specify a value for "-name"');
-    if (typeof args.identifier === 'boolean') throw new ArgsError('Must specify a value for "-identifier"');
-    if (typeof args.module === 'boolean') throw new ArgsError('Must specify a value for "-module"');
+    if (typeof args.name === 'boolean') throw new ArgsError('Must specify a value for "--name"');
+    if (typeof args.identifier === 'boolean') throw new ArgsError('Must specify a value for "--identifier"');
+    if (typeof args.module === 'boolean') throw new ArgsError('Must specify a value for "--module"');
     if (args.overwrite !== undefined && args.overwrite !== true)
-        throw new ArgsError('-overwrite does not accept an argument');
+        throw new ArgsError('--overwrite does not accept an argument');
 
     let name: string;
     if (args.module) {
-        if (args.name) throw new ArgsError('Cannot use -name with -module');
+        if (args.name) throw new ArgsError('Cannot use --name with --module');
         name = args.module;
         (module as any).paths.unshift(process.cwd() + '/node_modules');
         result = guess.generateModuleDeclarationFile(args.module, require(args.module));
@@ -79,21 +79,21 @@ try {
         name = args.name || 'dts_gen_expr';
         result = guess.generateIdentifierDeclarationFile(name, eval(args.expression));
     } else if (args['expression-file']) {
-        if (args.name) throw new ArgsError('Cannot use -name with -expression-file');
+        if (args.name) throw new ArgsError('Cannot use --name with --expression-file');
         const filename = args['expression-file'];
         name = path.basename(filename, path.extname(filename)).replace(/[^A-Za-z0-9]/g, '_');
         (module as any).paths.unshift(process.cwd() + '/node_modules');
         const fileContent = fs.readFileSync(filename, "utf-8");
         result = guess.generateIdentifierDeclarationFile(name, eval(fileContent));
     } else if (args.identifier) {
-        if (args.name) throw new ArgsError('Cannot use -name with -identifier');
+        if (args.name) throw new ArgsError('Cannot use --name with --identifier');
         if (args.module || args.expression) throw new ArgsError('Cannot specify more than one input');
         name = args.identifier;
         result = guess.generateIdentifierDeclarationFile(args.identifier, eval(args.identifier));
     } else if (args.template) {
         if (!args.name) throw new ArgsError('Needs a name');
         name = args.name;
-        if (args.module || args.expression) throw new ArgsError('Cannot mix -template with -module or -expression');
+        if (args.module || args.expression) throw new ArgsError('Cannot mix --template with --module or --expression');
         result = getTemplate(args.template);
     } else {
         throw new Error('Internal error, please log a bug with the commandline you specified');
@@ -111,7 +111,7 @@ try {
         }
 
         if (!args.overwrite && fs.existsSync(filename)) {
-            console.error(`File ${filename} already exists and -overwrite was not specified; exiting.`);
+            console.error(`File ${filename} already exists and --overwrite was not specified; exiting.`);
             process.exit(2);
         }
         fs.writeFileSync(filename, prependOurHeader(result), 'utf-8');
