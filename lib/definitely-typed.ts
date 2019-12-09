@@ -12,7 +12,7 @@ export default function writeDefinitelyTypedPackage(
     // Check for overwrite
     if (!overwrite) {
         if (existsSync(packageDir)) {
-            console.log(`Directory ${packageDir} already exists and -overwrite was not specified; exiting.`);
+            console.log(`Directory ${packageDir} already exists and --overwrite was not specified; exiting.`);
             process.exit(2);
         }
     }
