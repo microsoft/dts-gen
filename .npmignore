@@ -3,5 +3,6 @@ browser/
 docs/
 lib/
 tests/
+bin/tests/
 ./*
 
