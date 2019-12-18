@@ -4,10 +4,12 @@ import { homedir } from 'os';
 import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
 import { format as formatUrl, parse as parseUrl } from 'url';
+import { getDTName } from './names';
 
 export default function writeDefinitelyTypedPackage(
         indexDtsContent: string, packageName: string, overwrite: boolean): void {
-    const packageDir = joinPaths("types", packageName);
+    const dtName = getDTName(packageName);
+    const packageDir = joinPaths("types", dtName);
 
     // Check for overwrite
     if (!overwrite) {
@@ -21,30 +23,26 @@ export default function writeDefinitelyTypedPackage(
         mkdirSync(packageDir);
     }
 
-    run(indexDtsContent, packageName, packageDir).catch(e => {
+    run(indexDtsContent, packageName, dtName, packageDir).catch(e => {
         console.error(e);
         process.exit(1);
     });
 }
 
-async function run(indexDtsContent: string, packageName: string, packageDir: string): Promise<void> {
+async function run(indexDtsContent: string, packageName: string, dtName: string, packageDir: string): Promise<void> {
     const files: Array<[string, string]> = [
         ["index.d.ts", await getIndex(indexDtsContent, packageName)],
-        [`${packageName}-tests.ts`, ""],
-        ["tsconfig.json", `${JSON.stringify(getTSConfig(packageName), undefined, 4)}\n`],
+        [`${dtName}-tests.ts`, ""],
+        ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
         ["tslint.json", '{ "extends": "dtslint/dt.json" }\n'],
     ];
 
     for (const [name, text] of files) {
-        await writeFileSync(joinPaths(packageDir, name), text, "utf-8");
+        writeFileSync(joinPaths(packageDir, name), text, "utf-8");
     }
 }
 
 async function getIndex(content: string, packageName: string): Promise<string> {
-    return `${await getHeader(packageName)}\n\n${content}`;
-}
-
-async function getHeader(packageName: string): Promise<string> {
     let version = "x.x";
     let project = "https://github.com/baz/foo " +
         "(Does not have to be to GitHub, " +
@@ -91,10 +89,12 @@ async function getHeader(packageName: string): Promise<string> {
     return `// Type definitions for ${packageName} ${version}
 // Project: ${project}
 // Definitions by: ${authorName} <${authorUrl}>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`;
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+
+${content}`;
 }
 
-function getTSConfig(packageName: string): {} {
+function getTSConfig(dtName: string): {} {
     return {
         compilerOptions: {
             module: "commonjs",
@@ -111,7 +111,7 @@ function getTSConfig(packageName: string): {} {
         },
         files: [
             "index.d.ts",
-            `${packageName}-tests.ts`,
+            `${dtName}-tests.ts`,
         ],
     };
 }

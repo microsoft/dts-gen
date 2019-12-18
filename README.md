@@ -139,6 +139,10 @@ Creates a folder suitable for submitting to DefinitelyTyped.
 Before submitting, you'll need to write some tests and fill in the header comments in `index.d.ts`.
 You may change the name of the folder by specifing an argument, otherwise the folder name will be inferred.
 
+1. Clone [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+2. `cd DefinitelyTyped/types`
+3. Run dts-gen; eg `dts-gen --dt --name yargs`
+
 #### `--overwrite` (`-o`)
 
 By default, `dts-gen` will not overwrite existing files on disk.
