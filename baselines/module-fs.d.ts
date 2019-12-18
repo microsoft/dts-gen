@@ -1,3 +1,18 @@
+export class Dir {
+    constructor(...args: any[]);
+
+    close(...args: any[]): void;
+
+    closeSync(...args: any[]): void;
+
+    entries(...args: any[]): void;
+
+    read(...args: any[]): void;
+
+    readSync(...args: any[]): void;
+
+}
+
 export class Dirent {
     constructor(...args: any[]);
 
@@ -24,6 +39,24 @@ export class FileReadStream {
 
     open(): void;
 
+    static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+    static defaultMaxListeners: number;
+
+    static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+    static from(iterable: any, opts: any): any;
+
+    static init(): void;
+
+    static listenerCount(emitter: any, type: any): any;
+
+    static once(emitter: any, name: any): any;
+
+    static pipeline(streams: any): any;
+
+    static usingDomains: boolean;
+
 }
 
 export class FileWriteStream {
@@ -35,6 +68,20 @@ export class FileWriteStream {
 
     open(): void;
 
+    static defaultMaxListeners: number;
+
+    static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+    static init(): void;
+
+    static listenerCount(emitter: any, type: any): any;
+
+    static once(emitter: any, name: any): any;
+
+    static pipeline(streams: any): any;
+
+    static usingDomains: boolean;
+
 }
 
 export class ReadStream {
@@ -44,24 +91,30 @@ export class ReadStream {
 
     open(): void;
 
+    static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+    static defaultMaxListeners: number;
+
+    static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+    static from(iterable: any, opts: any): any;
+
+    static init(): void;
+
+    static listenerCount(emitter: any, type: any): any;
+
+    static once(emitter: any, name: any): any;
+
+    static pipeline(streams: any): any;
+
+    static usingDomains: boolean;
+
 }
 
 export class Stats {
-    constructor(dev: any, mode: any, nlink: any, uid: any, gid: any, rdev: any, blksize: any, ino: any, size: any, blocks: any, atim_msec: any, mtim_msec: any, ctim_msec: any, birthtim_msec: any);
-
-    isBlockDevice(): any;
-
-    isCharacterDevice(): any;
-
-    isDirectory(): any;
-
-    isFIFO(): any;
+    constructor(dev: any, mode: any, nlink: any, uid: any, gid: any, rdev: any, blksize: any, ino: any, size: any, blocks: any, atimeMs: any, mtimeMs: any, ctimeMs: any, birthtimeMs: any);
 
     isFile(): any;
-
-    isSocket(): any;
-
-    isSymbolicLink(): any;
 
 }
 
@@ -73,6 +126,20 @@ export class WriteStream {
     destroySoon(chunk: any, encoding: any, cb: any): any;
 
     open(): void;
+
+    static defaultMaxListeners: number;
+
+    static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+    static init(): void;
+
+    static listenerCount(emitter: any, type: any): any;
+
+    static once(emitter: any, name: any): any;
+
+    static pipeline(streams: any): any;
+
+    static usingDomains: boolean;
 
 }
 
@@ -136,6 +203,7 @@ export const constants: {
     UV_FS_COPYFILE_EXCL: number;
     UV_FS_COPYFILE_FICLONE: number;
     UV_FS_COPYFILE_FICLONE_FORCE: number;
+    UV_FS_O_FILEMAP: number;
     UV_FS_SYMLINK_DIR: number;
     UV_FS_SYMLINK_JUNCTION: number;
     W_OK: number;
@@ -230,6 +298,10 @@ export function open(path: any, flags: any, mode: any, callback: any, ...args: a
 
 export function openSync(path: any, flags: any, mode: any): any;
 
+export function opendir(path: any, options: any, callback: any): void;
+
+export function opendirSync(path: any, options: any): any;
+
 export function read(fd: any, buffer: any, offset: any, length: any, position: any, callback: any): any;
 
 export function readFile(path: any, options: any, callback: any): void;
@@ -254,9 +326,9 @@ export function rename(oldPath: any, newPath: any, callback: any): void;
 
 export function renameSync(oldPath: any, newPath: any): void;
 
-export function rmdir(path: any, callback: any): void;
+export function rmdir(path: any, options: any, callback: any): any;
 
-export function rmdirSync(path: any): void;
+export function rmdirSync(path: any, options: any): any;
 
 export function stat(path: any, options: any, callback: any): void;
 
@@ -292,6 +364,34760 @@ export function writeFileSync(path: any, data: any, options: any): void;
 
 export function writeSync(fd: any, buffer: any, offset: any, length: any, position: any): any;
 
+export function writev(fd: any, buffers: any, position: any, callback: any): any;
+
+export function writevSync(fd: any, buffers: any, position: any): any;
+
+export namespace FileReadStream {
+    class Duplex {
+        constructor(options: any);
+
+        cork(): void;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Duplex: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class EventEmitter {
+        constructor();
+
+        addListener(type: any, listener: any): any;
+
+        emit(type: any, args: any): any;
+
+        eventNames(): any;
+
+        getMaxListeners(): any;
+
+        listenerCount(type: any): any;
+
+        listeners(type: any): any;
+
+        off(type: any, listener: any): any;
+
+        on(type: any, listener: any): any;
+
+        once(type: any, listener: any): any;
+
+        prependListener(type: any, listener: any): any;
+
+        prependOnceListener(type: any, listener: any): any;
+
+        rawListeners(type: any): any;
+
+        removeAllListeners(type: any, ...args: any[]): any;
+
+        removeListener(type: any, listener: any): any;
+
+        setMaxListeners(n: any): any;
+
+        static EventEmitter: any;
+
+        static defaultMaxListeners: number;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class PassThrough {
+        constructor(options: any);
+
+        static PassThrough: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Readable {
+        constructor(options: any);
+
+        addListener(ev: any, fn: any): any;
+
+        destroy(err: any, cb: any): any;
+
+        isPaused(): any;
+
+        off(ev: any, fn: any): any;
+
+        on(ev: any, fn: any): any;
+
+        pause(): any;
+
+        pipe(dest: any, pipeOpts: any): any;
+
+        push(chunk: any, encoding: any): any;
+
+        read(n: any): any;
+
+        removeAllListeners(ev: any, ...args: any[]): any;
+
+        removeListener(ev: any, fn: any): any;
+
+        resume(): any;
+
+        setEncoding(enc: any): any;
+
+        unpipe(dest: any): any;
+
+        unshift(chunk: any, encoding: any): any;
+
+        wrap(stream: any, ...args: any[]): any;
+
+        static Readable: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Stream {
+        constructor();
+
+        pipe(dest: any, options: any): any;
+
+        static Stream: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Transform {
+        constructor(options: any);
+
+        push(chunk: any, encoding: any): any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static Transform: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Writable {
+        constructor(options: any);
+
+        cork(): void;
+
+        destroy(err: any, cb: any): any;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        pipe(): void;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Writable: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    namespace Duplex {
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Duplex: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace PassThrough {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace PassThrough {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static PassThrough: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static PassThrough: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Readable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Readable: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Readable: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Stream {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Transform {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Writable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class WritableState {
+            constructor(options: any, stream: any, isDuplex: any);
+
+            getBuffer(): any;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+    }
+
+}
+
+export namespace FileWriteStream {
+    class Duplex {
+        constructor(options: any);
+
+        cork(): void;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Duplex: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class EventEmitter {
+        constructor();
+
+        addListener(type: any, listener: any): any;
+
+        emit(type: any, args: any): any;
+
+        eventNames(): any;
+
+        getMaxListeners(): any;
+
+        listenerCount(type: any): any;
+
+        listeners(type: any): any;
+
+        off(type: any, listener: any): any;
+
+        on(type: any, listener: any): any;
+
+        once(type: any, listener: any): any;
+
+        prependListener(type: any, listener: any): any;
+
+        prependOnceListener(type: any, listener: any): any;
+
+        rawListeners(type: any): any;
+
+        removeAllListeners(type: any, ...args: any[]): any;
+
+        removeListener(type: any, listener: any): any;
+
+        setMaxListeners(n: any): any;
+
+        static EventEmitter: any;
+
+        static defaultMaxListeners: number;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class PassThrough {
+        constructor(options: any);
+
+        static PassThrough: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Readable {
+        constructor(options: any);
+
+        addListener(ev: any, fn: any): any;
+
+        destroy(err: any, cb: any): any;
+
+        isPaused(): any;
+
+        off(ev: any, fn: any): any;
+
+        on(ev: any, fn: any): any;
+
+        pause(): any;
+
+        pipe(dest: any, pipeOpts: any): any;
+
+        push(chunk: any, encoding: any): any;
+
+        read(n: any): any;
+
+        removeAllListeners(ev: any, ...args: any[]): any;
+
+        removeListener(ev: any, fn: any): any;
+
+        resume(): any;
+
+        setEncoding(enc: any): any;
+
+        unpipe(dest: any): any;
+
+        unshift(chunk: any, encoding: any): any;
+
+        wrap(stream: any, ...args: any[]): any;
+
+        static Readable: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Stream {
+        constructor();
+
+        pipe(dest: any, options: any): any;
+
+        static Stream: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Transform {
+        constructor(options: any);
+
+        push(chunk: any, encoding: any): any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static Transform: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Writable {
+        constructor(options: any);
+
+        cork(): void;
+
+        destroy(err: any, cb: any): any;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        pipe(): void;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Writable: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class WritableState {
+        constructor(options: any, stream: any, isDuplex: any);
+
+        getBuffer(): any;
+
+    }
+
+    namespace Duplex {
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Duplex: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace PassThrough {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace PassThrough {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static PassThrough: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static PassThrough: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Readable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Readable: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Readable: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Stream {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Transform {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Writable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class WritableState {
+            constructor(options: any, stream: any, isDuplex: any);
+
+            getBuffer(): any;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+    }
+
+}
+
+export namespace ReadStream {
+    class Duplex {
+        constructor(options: any);
+
+        cork(): void;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Duplex: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class EventEmitter {
+        constructor();
+
+        addListener(type: any, listener: any): any;
+
+        emit(type: any, args: any): any;
+
+        eventNames(): any;
+
+        getMaxListeners(): any;
+
+        listenerCount(type: any): any;
+
+        listeners(type: any): any;
+
+        off(type: any, listener: any): any;
+
+        on(type: any, listener: any): any;
+
+        once(type: any, listener: any): any;
+
+        prependListener(type: any, listener: any): any;
+
+        prependOnceListener(type: any, listener: any): any;
+
+        rawListeners(type: any): any;
+
+        removeAllListeners(type: any, ...args: any[]): any;
+
+        removeListener(type: any, listener: any): any;
+
+        setMaxListeners(n: any): any;
+
+        static EventEmitter: any;
+
+        static defaultMaxListeners: number;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class PassThrough {
+        constructor(options: any);
+
+        static PassThrough: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Readable {
+        constructor(options: any);
+
+        addListener(ev: any, fn: any): any;
+
+        destroy(err: any, cb: any): any;
+
+        isPaused(): any;
+
+        off(ev: any, fn: any): any;
+
+        on(ev: any, fn: any): any;
+
+        pause(): any;
+
+        pipe(dest: any, pipeOpts: any): any;
+
+        push(chunk: any, encoding: any): any;
+
+        read(n: any): any;
+
+        removeAllListeners(ev: any, ...args: any[]): any;
+
+        removeListener(ev: any, fn: any): any;
+
+        resume(): any;
+
+        setEncoding(enc: any): any;
+
+        unpipe(dest: any): any;
+
+        unshift(chunk: any, encoding: any): any;
+
+        wrap(stream: any, ...args: any[]): any;
+
+        static Readable: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Stream {
+        constructor();
+
+        pipe(dest: any, options: any): any;
+
+        static Stream: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Transform {
+        constructor(options: any);
+
+        push(chunk: any, encoding: any): any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static Transform: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Writable {
+        constructor(options: any);
+
+        cork(): void;
+
+        destroy(err: any, cb: any): any;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        pipe(): void;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Writable: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    namespace Duplex {
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Duplex: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace PassThrough {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace PassThrough {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static PassThrough: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static PassThrough: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Readable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Readable: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Readable: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Stream {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Transform {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Writable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class WritableState {
+            constructor(options: any, stream: any, isDuplex: any);
+
+            getBuffer(): any;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+    }
+
+}
+
+export namespace WriteStream {
+    class Duplex {
+        constructor(options: any);
+
+        cork(): void;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Duplex: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class EventEmitter {
+        constructor();
+
+        addListener(type: any, listener: any): any;
+
+        emit(type: any, args: any): any;
+
+        eventNames(): any;
+
+        getMaxListeners(): any;
+
+        listenerCount(type: any): any;
+
+        listeners(type: any): any;
+
+        off(type: any, listener: any): any;
+
+        on(type: any, listener: any): any;
+
+        once(type: any, listener: any): any;
+
+        prependListener(type: any, listener: any): any;
+
+        prependOnceListener(type: any, listener: any): any;
+
+        rawListeners(type: any): any;
+
+        removeAllListeners(type: any, ...args: any[]): any;
+
+        removeListener(type: any, listener: any): any;
+
+        setMaxListeners(n: any): any;
+
+        static EventEmitter: any;
+
+        static defaultMaxListeners: number;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class PassThrough {
+        constructor(options: any);
+
+        static PassThrough: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Readable {
+        constructor(options: any);
+
+        addListener(ev: any, fn: any): any;
+
+        destroy(err: any, cb: any): any;
+
+        isPaused(): any;
+
+        off(ev: any, fn: any): any;
+
+        on(ev: any, fn: any): any;
+
+        pause(): any;
+
+        pipe(dest: any, pipeOpts: any): any;
+
+        push(chunk: any, encoding: any): any;
+
+        read(n: any): any;
+
+        removeAllListeners(ev: any, ...args: any[]): any;
+
+        removeListener(ev: any, fn: any): any;
+
+        resume(): any;
+
+        setEncoding(enc: any): any;
+
+        unpipe(dest: any): any;
+
+        unshift(chunk: any, encoding: any): any;
+
+        wrap(stream: any, ...args: any[]): any;
+
+        static Readable: any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Stream {
+        constructor();
+
+        pipe(dest: any, options: any): any;
+
+        static Stream: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Transform {
+        constructor(options: any);
+
+        push(chunk: any, encoding: any): any;
+
+        static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+        static Transform: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static from(iterable: any, opts: any): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class Writable {
+        constructor(options: any);
+
+        cork(): void;
+
+        destroy(err: any, cb: any): any;
+
+        end(chunk: any, encoding: any, cb: any): any;
+
+        pipe(): void;
+
+        setDefaultEncoding(encoding: any): any;
+
+        uncork(): void;
+
+        write(chunk: any, encoding: any, cb: any): any;
+
+        static Writable: any;
+
+        static defaultMaxListeners: number;
+
+        static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+        static init(): void;
+
+        static listenerCount(emitter: any, type: any): any;
+
+        static once(emitter: any, name: any): any;
+
+        static pipeline(streams: any): any;
+
+        static usingDomains: boolean;
+
+    }
+
+    class WritableState {
+        constructor(options: any, stream: any, isDuplex: any);
+
+        getBuffer(): any;
+
+    }
+
+    namespace Duplex {
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Duplex: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace PassThrough {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace PassThrough {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static PassThrough: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static PassThrough: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Readable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Readable: any;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Readable: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Stream {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Transform {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Transform: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Writable {
+            constructor(options: any);
+
+            cork(): void;
+
+            destroy(err: any, cb: any): any;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            pipe(): void;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Writable {
+                constructor(options: any);
+
+                cork(): void;
+
+                destroy(err: any, cb: any): any;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                pipe(): void;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static WritableState: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Writable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class WritableState {
+                constructor(options: any, stream: any, isDuplex: any);
+
+                getBuffer(): any;
+
+            }
+
+        }
+
+    }
+
+    namespace Writable {
+        class Duplex {
+            constructor(options: any);
+
+            cork(): void;
+
+            end(chunk: any, encoding: any, cb: any): any;
+
+            setDefaultEncoding(encoding: any): any;
+
+            uncork(): void;
+
+            write(chunk: any, encoding: any, cb: any): any;
+
+            static Duplex: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class EventEmitter {
+            constructor();
+
+            addListener(type: any, listener: any): any;
+
+            emit(type: any, args: any): any;
+
+            eventNames(): any;
+
+            getMaxListeners(): any;
+
+            listenerCount(type: any): any;
+
+            listeners(type: any): any;
+
+            off(type: any, listener: any): any;
+
+            on(type: any, listener: any): any;
+
+            once(type: any, listener: any): any;
+
+            prependListener(type: any, listener: any): any;
+
+            prependOnceListener(type: any, listener: any): any;
+
+            rawListeners(type: any): any;
+
+            removeAllListeners(type: any, ...args: any[]): any;
+
+            removeListener(type: any, listener: any): any;
+
+            setMaxListeners(n: any): any;
+
+            static EventEmitter: any;
+
+            static defaultMaxListeners: number;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class PassThrough {
+            constructor(options: any);
+
+            static PassThrough: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Readable {
+            constructor(options: any);
+
+            addListener(ev: any, fn: any): any;
+
+            destroy(err: any, cb: any): any;
+
+            isPaused(): any;
+
+            off(ev: any, fn: any): any;
+
+            on(ev: any, fn: any): any;
+
+            pause(): any;
+
+            pipe(dest: any, pipeOpts: any): any;
+
+            push(chunk: any, encoding: any): any;
+
+            read(n: any): any;
+
+            removeAllListeners(ev: any, ...args: any[]): any;
+
+            removeListener(ev: any, fn: any): any;
+
+            resume(): any;
+
+            setEncoding(enc: any): any;
+
+            unpipe(dest: any): any;
+
+            unshift(chunk: any, encoding: any): any;
+
+            wrap(stream: any, ...args: any[]): any;
+
+            static Readable: any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Stream {
+            constructor();
+
+            pipe(dest: any, options: any): any;
+
+            static Stream: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class Transform {
+            constructor(options: any);
+
+            push(chunk: any, encoding: any): any;
+
+            static ReadableState(options: any, stream: any, isDuplex: any): void;
+
+            static Transform: any;
+
+            static Writable: any;
+
+            static defaultMaxListeners: number;
+
+            static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
+
+            static from(iterable: any, opts: any): any;
+
+            static init(): void;
+
+            static listenerCount(emitter: any, type: any): any;
+
+            static once(emitter: any, name: any): any;
+
+            static pipeline(streams: any): any;
+
+            static usingDomains: boolean;
+
+        }
+
+        class WritableState {
+            constructor(options: any, stream: any, isDuplex: any);
+
+            getBuffer(): any;
+
+        }
+
+        namespace Duplex {
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace PassThrough {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Readable {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Stream {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Transform {
+                constructor(options: any);
+
+                push(chunk: any, encoding: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+        namespace Transform {
+            class Duplex {
+                constructor(options: any);
+
+                cork(): void;
+
+                end(chunk: any, encoding: any, cb: any): any;
+
+                setDefaultEncoding(encoding: any): any;
+
+                uncork(): void;
+
+                write(chunk: any, encoding: any, cb: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class EventEmitter {
+                constructor();
+
+                addListener(type: any, listener: any): any;
+
+                emit(type: any, args: any): any;
+
+                eventNames(): any;
+
+                getMaxListeners(): any;
+
+                listenerCount(type: any): any;
+
+                listeners(type: any): any;
+
+                off(type: any, listener: any): any;
+
+                on(type: any, listener: any): any;
+
+                once(type: any, listener: any): any;
+
+                prependListener(type: any, listener: any): any;
+
+                prependOnceListener(type: any, listener: any): any;
+
+                rawListeners(type: any): any;
+
+                removeAllListeners(type: any, ...args: any[]): any;
+
+                removeListener(type: any, listener: any): any;
+
+                setMaxListeners(n: any): any;
+
+                static EventEmitter: any;
+
+                static defaultMaxListeners: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static usingDomains: any;
+
+            }
+
+            class PassThrough {
+                constructor(options: any);
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Readable {
+                constructor(options: any);
+
+                addListener(ev: any, fn: any): any;
+
+                destroy(err: any, cb: any): any;
+
+                isPaused(): any;
+
+                off(ev: any, fn: any): any;
+
+                on(ev: any, fn: any): any;
+
+                pause(): any;
+
+                pipe(dest: any, pipeOpts: any): any;
+
+                push(chunk: any, encoding: any): any;
+
+                read(n: any): any;
+
+                removeAllListeners(ev: any, ...args: any[]): any;
+
+                removeListener(ev: any, fn: any): any;
+
+                resume(): any;
+
+                setEncoding(enc: any): any;
+
+                unpipe(dest: any): any;
+
+                unshift(chunk: any, encoding: any): any;
+
+                wrap(stream: any, ...args: any[]): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static ReadableState: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static from: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+            class Stream {
+                constructor();
+
+                pipe(dest: any, options: any): any;
+
+                static Duplex: any;
+
+                static EventEmitter: any;
+
+                static PassThrough: any;
+
+                static Readable: any;
+
+                static Stream: any;
+
+                static Transform: any;
+
+                static Writable: any;
+
+                static defaultMaxListeners: any;
+
+                static finished: any;
+
+                static init: any;
+
+                static listenerCount: any;
+
+                static once: any;
+
+                static pipeline: any;
+
+                static usingDomains: any;
+
+            }
+
+        }
+
+    }
+
+}
+
 export namespace promises {
     function access(path: any, mode: any): any;
 
@@ -317,6 +35143,8 @@ export namespace promises {
 
     function open(path: any, flags: any, mode: any, ...args: any[]): any;
 
+    function opendir(args: any): any;
+
     function readFile(path: any, options: any): any;
 
     function readdir(path: any, options: any): any;
@@ -327,7 +35155,7 @@ export namespace promises {
 
     function rename(oldPath: any, newPath: any): any;
 
-    function rmdir(path: any): any;
+    function rmdir(path: any, options: any): any;
 
     function stat(path: any, options: any): any;
 
