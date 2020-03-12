@@ -117,7 +117,7 @@ function isLegalIdentifier(s: string) {
 }
 
 function isClasslike(obj: { prototype: any }): boolean {
-    return !!(obj.prototype && Object.getOwnPropertyNames(obj.prototype).length > 1);
+    return !!(obj && obj.prototype && Object.getOwnPropertyNames(obj.prototype).length > 1);
 }
 
 const keyStack: string[] = [];
