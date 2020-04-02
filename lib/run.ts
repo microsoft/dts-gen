@@ -124,8 +124,9 @@ try {
         printHelp();
         process.exit(1);
     } else if (e.code === 'MODULE_NOT_FOUND') {
-        console.log(`Couldn't load module "${args.module}". ` +
-            `Please install it globally (npm install -g ${args.module}) and try again.`);
+        console.error(`Error loading module "${args.module}".\n` +
+          getErrorMessageFirstLine(e).replace(/'/g, '"') + '.\n' +
+          `Please install missing module and try again.`);
         process.exit(1);
     } else {
         console.log('Unexpected crash! Please log a bug with the commandline you specified.');
@@ -169,4 +170,8 @@ function getTemplate(templateName: string): string {
 
 function allTemplateNames(): string {
     return fs.readdirSync(templatesDirectory).map(t => t.slice(0, t.length - ".d.ts".length)).join(", ");
+}
+
+function getErrorMessageFirstLine(error: Error): string {
+    return error.message.split('\n', 1)[0];
 }
