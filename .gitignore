@@ -1,5 +1,6 @@
-node_modules/
-bin/
-npm-debug.log
+.idea/
 .vscode/
+bin/
+node_modules/
 
+npm-debug.log
