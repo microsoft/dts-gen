@@ -370,11 +370,10 @@ function inferParameterType(_fn: ts.FunctionExpression, _param: ts.ParameterDecl
 
 function parseFunctionBody(fn: any): ts.FunctionExpression {
     const setup = `const myFn = ${fn.toString()};`;
-    const srcFile = ts.createSourceFile('test.ts', setup, ts.ScriptTarget.Latest, true);
+    const srcFile = ts.createSourceFile('', setup, ts.ScriptTarget.Latest, true);
     const statement = srcFile.statements[0] as ts.VariableStatement;
     const decl = statement.declarationList.declarations[0];
-    const init = decl.initializer as ts.FunctionExpression;
-    return init;
+    return decl.initializer as ts.FunctionExpression;
 }
 
 function isNativeFunction(fn: any) {
