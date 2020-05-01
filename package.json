@@ -24,7 +24,8 @@
     "node": "12.16.3",
     "react": "latest",
     "tslint": "^5.1.0",
-    "webpack": "^4.43.0"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "keywords": [
     "typescript"
