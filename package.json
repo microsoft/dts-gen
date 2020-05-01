@@ -14,13 +14,14 @@
   },
   "devDependencies": {
     "@types/mocha": "latest",
-    "@types/node": "latest",
+    "@types/node": "^12.0.0",
     "@types/parse-git-config": "^1.1.0",
     "@types/yargs": "^15.0.4",
     "ecurve": "1.0.6",
     "jquery": "latest",
     "lodash": "latest",
     "mocha": "^7.1.2",
+    "node": "12.16.3",
     "react": "latest",
     "tslint": "^5.1.0",
     "webpack": "^4.43.0"
