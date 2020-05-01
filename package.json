@@ -10,20 +10,20 @@
     "dts-dom": "latest",
     "parse-git-config": "^1.1.1",
     "typescript": "^3.5.1",
-    "yargs": "^4.8.1"
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
     "@types/mocha": "latest",
     "@types/node": "latest",
     "@types/parse-git-config": "^1.1.0",
-    "@types/yargs": "latest",
-    "ecurve": "1.0.5",
+    "@types/yargs": "^15.0.4",
+    "ecurve": "1.0.6",
     "jquery": "latest",
     "lodash": "latest",
-    "mocha": "^3.0.2",
+    "mocha": "^7.1.2",
     "react": "latest",
     "tslint": "^5.1.0",
-    "webpack": "^1.13.1"
+    "webpack": "^4.43.0"
   },
   "keywords": [
     "typescript"

@@ -41,15 +41,21 @@ export class FileReadStream {
 
     static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+    static captureRejectionSymbol: any;
+
+    static captureRejections: boolean;
+
     static defaultMaxListeners: number;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
     static from(iterable: any, opts: any): any;
 
-    static init(): void;
+    static init(opts: any): void;
 
     static listenerCount(emitter: any, type: any): any;
+
+    static on(emitter: any, event: any): any;
 
     static once(emitter: any, name: any): any;
 
@@ -68,13 +74,19 @@ export class FileWriteStream {
 
     open(): void;
 
+    static captureRejectionSymbol: any;
+
+    static captureRejections: boolean;
+
     static defaultMaxListeners: number;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-    static init(): void;
+    static init(opts: any): void;
 
     static listenerCount(emitter: any, type: any): any;
+
+    static on(emitter: any, event: any): any;
 
     static once(emitter: any, name: any): any;
 
@@ -93,15 +105,21 @@ export class ReadStream {
 
     static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+    static captureRejectionSymbol: any;
+
+    static captureRejections: boolean;
+
     static defaultMaxListeners: number;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
     static from(iterable: any, opts: any): any;
 
-    static init(): void;
+    static init(opts: any): void;
 
     static listenerCount(emitter: any, type: any): any;
+
+    static on(emitter: any, event: any): any;
 
     static once(emitter: any, name: any): any;
 
@@ -127,13 +145,19 @@ export class WriteStream {
 
     open(): void;
 
+    static captureRejectionSymbol: any;
+
+    static captureRejections: boolean;
+
     static defaultMaxListeners: number;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-    static init(): void;
+    static init(opts: any): void;
 
     static listenerCount(emitter: any, type: any): any;
+
+    static on(emitter: any, event: any): any;
 
     static once(emitter: any, name: any): any;
 
@@ -158,16 +182,15 @@ export const constants: {
     F_OK: number;
     O_APPEND: number;
     O_CREAT: number;
-    O_DIRECT: number;
     O_DIRECTORY: number;
     O_DSYNC: number;
     O_EXCL: number;
-    O_NOATIME: number;
     O_NOCTTY: number;
     O_NOFOLLOW: number;
     O_NONBLOCK: number;
     O_RDONLY: number;
     O_RDWR: number;
+    O_SYMLINK: number;
     O_SYNC: number;
     O_TRUNC: number;
     O_WRONLY: number;
@@ -209,10 +232,6 @@ export const constants: {
     W_OK: number;
     X_OK: number;
 };
-
-export const lchmod: any;
-
-export const lchmodSync: any;
 
 export function access(path: any, mode: any, callback: any): void;
 
@@ -273,6 +292,10 @@ export function ftruncateSync(fd: any, len: any): void;
 export function futimes(fd: any, atime: any, mtime: any, callback: any): void;
 
 export function futimesSync(fd: any, atime: any, mtime: any): void;
+
+export function lchmod(path: any, mode: any, callback: any): void;
+
+export function lchmodSync(path: any, mode: any): any;
 
 export function lchown(path: any, uid: any, gid: any, callback: any): void;
 
@@ -386,15 +409,21 @@ export namespace FileReadStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -405,7 +434,7 @@ export namespace FileReadStream {
     }
 
     class EventEmitter {
-        constructor();
+        constructor(opts: any);
 
         addListener(type: any, listener: any): any;
 
@@ -439,11 +468,17 @@ export namespace FileReadStream {
 
         static EventEmitter: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -458,15 +493,21 @@ export namespace FileReadStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -515,15 +556,21 @@ export namespace FileReadStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -534,19 +581,25 @@ export namespace FileReadStream {
     }
 
     class Stream {
-        constructor();
+        constructor(opts: any);
 
         pipe(dest: any, options: any): any;
 
         static Stream: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -565,15 +618,21 @@ export namespace FileReadStream {
 
         static Transform: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -602,13 +661,19 @@ export namespace FileReadStream {
 
         static Writable: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -620,7 +685,7 @@ export namespace FileReadStream {
 
     namespace Duplex {
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -654,11 +719,17 @@ export namespace FileReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -675,15 +746,21 @@ export namespace FileReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -734,15 +811,21 @@ export namespace FileReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -753,7 +836,7 @@ export namespace FileReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -761,13 +844,19 @@ export namespace FileReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -788,15 +877,21 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -827,13 +922,19 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -845,7 +946,7 @@ export namespace FileReadStream {
 
         namespace PassThrough {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -879,11 +980,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -942,6 +1049,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -952,6 +1063,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -961,7 +1074,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -979,6 +1092,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -986,6 +1103,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1016,6 +1135,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1025,6 +1148,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1067,6 +1192,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1074,6 +1203,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1087,7 +1218,7 @@ export namespace FileReadStream {
 
         namespace Readable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -1121,11 +1252,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1152,6 +1289,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1162,6 +1303,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -1171,7 +1314,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -1189,6 +1332,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1196,6 +1343,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1226,6 +1375,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1235,6 +1388,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1277,6 +1432,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1284,6 +1443,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1297,7 +1458,7 @@ export namespace FileReadStream {
 
         namespace Stream {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -1331,11 +1492,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1362,6 +1529,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1371,6 +1542,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1431,6 +1604,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1440,6 +1617,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1470,6 +1649,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1479,6 +1662,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1521,6 +1706,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1528,6 +1717,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1541,7 +1732,7 @@ export namespace FileReadStream {
 
         namespace Transform {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -1575,11 +1766,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1606,6 +1803,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1615,6 +1816,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1675,6 +1878,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1685,6 +1892,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -1694,7 +1903,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -1712,6 +1921,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1719,6 +1932,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1761,6 +1976,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1768,6 +1987,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1781,7 +2002,7 @@ export namespace FileReadStream {
 
         namespace Writable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -1815,11 +2036,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1846,6 +2073,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1855,6 +2086,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1915,6 +2148,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1925,6 +2162,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -1934,7 +2173,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -1952,6 +2191,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1959,6 +2202,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -1989,6 +2234,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -1998,6 +2247,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2038,15 +2289,21 @@ export namespace FileReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -2057,7 +2314,7 @@ export namespace FileReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -2091,11 +2348,17 @@ export namespace FileReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -2144,15 +2407,21 @@ export namespace FileReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -2163,7 +2432,7 @@ export namespace FileReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -2171,13 +2440,19 @@ export namespace FileReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -2198,15 +2473,21 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -2237,13 +2518,19 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -2255,7 +2542,7 @@ export namespace FileReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -2289,11 +2576,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2352,6 +2645,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2362,6 +2659,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -2371,7 +2670,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -2389,6 +2688,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2396,6 +2699,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2426,6 +2731,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2435,6 +2744,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2477,6 +2788,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2484,6 +2799,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2525,6 +2842,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2535,6 +2856,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -2544,7 +2867,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -2578,11 +2901,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2591,7 +2920,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -2609,6 +2938,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2616,6 +2949,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2646,6 +2981,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2655,6 +2994,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2697,6 +3038,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2704,6 +3049,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2745,6 +3092,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2755,6 +3106,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -2764,7 +3117,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -2798,11 +3151,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2861,6 +3220,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2870,6 +3233,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2900,6 +3265,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2909,6 +3278,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2951,6 +3322,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -2958,6 +3333,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -2999,6 +3376,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3009,6 +3390,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -3018,7 +3401,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -3052,11 +3435,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3115,6 +3504,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3125,6 +3518,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -3134,7 +3529,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -3152,6 +3547,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3159,6 +3558,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3201,6 +3602,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3208,6 +3613,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3249,6 +3656,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3259,6 +3670,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -3268,7 +3681,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -3302,11 +3715,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3365,6 +3784,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3375,6 +3798,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -3384,7 +3809,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -3402,6 +3827,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3409,6 +3838,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3439,6 +3870,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3448,6 +3883,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3488,15 +3925,21 @@ export namespace FileReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -3507,7 +3950,7 @@ export namespace FileReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -3541,11 +3984,17 @@ export namespace FileReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -3562,15 +4011,21 @@ export namespace FileReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -3581,7 +4036,7 @@ export namespace FileReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -3589,13 +4044,19 @@ export namespace FileReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -3616,15 +4077,21 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -3655,13 +4122,19 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -3673,7 +4146,7 @@ export namespace FileReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -3707,11 +4180,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3738,6 +4217,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3748,6 +4231,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -3757,7 +4242,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -3775,6 +4260,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3782,6 +4271,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3812,6 +4303,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3821,6 +4316,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3863,6 +4360,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3870,6 +4371,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3911,6 +4414,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -3921,6 +4428,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -3930,7 +4439,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -3964,11 +4473,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -3977,7 +4492,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -3995,6 +4510,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4002,6 +4521,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4032,6 +4553,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4041,6 +4566,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4083,6 +4610,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4090,6 +4621,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4131,6 +4664,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4141,6 +4678,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -4150,7 +4689,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -4184,11 +4723,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4215,6 +4760,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4224,6 +4773,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4254,6 +4805,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4263,6 +4818,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4305,6 +4862,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4312,6 +4873,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4353,6 +4916,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4363,6 +4930,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -4372,7 +4941,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -4406,11 +4975,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4437,6 +5012,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4447,6 +5026,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -4456,7 +5037,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -4474,6 +5055,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4481,6 +5066,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4523,6 +5110,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4530,6 +5121,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4571,6 +5164,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4581,6 +5178,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -4590,7 +5189,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -4624,11 +5223,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4655,6 +5260,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4665,6 +5274,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -4674,7 +5285,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -4692,6 +5303,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4699,6 +5314,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4729,6 +5346,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -4738,6 +5359,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -4778,15 +5401,21 @@ export namespace FileReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -4797,7 +5426,7 @@ export namespace FileReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -4831,11 +5460,17 @@ export namespace FileReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -4852,15 +5487,21 @@ export namespace FileReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -4911,15 +5552,21 @@ export namespace FileReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -4940,15 +5587,21 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -4979,13 +5632,19 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -4997,7 +5656,7 @@ export namespace FileReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -5031,11 +5690,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5062,6 +5727,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5071,6 +5740,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5131,6 +5802,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5140,6 +5815,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5170,6 +5847,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5179,6 +5860,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5221,6 +5904,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5228,6 +5915,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5269,6 +5958,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5279,6 +5972,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -5288,7 +5983,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -5322,11 +6017,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5385,6 +6086,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5394,6 +6099,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5424,6 +6131,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5433,6 +6144,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5475,6 +6188,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5482,6 +6199,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5523,6 +6242,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5533,6 +6256,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -5542,7 +6267,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -5576,11 +6301,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5607,6 +6338,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5616,6 +6351,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5646,6 +6383,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5655,6 +6396,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5697,6 +6440,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5704,6 +6451,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5745,6 +6494,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5755,6 +6508,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -5764,7 +6519,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -5798,11 +6553,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5829,6 +6590,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5838,6 +6603,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5898,6 +6665,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5907,6 +6678,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5949,6 +6722,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -5956,6 +6733,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -5997,6 +6776,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6007,6 +6790,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -6016,7 +6801,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -6050,11 +6835,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6081,6 +6872,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6090,6 +6885,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6150,6 +6947,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6159,6 +6960,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6189,6 +6992,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6198,6 +7005,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6238,15 +7047,21 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -6257,7 +7072,7 @@ export namespace FileReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -6291,11 +7106,17 @@ export namespace FileReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -6312,15 +7133,21 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -6371,15 +7198,21 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -6390,7 +7223,7 @@ export namespace FileReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -6398,13 +7231,19 @@ export namespace FileReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -6435,13 +7274,19 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -6453,7 +7298,7 @@ export namespace FileReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -6487,11 +7332,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6518,6 +7369,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6527,6 +7382,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6587,6 +7444,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6597,6 +7458,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -6606,7 +7469,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -6624,6 +7487,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6631,6 +7498,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6673,6 +7542,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6680,6 +7553,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6721,6 +7596,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6731,6 +7610,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -6740,7 +7621,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -6774,11 +7655,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6837,6 +7724,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6847,6 +7738,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -6856,7 +7749,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -6874,6 +7767,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6881,6 +7778,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6923,6 +7822,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6930,6 +7833,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -6971,6 +7876,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -6981,6 +7890,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -6990,7 +7901,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -7024,11 +7935,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7055,6 +7972,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7065,6 +7986,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -7074,7 +7997,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -7092,6 +8015,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7099,6 +8026,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7141,6 +8070,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7148,6 +8081,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7189,6 +8124,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7199,6 +8138,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -7208,7 +8149,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -7242,11 +8183,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7273,6 +8220,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7282,6 +8233,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7342,6 +8295,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7351,6 +8308,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7393,6 +8352,10 @@ export namespace FileReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7400,6 +8363,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7441,6 +8406,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7451,6 +8420,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -7460,7 +8431,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -7494,11 +8465,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7525,6 +8502,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7534,6 +8515,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7594,6 +8577,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7604,6 +8591,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -7613,7 +8602,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -7631,6 +8620,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7638,6 +8631,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7678,15 +8673,21 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -7697,7 +8698,7 @@ export namespace FileReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -7731,11 +8732,17 @@ export namespace FileReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -7752,15 +8759,21 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -7811,15 +8824,21 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -7830,7 +8849,7 @@ export namespace FileReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -7838,13 +8857,19 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -7865,15 +8890,21 @@ export namespace FileReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -7892,7 +8923,7 @@ export namespace FileReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -7926,11 +8957,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -7957,6 +8994,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -7966,6 +9007,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8026,6 +9069,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8036,6 +9083,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -8045,7 +9094,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -8063,6 +9112,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8070,6 +9123,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8100,6 +9155,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8109,6 +9168,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8150,6 +9211,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8160,6 +9225,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -8169,7 +9236,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -8203,11 +9270,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8266,6 +9339,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8276,6 +9353,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -8285,7 +9364,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -8303,6 +9382,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8310,6 +9393,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8340,6 +9425,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8349,6 +9438,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8390,6 +9481,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8400,6 +9495,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -8409,7 +9506,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -8443,11 +9540,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8474,6 +9577,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8484,6 +9591,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -8493,7 +9602,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -8511,6 +9620,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8518,6 +9631,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8548,6 +9663,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8557,6 +9676,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8598,6 +9719,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8608,6 +9733,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -8617,7 +9744,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -8651,11 +9778,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8682,6 +9815,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8691,6 +9828,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8751,6 +9890,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8760,6 +9903,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8790,6 +9935,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8799,6 +9948,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8840,6 +9991,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8850,6 +10005,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -8859,7 +10016,7 @@ export namespace FileReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -8893,11 +10050,17 @@ export namespace FileReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8924,6 +10087,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -8933,6 +10100,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -8993,6 +10162,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9003,6 +10176,8 @@ export namespace FileReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -9012,7 +10187,7 @@ export namespace FileReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -9030,6 +10205,10 @@ export namespace FileReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9037,6 +10216,8 @@ export namespace FileReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9070,15 +10251,21 @@ export namespace FileWriteStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -9089,7 +10276,7 @@ export namespace FileWriteStream {
     }
 
     class EventEmitter {
-        constructor();
+        constructor(opts: any);
 
         addListener(type: any, listener: any): any;
 
@@ -9123,11 +10310,17 @@ export namespace FileWriteStream {
 
         static EventEmitter: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -9142,15 +10335,21 @@ export namespace FileWriteStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -9199,15 +10398,21 @@ export namespace FileWriteStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -9218,19 +10423,25 @@ export namespace FileWriteStream {
     }
 
     class Stream {
-        constructor();
+        constructor(opts: any);
 
         pipe(dest: any, options: any): any;
 
         static Stream: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -9249,15 +10460,21 @@ export namespace FileWriteStream {
 
         static Transform: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -9286,13 +10503,19 @@ export namespace FileWriteStream {
 
         static Writable: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -9311,7 +10534,7 @@ export namespace FileWriteStream {
 
     namespace Duplex {
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -9345,11 +10568,17 @@ export namespace FileWriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -9366,15 +10595,21 @@ export namespace FileWriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -9425,15 +10660,21 @@ export namespace FileWriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -9444,7 +10685,7 @@ export namespace FileWriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -9452,13 +10693,19 @@ export namespace FileWriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -9479,15 +10726,21 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -9518,13 +10771,19 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -9536,7 +10795,7 @@ export namespace FileWriteStream {
 
         namespace PassThrough {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -9570,11 +10829,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9633,6 +10898,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9643,6 +10912,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -9652,7 +10923,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -9670,6 +10941,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9677,6 +10952,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9707,6 +10984,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9716,6 +10997,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9758,6 +11041,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9765,6 +11052,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9778,7 +11067,7 @@ export namespace FileWriteStream {
 
         namespace Readable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -9812,11 +11101,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9843,6 +11138,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9853,6 +11152,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -9862,7 +11163,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -9880,6 +11181,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9887,6 +11192,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9917,6 +11224,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9926,6 +11237,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9968,6 +11281,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -9975,6 +11292,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -9988,7 +11307,7 @@ export namespace FileWriteStream {
 
         namespace Stream {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -10022,11 +11341,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10053,6 +11378,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10062,6 +11391,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10122,6 +11453,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10131,6 +11466,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10161,6 +11498,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10170,6 +11511,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10212,6 +11555,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10219,6 +11566,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10232,7 +11581,7 @@ export namespace FileWriteStream {
 
         namespace Transform {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -10266,11 +11615,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10297,6 +11652,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10306,6 +11665,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10366,6 +11727,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10376,6 +11741,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -10385,7 +11752,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -10403,6 +11770,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10410,6 +11781,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10452,6 +11825,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10459,6 +11836,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10472,7 +11851,7 @@ export namespace FileWriteStream {
 
         namespace Writable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -10506,11 +11885,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10537,6 +11922,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10546,6 +11935,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10606,6 +11997,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10616,6 +12011,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -10625,7 +12022,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -10643,6 +12040,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10650,6 +12051,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10680,6 +12083,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -10689,6 +12096,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -10729,15 +12138,21 @@ export namespace FileWriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -10748,7 +12163,7 @@ export namespace FileWriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -10782,11 +12197,17 @@ export namespace FileWriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -10835,15 +12256,21 @@ export namespace FileWriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -10854,7 +12281,7 @@ export namespace FileWriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -10862,13 +12289,19 @@ export namespace FileWriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -10889,15 +12322,21 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -10928,13 +12367,19 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -10946,7 +12391,7 @@ export namespace FileWriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -10980,11 +12425,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11043,6 +12494,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11053,6 +12508,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -11062,7 +12519,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -11080,6 +12537,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11087,6 +12548,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11117,6 +12580,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11126,6 +12593,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11168,6 +12637,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11175,6 +12648,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11216,6 +12691,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11226,6 +12705,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -11235,7 +12716,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -11269,11 +12750,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11282,7 +12769,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -11300,6 +12787,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11307,6 +12798,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11337,6 +12830,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11346,6 +12843,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11388,6 +12887,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11395,6 +12898,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11436,6 +12941,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11446,6 +12955,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -11455,7 +12966,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -11489,11 +13000,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11552,6 +13069,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11561,6 +13082,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11591,6 +13114,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11600,6 +13127,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11642,6 +13171,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11649,6 +13182,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11690,6 +13225,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11700,6 +13239,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -11709,7 +13250,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -11743,11 +13284,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11806,6 +13353,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11816,6 +13367,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -11825,7 +13378,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -11843,6 +13396,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11850,6 +13407,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11892,6 +13451,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11899,6 +13462,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -11940,6 +13505,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -11950,6 +13519,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -11959,7 +13530,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -11993,11 +13564,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12056,6 +13633,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12066,6 +13647,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -12075,7 +13658,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -12093,6 +13676,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12100,6 +13687,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12130,6 +13719,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12139,6 +13732,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12179,15 +13774,21 @@ export namespace FileWriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -12198,7 +13799,7 @@ export namespace FileWriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -12232,11 +13833,17 @@ export namespace FileWriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -12253,15 +13860,21 @@ export namespace FileWriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -12272,7 +13885,7 @@ export namespace FileWriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -12280,13 +13893,19 @@ export namespace FileWriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -12307,15 +13926,21 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -12346,13 +13971,19 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -12364,7 +13995,7 @@ export namespace FileWriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -12398,11 +14029,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12429,6 +14066,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12439,6 +14080,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -12448,7 +14091,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -12466,6 +14109,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12473,6 +14120,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12503,6 +14152,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12512,6 +14165,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12554,6 +14209,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12561,6 +14220,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12602,6 +14263,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12612,6 +14277,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -12621,7 +14288,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -12655,11 +14322,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12668,7 +14341,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -12686,6 +14359,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12693,6 +14370,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12723,6 +14402,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12732,6 +14415,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12774,6 +14459,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12781,6 +14470,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12822,6 +14513,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12832,6 +14527,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -12841,7 +14538,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -12875,11 +14572,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12906,6 +14609,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12915,6 +14622,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12945,6 +14654,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -12954,6 +14667,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -12996,6 +14711,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13003,6 +14722,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13044,6 +14765,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13054,6 +14779,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -13063,7 +14790,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -13097,11 +14824,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13128,6 +14861,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13138,6 +14875,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -13147,7 +14886,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -13165,6 +14904,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13172,6 +14915,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13214,6 +14959,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13221,6 +14970,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13262,6 +15013,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13272,6 +15027,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -13281,7 +15038,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -13315,11 +15072,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13346,6 +15109,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13356,6 +15123,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -13365,7 +15134,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -13383,6 +15152,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13390,6 +15163,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13420,6 +15195,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13429,6 +15208,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13469,15 +15250,21 @@ export namespace FileWriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -13488,7 +15275,7 @@ export namespace FileWriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -13522,11 +15309,17 @@ export namespace FileWriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -13543,15 +15336,21 @@ export namespace FileWriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -13602,15 +15401,21 @@ export namespace FileWriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -13631,15 +15436,21 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -13670,13 +15481,19 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -13688,7 +15505,7 @@ export namespace FileWriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -13722,11 +15539,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13753,6 +15576,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13762,6 +15589,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13822,6 +15651,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13831,6 +15664,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13861,6 +15696,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13870,6 +15709,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13912,6 +15753,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13919,6 +15764,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -13960,6 +15807,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -13970,6 +15821,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -13979,7 +15832,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -14013,11 +15866,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14076,6 +15935,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14085,6 +15948,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14115,6 +15980,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14124,6 +15993,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14166,6 +16037,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14173,6 +16048,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14214,6 +16091,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14224,6 +16105,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -14233,7 +16116,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -14267,11 +16150,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14298,6 +16187,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14307,6 +16200,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14337,6 +16232,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14346,6 +16245,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14388,6 +16289,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14395,6 +16300,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14436,6 +16343,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14446,6 +16357,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -14455,7 +16368,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -14489,11 +16402,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14520,6 +16439,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14529,6 +16452,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14589,6 +16514,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14598,6 +16527,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14640,6 +16571,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14647,6 +16582,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14688,6 +16625,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14698,6 +16639,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -14707,7 +16650,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -14741,11 +16684,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14772,6 +16721,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14781,6 +16734,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14841,6 +16796,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14850,6 +16809,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14880,6 +16841,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -14889,6 +16854,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -14929,15 +16896,21 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -14948,7 +16921,7 @@ export namespace FileWriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -14982,11 +16955,17 @@ export namespace FileWriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -15003,15 +16982,21 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -15062,15 +17047,21 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -15081,7 +17072,7 @@ export namespace FileWriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -15089,13 +17080,19 @@ export namespace FileWriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -15126,13 +17123,19 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -15144,7 +17147,7 @@ export namespace FileWriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -15178,11 +17181,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15209,6 +17218,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15218,6 +17231,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15278,6 +17293,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15288,6 +17307,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -15297,7 +17318,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -15315,6 +17336,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15322,6 +17347,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15364,6 +17391,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15371,6 +17402,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15412,6 +17445,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15422,6 +17459,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -15431,7 +17470,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -15465,11 +17504,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15528,6 +17573,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15538,6 +17587,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -15547,7 +17598,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -15565,6 +17616,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15572,6 +17627,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15614,6 +17671,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15621,6 +17682,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15662,6 +17725,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15672,6 +17739,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -15681,7 +17750,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -15715,11 +17784,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15746,6 +17821,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15756,6 +17835,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -15765,7 +17846,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -15783,6 +17864,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15790,6 +17875,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15832,6 +17919,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15839,6 +17930,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15880,6 +17973,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15890,6 +17987,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -15899,7 +17998,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -15933,11 +18032,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -15964,6 +18069,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -15973,6 +18082,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16033,6 +18144,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16042,6 +18157,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16084,6 +18201,10 @@ export namespace FileWriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16091,6 +18212,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16132,6 +18255,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16142,6 +18269,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -16151,7 +18280,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -16185,11 +18314,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16216,6 +18351,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16225,6 +18364,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16285,6 +18426,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16295,6 +18440,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -16304,7 +18451,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -16322,6 +18469,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16329,6 +18480,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16369,15 +18522,21 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -16388,7 +18547,7 @@ export namespace FileWriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -16422,11 +18581,17 @@ export namespace FileWriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -16443,15 +18608,21 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -16502,15 +18673,21 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -16521,7 +18698,7 @@ export namespace FileWriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -16529,13 +18706,19 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -16556,15 +18739,21 @@ export namespace FileWriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -16583,7 +18772,7 @@ export namespace FileWriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -16617,11 +18806,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16648,6 +18843,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16657,6 +18856,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16717,6 +18918,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16727,6 +18932,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -16736,7 +18943,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -16754,6 +18961,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16761,6 +18972,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16791,6 +19004,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16800,6 +19017,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16841,6 +19060,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16851,6 +19074,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -16860,7 +19085,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -16894,11 +19119,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -16957,6 +19188,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -16967,6 +19202,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -16976,7 +19213,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -16994,6 +19231,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17001,6 +19242,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17031,6 +19274,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17040,6 +19287,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17081,6 +19330,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17091,6 +19344,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -17100,7 +19355,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -17134,11 +19389,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17165,6 +19426,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17175,6 +19440,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -17184,7 +19451,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -17202,6 +19469,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17209,6 +19480,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17239,6 +19512,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17248,6 +19525,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17289,6 +19568,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17299,6 +19582,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -17308,7 +19593,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -17342,11 +19627,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17373,6 +19664,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17382,6 +19677,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17442,6 +19739,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17451,6 +19752,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17481,6 +19784,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17490,6 +19797,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17531,6 +19840,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17541,6 +19854,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -17550,7 +19865,7 @@ export namespace FileWriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -17584,11 +19899,17 @@ export namespace FileWriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17615,6 +19936,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17624,6 +19949,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17684,6 +20011,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17694,6 +20025,8 @@ export namespace FileWriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -17703,7 +20036,7 @@ export namespace FileWriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -17721,6 +20054,10 @@ export namespace FileWriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -17728,6 +20065,8 @@ export namespace FileWriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -17761,15 +20100,21 @@ export namespace ReadStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -17780,7 +20125,7 @@ export namespace ReadStream {
     }
 
     class EventEmitter {
-        constructor();
+        constructor(opts: any);
 
         addListener(type: any, listener: any): any;
 
@@ -17814,11 +20159,17 @@ export namespace ReadStream {
 
         static EventEmitter: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -17833,15 +20184,21 @@ export namespace ReadStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -17890,15 +20247,21 @@ export namespace ReadStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -17909,19 +20272,25 @@ export namespace ReadStream {
     }
 
     class Stream {
-        constructor();
+        constructor(opts: any);
 
         pipe(dest: any, options: any): any;
 
         static Stream: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -17940,15 +20309,21 @@ export namespace ReadStream {
 
         static Transform: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -17977,13 +20352,19 @@ export namespace ReadStream {
 
         static Writable: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -17995,7 +20376,7 @@ export namespace ReadStream {
 
     namespace Duplex {
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -18029,11 +20410,17 @@ export namespace ReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -18050,15 +20437,21 @@ export namespace ReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -18109,15 +20502,21 @@ export namespace ReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -18128,7 +20527,7 @@ export namespace ReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -18136,13 +20535,19 @@ export namespace ReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -18163,15 +20568,21 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -18202,13 +20613,19 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -18220,7 +20637,7 @@ export namespace ReadStream {
 
         namespace PassThrough {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -18254,11 +20671,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18317,6 +20740,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18327,6 +20754,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -18336,7 +20765,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -18354,6 +20783,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18361,6 +20794,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18391,6 +20826,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18400,6 +20839,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18442,6 +20883,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18449,6 +20894,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18462,7 +20909,7 @@ export namespace ReadStream {
 
         namespace Readable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -18496,11 +20943,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18527,6 +20980,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18537,6 +20994,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -18546,7 +21005,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -18564,6 +21023,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18571,6 +21034,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18601,6 +21066,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18610,6 +21079,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18652,6 +21123,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18659,6 +21134,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18672,7 +21149,7 @@ export namespace ReadStream {
 
         namespace Stream {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -18706,11 +21183,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18737,6 +21220,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18746,6 +21233,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18806,6 +21295,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18815,6 +21308,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18845,6 +21340,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18854,6 +21353,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18896,6 +21397,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18903,6 +21408,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18916,7 +21423,7 @@ export namespace ReadStream {
 
         namespace Transform {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -18950,11 +21457,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -18981,6 +21494,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -18990,6 +21507,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19050,6 +21569,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19060,6 +21583,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -19069,7 +21594,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -19087,6 +21612,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19094,6 +21623,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19136,6 +21667,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19143,6 +21678,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19156,7 +21693,7 @@ export namespace ReadStream {
 
         namespace Writable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -19190,11 +21727,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19221,6 +21764,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19230,6 +21777,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19290,6 +21839,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19300,6 +21853,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -19309,7 +21864,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -19327,6 +21882,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19334,6 +21893,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19364,6 +21925,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19373,6 +21938,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19413,15 +21980,21 @@ export namespace ReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -19432,7 +22005,7 @@ export namespace ReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -19466,11 +22039,17 @@ export namespace ReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -19519,15 +22098,21 @@ export namespace ReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -19538,7 +22123,7 @@ export namespace ReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -19546,13 +22131,19 @@ export namespace ReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -19573,15 +22164,21 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -19612,13 +22209,19 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -19630,7 +22233,7 @@ export namespace ReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -19664,11 +22267,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19727,6 +22336,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19737,6 +22350,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -19746,7 +22361,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -19764,6 +22379,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19771,6 +22390,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19801,6 +22422,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19810,6 +22435,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19852,6 +22479,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19859,6 +22490,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19900,6 +22533,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19910,6 +22547,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -19919,7 +22558,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -19953,11 +22592,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -19966,7 +22611,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -19984,6 +22629,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -19991,6 +22640,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20021,6 +22672,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20030,6 +22685,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20072,6 +22729,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20079,6 +22740,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20120,6 +22783,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20130,6 +22797,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -20139,7 +22808,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -20173,11 +22842,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20236,6 +22911,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20245,6 +22924,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20275,6 +22956,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20284,6 +22969,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20326,6 +23013,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20333,6 +23024,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20374,6 +23067,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20384,6 +23081,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -20393,7 +23092,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -20427,11 +23126,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20490,6 +23195,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20500,6 +23209,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -20509,7 +23220,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -20527,6 +23238,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20534,6 +23249,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20576,6 +23293,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20583,6 +23304,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20624,6 +23347,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20634,6 +23361,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -20643,7 +23372,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -20677,11 +23406,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20740,6 +23475,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20750,6 +23489,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -20759,7 +23500,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -20777,6 +23518,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20784,6 +23529,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20814,6 +23561,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -20823,6 +23574,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -20863,15 +23616,21 @@ export namespace ReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -20882,7 +23641,7 @@ export namespace ReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -20916,11 +23675,17 @@ export namespace ReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -20937,15 +23702,21 @@ export namespace ReadStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -20956,7 +23727,7 @@ export namespace ReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -20964,13 +23735,19 @@ export namespace ReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -20991,15 +23768,21 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -21030,13 +23813,19 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -21048,7 +23837,7 @@ export namespace ReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -21082,11 +23871,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21113,6 +23908,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21123,6 +23922,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -21132,7 +23933,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -21150,6 +23951,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21157,6 +23962,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21187,6 +23994,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21196,6 +24007,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21238,6 +24051,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21245,6 +24062,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21286,6 +24105,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21296,6 +24119,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -21305,7 +24130,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -21339,11 +24164,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21352,7 +24183,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -21370,6 +24201,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21377,6 +24212,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21407,6 +24244,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21416,6 +24257,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21458,6 +24301,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21465,6 +24312,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21506,6 +24355,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21516,6 +24369,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -21525,7 +24380,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -21559,11 +24414,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21590,6 +24451,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21599,6 +24464,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21629,6 +24496,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21638,6 +24509,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21680,6 +24553,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21687,6 +24564,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21728,6 +24607,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21738,6 +24621,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -21747,7 +24632,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -21781,11 +24666,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21812,6 +24703,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21822,6 +24717,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -21831,7 +24728,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -21849,6 +24746,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21856,6 +24757,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21898,6 +24801,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21905,6 +24812,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -21946,6 +24855,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -21956,6 +24869,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -21965,7 +24880,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -21999,11 +24914,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22030,6 +24951,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22040,6 +24965,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -22049,7 +24976,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -22067,6 +24994,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22074,6 +25005,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22104,6 +25037,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22113,6 +25050,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22153,15 +25092,21 @@ export namespace ReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -22172,7 +25117,7 @@ export namespace ReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -22206,11 +25151,17 @@ export namespace ReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -22227,15 +25178,21 @@ export namespace ReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -22286,15 +25243,21 @@ export namespace ReadStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -22315,15 +25278,21 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -22354,13 +25323,19 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -22372,7 +25347,7 @@ export namespace ReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -22406,11 +25381,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22437,6 +25418,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22446,6 +25431,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22506,6 +25493,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22515,6 +25506,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22545,6 +25538,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22554,6 +25551,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22596,6 +25595,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22603,6 +25606,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22644,6 +25649,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22654,6 +25663,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -22663,7 +25674,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -22697,11 +25708,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22760,6 +25777,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22769,6 +25790,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22799,6 +25822,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22808,6 +25835,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22850,6 +25879,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22857,6 +25890,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22898,6 +25933,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22908,6 +25947,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -22917,7 +25958,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -22951,11 +25992,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -22982,6 +26029,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -22991,6 +26042,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23021,6 +26074,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23030,6 +26087,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23072,6 +26131,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23079,6 +26142,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23120,6 +26185,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23130,6 +26199,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -23139,7 +26210,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -23173,11 +26244,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23204,6 +26281,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23213,6 +26294,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23273,6 +26356,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23282,6 +26369,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23324,6 +26413,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23331,6 +26424,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23372,6 +26467,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23382,6 +26481,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -23391,7 +26492,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -23425,11 +26526,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23456,6 +26563,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23465,6 +26576,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23525,6 +26638,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23534,6 +26651,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23564,6 +26683,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23573,6 +26696,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23613,15 +26738,21 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -23632,7 +26763,7 @@ export namespace ReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -23666,11 +26797,17 @@ export namespace ReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -23687,15 +26824,21 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -23746,15 +26889,21 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -23765,7 +26914,7 @@ export namespace ReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -23773,13 +26922,19 @@ export namespace ReadStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -23810,13 +26965,19 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -23828,7 +26989,7 @@ export namespace ReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -23862,11 +27023,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23893,6 +27060,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23902,6 +27073,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -23962,6 +27135,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -23972,6 +27149,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -23981,7 +27160,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -23999,6 +27178,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24006,6 +27189,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24048,6 +27233,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24055,6 +27244,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24096,6 +27287,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24106,6 +27301,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -24115,7 +27312,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -24149,11 +27346,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24212,6 +27415,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24222,6 +27429,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -24231,7 +27440,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -24249,6 +27458,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24256,6 +27469,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24298,6 +27513,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24305,6 +27524,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24346,6 +27567,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24356,6 +27581,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -24365,7 +27592,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -24399,11 +27626,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24430,6 +27663,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24440,6 +27677,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -24449,7 +27688,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -24467,6 +27706,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24474,6 +27717,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24516,6 +27761,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24523,6 +27772,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24564,6 +27815,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24574,6 +27829,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -24583,7 +27840,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -24617,11 +27874,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24648,6 +27911,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24657,6 +27924,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24717,6 +27986,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24726,6 +27999,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24768,6 +28043,10 @@ export namespace ReadStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24775,6 +28054,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24816,6 +28097,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24826,6 +28111,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -24835,7 +28122,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -24869,11 +28156,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24900,6 +28193,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24909,6 +28206,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -24969,6 +28268,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -24979,6 +28282,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -24988,7 +28293,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -25006,6 +28311,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25013,6 +28322,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25053,15 +28364,21 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -25072,7 +28389,7 @@ export namespace ReadStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -25106,11 +28423,17 @@ export namespace ReadStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -25127,15 +28450,21 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -25186,15 +28515,21 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -25205,7 +28540,7 @@ export namespace ReadStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -25213,13 +28548,19 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -25240,15 +28581,21 @@ export namespace ReadStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -25267,7 +28614,7 @@ export namespace ReadStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -25301,11 +28648,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25332,6 +28685,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25341,6 +28698,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25401,6 +28760,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25411,6 +28774,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -25420,7 +28785,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -25438,6 +28803,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25445,6 +28814,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25475,6 +28846,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25484,6 +28859,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25525,6 +28902,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25535,6 +28916,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -25544,7 +28927,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -25578,11 +28961,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25641,6 +29030,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25651,6 +29044,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -25660,7 +29055,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -25678,6 +29073,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25685,6 +29084,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25715,6 +29116,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25724,6 +29129,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25765,6 +29172,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25775,6 +29186,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -25784,7 +29197,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -25818,11 +29231,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25849,6 +29268,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25859,6 +29282,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -25868,7 +29293,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -25886,6 +29311,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25893,6 +29322,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25923,6 +29354,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25932,6 +29367,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -25973,6 +29410,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -25983,6 +29424,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -25992,7 +29435,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -26026,11 +29469,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -26057,6 +29506,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -26066,6 +29519,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -26126,6 +29581,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -26135,6 +29594,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -26165,6 +29626,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -26174,6 +29639,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -26215,6 +29682,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -26225,6 +29696,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -26234,7 +29707,7 @@ export namespace ReadStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -26268,11 +29741,17 @@ export namespace ReadStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -26299,6 +29778,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -26308,6 +29791,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -26368,6 +29853,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -26378,6 +29867,8 @@ export namespace ReadStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -26387,7 +29878,7 @@ export namespace ReadStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -26405,6 +29896,10 @@ export namespace ReadStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -26412,6 +29907,8 @@ export namespace ReadStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -26445,15 +29942,21 @@ export namespace WriteStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -26464,7 +29967,7 @@ export namespace WriteStream {
     }
 
     class EventEmitter {
-        constructor();
+        constructor(opts: any);
 
         addListener(type: any, listener: any): any;
 
@@ -26498,11 +30001,17 @@ export namespace WriteStream {
 
         static EventEmitter: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -26517,15 +30026,21 @@ export namespace WriteStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -26574,15 +30089,21 @@ export namespace WriteStream {
 
         static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -26593,19 +30114,25 @@ export namespace WriteStream {
     }
 
     class Stream {
-        constructor();
+        constructor(opts: any);
 
         pipe(dest: any, options: any): any;
 
         static Stream: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -26624,15 +30151,21 @@ export namespace WriteStream {
 
         static Transform: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -26661,13 +30194,19 @@ export namespace WriteStream {
 
         static Writable: any;
 
+        static captureRejectionSymbol: any;
+
+        static captureRejections: boolean;
+
         static defaultMaxListeners: number;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-        static init(): void;
+        static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
+
+        static on(emitter: any, event: any): any;
 
         static once(emitter: any, name: any): any;
 
@@ -26686,7 +30225,7 @@ export namespace WriteStream {
 
     namespace Duplex {
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -26720,11 +30259,17 @@ export namespace WriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -26741,15 +30286,21 @@ export namespace WriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -26800,15 +30351,21 @@ export namespace WriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -26819,7 +30376,7 @@ export namespace WriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -26827,13 +30384,19 @@ export namespace WriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -26854,15 +30417,21 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -26893,13 +30462,19 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -26911,7 +30486,7 @@ export namespace WriteStream {
 
         namespace PassThrough {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -26945,11 +30520,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27008,6 +30589,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27018,6 +30603,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -27027,7 +30614,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -27045,6 +30632,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27052,6 +30643,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27082,6 +30675,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27091,6 +30688,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27133,6 +30732,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27140,6 +30743,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27153,7 +30758,7 @@ export namespace WriteStream {
 
         namespace Readable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -27187,11 +30792,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27218,6 +30829,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27228,6 +30843,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -27237,7 +30854,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -27255,6 +30872,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27262,6 +30883,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27292,6 +30915,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27301,6 +30928,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27343,6 +30972,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27350,6 +30983,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27363,7 +30998,7 @@ export namespace WriteStream {
 
         namespace Stream {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -27397,11 +31032,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27428,6 +31069,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27437,6 +31082,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27497,6 +31144,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27506,6 +31157,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27536,6 +31189,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27545,6 +31202,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27587,6 +31246,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27594,6 +31257,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27607,7 +31272,7 @@ export namespace WriteStream {
 
         namespace Transform {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -27641,11 +31306,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27672,6 +31343,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27681,6 +31356,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27741,6 +31418,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27751,6 +31432,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -27760,7 +31443,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -27778,6 +31461,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27785,6 +31472,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27827,6 +31516,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27834,6 +31527,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27847,7 +31542,7 @@ export namespace WriteStream {
 
         namespace Writable {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -27881,11 +31576,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27912,6 +31613,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27921,6 +31626,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -27981,6 +31688,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -27991,6 +31702,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -28000,7 +31713,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -28018,6 +31731,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28025,6 +31742,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28055,6 +31774,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28064,6 +31787,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28104,15 +31829,21 @@ export namespace WriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -28123,7 +31854,7 @@ export namespace WriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -28157,11 +31888,17 @@ export namespace WriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -28210,15 +31947,21 @@ export namespace WriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -28229,7 +31972,7 @@ export namespace WriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -28237,13 +31980,19 @@ export namespace WriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -28264,15 +32013,21 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -28303,13 +32058,19 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -28321,7 +32082,7 @@ export namespace WriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -28355,11 +32116,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28418,6 +32185,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28428,6 +32199,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -28437,7 +32210,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -28455,6 +32228,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28462,6 +32239,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28492,6 +32271,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28501,6 +32284,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28543,6 +32328,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28550,6 +32339,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28591,6 +32382,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28601,6 +32396,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -28610,7 +32407,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -28644,11 +32441,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28657,7 +32460,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -28675,6 +32478,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28682,6 +32489,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28712,6 +32521,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28721,6 +32534,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28763,6 +32578,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28770,6 +32589,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28811,6 +32632,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28821,6 +32646,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -28830,7 +32657,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -28864,11 +32691,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28927,6 +32760,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28936,6 +32773,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -28966,6 +32805,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -28975,6 +32818,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29017,6 +32862,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29024,6 +32873,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29065,6 +32916,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29075,6 +32930,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -29084,7 +32941,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -29118,11 +32975,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29181,6 +33044,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29191,6 +33058,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -29200,7 +33069,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -29218,6 +33087,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29225,6 +33098,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29267,6 +33142,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29274,6 +33153,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29315,6 +33196,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29325,6 +33210,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -29334,7 +33221,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -29368,11 +33255,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29431,6 +33324,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29441,6 +33338,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -29450,7 +33349,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -29468,6 +33367,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29475,6 +33378,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29505,6 +33410,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29514,6 +33423,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29554,15 +33465,21 @@ export namespace WriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -29573,7 +33490,7 @@ export namespace WriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -29607,11 +33524,17 @@ export namespace WriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -29628,15 +33551,21 @@ export namespace WriteStream {
 
             static ReadableState(options: any, stream: any, isDuplex: any): void;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -29647,7 +33576,7 @@ export namespace WriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -29655,13 +33584,19 @@ export namespace WriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -29682,15 +33617,21 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -29721,13 +33662,19 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -29739,7 +33686,7 @@ export namespace WriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -29773,11 +33720,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29804,6 +33757,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29814,6 +33771,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -29823,7 +33782,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -29841,6 +33800,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29848,6 +33811,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29878,6 +33843,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29887,6 +33856,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29929,6 +33900,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29936,6 +33911,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -29977,6 +33954,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -29987,6 +33968,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -29996,7 +33979,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -30030,11 +34013,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30043,7 +34032,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -30061,6 +34050,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30068,6 +34061,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30098,6 +34093,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30107,6 +34106,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30149,6 +34150,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30156,6 +34161,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30197,6 +34204,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30207,6 +34218,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -30216,7 +34229,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -30250,11 +34263,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30281,6 +34300,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30290,6 +34313,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30320,6 +34345,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30329,6 +34358,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30371,6 +34402,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30378,6 +34413,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30419,6 +34456,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30429,6 +34470,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -30438,7 +34481,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -30472,11 +34515,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30503,6 +34552,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30513,6 +34566,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -30522,7 +34577,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -30540,6 +34595,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30547,6 +34606,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30589,6 +34650,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30596,6 +34661,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30637,6 +34704,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30647,6 +34718,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -30656,7 +34729,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -30690,11 +34763,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30721,6 +34800,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30731,6 +34814,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -30740,7 +34825,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -30758,6 +34843,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30765,6 +34854,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30795,6 +34886,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -30804,6 +34899,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -30844,15 +34941,21 @@ export namespace WriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -30863,7 +34966,7 @@ export namespace WriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -30897,11 +35000,17 @@ export namespace WriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -30918,15 +35027,21 @@ export namespace WriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -30977,15 +35092,21 @@ export namespace WriteStream {
 
             static Stream: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -31006,15 +35127,21 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -31045,13 +35172,19 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -31063,7 +35196,7 @@ export namespace WriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -31097,11 +35230,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31128,6 +35267,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31137,6 +35280,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31197,6 +35342,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31206,6 +35355,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31236,6 +35387,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31245,6 +35400,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31287,6 +35444,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31294,6 +35455,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31335,6 +35498,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31345,6 +35512,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -31354,7 +35523,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -31388,11 +35557,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31451,6 +35626,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31460,6 +35639,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31490,6 +35671,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31499,6 +35684,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31541,6 +35728,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31548,6 +35739,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31589,6 +35782,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31599,6 +35796,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -31608,7 +35807,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -31642,11 +35841,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31673,6 +35878,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31682,6 +35891,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31712,6 +35923,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31721,6 +35936,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31763,6 +35980,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31770,6 +35991,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31811,6 +36034,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31821,6 +36048,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -31830,7 +36059,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -31864,11 +36093,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31895,6 +36130,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31904,6 +36143,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -31964,6 +36205,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -31973,6 +36218,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32015,6 +36262,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32022,6 +36273,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32063,6 +36316,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32073,6 +36330,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -32082,7 +36341,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -32116,11 +36375,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32147,6 +36412,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32156,6 +36425,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32216,6 +36487,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32225,6 +36500,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32255,6 +36532,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32264,6 +36545,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32304,15 +36587,21 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -32323,7 +36612,7 @@ export namespace WriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -32357,11 +36646,17 @@ export namespace WriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -32378,15 +36673,21 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -32437,15 +36738,21 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -32456,7 +36763,7 @@ export namespace WriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -32464,13 +36771,19 @@ export namespace WriteStream {
 
             static Transform: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -32501,13 +36814,19 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -32519,7 +36838,7 @@ export namespace WriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -32553,11 +36872,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32584,6 +36909,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32593,6 +36922,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32653,6 +36984,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32663,6 +36998,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -32672,7 +37009,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -32690,6 +37027,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32697,6 +37038,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32739,6 +37082,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32746,6 +37093,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32787,6 +37136,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32797,6 +37150,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -32806,7 +37161,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -32840,11 +37195,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32903,6 +37264,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32913,6 +37278,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -32922,7 +37289,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -32940,6 +37307,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32947,6 +37318,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -32989,6 +37362,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -32996,6 +37373,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33037,6 +37416,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33047,6 +37430,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -33056,7 +37441,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -33090,11 +37475,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33121,6 +37512,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33131,6 +37526,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -33140,7 +37537,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -33158,6 +37555,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33165,6 +37566,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33207,6 +37610,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33214,6 +37621,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33255,6 +37664,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33265,6 +37678,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -33274,7 +37689,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -33308,11 +37723,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33339,6 +37760,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33348,6 +37773,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33408,6 +37835,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33417,6 +37848,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33459,6 +37892,10 @@ export namespace WriteStream {
 
                 static WritableState: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33466,6 +37903,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33507,6 +37946,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33517,6 +37960,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -33526,7 +37971,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -33560,11 +38005,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33591,6 +38042,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33600,6 +38055,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33660,6 +38117,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33670,6 +38131,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -33679,7 +38142,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -33697,6 +38160,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -33704,6 +38171,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -33744,15 +38213,21 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -33763,7 +38238,7 @@ export namespace WriteStream {
         }
 
         class EventEmitter {
-            constructor();
+            constructor(opts: any);
 
             addListener(type: any, listener: any): any;
 
@@ -33797,11 +38272,17 @@ export namespace WriteStream {
 
             static EventEmitter: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -33818,15 +38299,21 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -33877,15 +38364,21 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -33896,7 +38389,7 @@ export namespace WriteStream {
         }
 
         class Stream {
-            constructor();
+            constructor(opts: any);
 
             pipe(dest: any, options: any): any;
 
@@ -33904,13 +38397,19 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -33931,15 +38430,21 @@ export namespace WriteStream {
 
             static Writable: any;
 
+            static captureRejectionSymbol: any;
+
+            static captureRejections: boolean;
+
             static defaultMaxListeners: number;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
 
-            static init(): void;
+            static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
+
+            static on(emitter: any, event: any): any;
 
             static once(emitter: any, name: any): any;
 
@@ -33958,7 +38463,7 @@ export namespace WriteStream {
 
         namespace Duplex {
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -33992,11 +38497,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34023,6 +38534,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34032,6 +38547,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34092,6 +38609,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34102,6 +38623,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -34111,7 +38634,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -34129,6 +38652,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34136,6 +38663,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34166,6 +38695,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34175,6 +38708,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34216,6 +38751,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34226,6 +38765,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -34235,7 +38776,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -34269,11 +38810,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34332,6 +38879,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34342,6 +38893,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -34351,7 +38904,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -34369,6 +38922,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34376,6 +38933,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34406,6 +38965,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34415,6 +38978,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34456,6 +39021,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34466,6 +39035,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -34475,7 +39046,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -34509,11 +39080,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34540,6 +39117,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34550,6 +39131,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -34559,7 +39142,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -34577,6 +39160,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34584,6 +39171,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34614,6 +39203,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34623,6 +39216,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34664,6 +39259,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34674,6 +39273,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -34683,7 +39284,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -34717,11 +39318,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34748,6 +39355,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34757,6 +39368,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34817,6 +39430,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34826,6 +39443,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34856,6 +39475,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34865,6 +39488,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34906,6 +39531,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34916,6 +39545,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -34925,7 +39556,7 @@ export namespace WriteStream {
             }
 
             class EventEmitter {
-                constructor();
+                constructor(opts: any);
 
                 addListener(type: any, listener: any): any;
 
@@ -34959,11 +39590,17 @@ export namespace WriteStream {
 
                 static EventEmitter: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -34990,6 +39627,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -34999,6 +39640,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
@@ -35059,6 +39702,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -35069,6 +39716,8 @@ export namespace WriteStream {
 
                 static listenerCount: any;
 
+                static on: any;
+
                 static once: any;
 
                 static pipeline: any;
@@ -35078,7 +39727,7 @@ export namespace WriteStream {
             }
 
             class Stream {
-                constructor();
+                constructor(opts: any);
 
                 pipe(dest: any, options: any): any;
 
@@ -35096,6 +39745,10 @@ export namespace WriteStream {
 
                 static Writable: any;
 
+                static captureRejectionSymbol: any;
+
+                static captureRejections: any;
+
                 static defaultMaxListeners: any;
 
                 static finished: any;
@@ -35103,6 +39756,8 @@ export namespace WriteStream {
                 static init: any;
 
                 static listenerCount: any;
+
+                static on: any;
 
                 static once: any;
 
