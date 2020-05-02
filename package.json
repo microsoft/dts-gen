@@ -13,6 +13,8 @@
     "yargs": "^15.3.1"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "@types/chai": "^4.2.11",
     "@types/mocha": "latest",
     "@types/node": "^12.0.0",
     "@types/parse-git-config": "^1.1.0",
@@ -32,7 +34,7 @@
   ],
   "preferGlobal": true,
   "scripts": {
-    "test": "mocha bin/tests/test.js",
+    "test": "mocha bin/tests/",
     "build": "tsc",
     "build-browser": "tsc -p browser && webpack",
     "lint": "tslint --project tsconfig.json --format stylish"

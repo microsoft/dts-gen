@@ -6,6 +6,7 @@ import * as yargs from 'yargs';
 
 import * as guess from './';
 import writeDefinitelyTypedPackage from './definitely-typed';
+import { escapeModuleName } from "./names";
 
 const templatesDirectory = path.join(__dirname, "..", "..", "templates");
 
@@ -105,7 +106,7 @@ try {
         console.log(result);
     } else {
         let filename =
-            typeof args.file === 'boolean' || args.file === undefined ? name + '.d.ts' : args.file;
+            typeof args.file === 'boolean' || args.file === undefined ? escapeModuleName(name) + '.d.ts' : args.file;
         if (!filename.endsWith('.d.ts')) {
             filename = filename + '.d.ts';
         }

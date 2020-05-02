@@ -4,11 +4,11 @@ import { homedir } from 'os';
 import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
 import { format as formatUrl, parse as parseUrl } from 'url';
-import { getDTName } from './names';
+import { escapeModuleName } from './names';
 
 export default function writeDefinitelyTypedPackage(
         indexDtsContent: string, packageName: string, overwrite: boolean): void {
-    const dtName = getDTName(packageName);
+    const dtName = escapeModuleName(packageName);
     const packageDir = joinPaths("types", dtName);
 
     // Check for overwrite

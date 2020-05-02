@@ -1,6 +1,6 @@
 import * as dom from 'dts-dom';
 import { create, reservedWords } from 'dts-dom';
-import { getDTName } from './names';
+import { escapeModuleName } from './names';
 import * as ts from 'typescript';
 
 const enum ValueTypes {
@@ -22,7 +22,7 @@ const builtins: { [name: string]: (new (...args: any[]) => any) | undefined } = 
 
 function forceAsIdentifier(s: string): string {
     // TODO: Make this more comprehensive
-    return getDTName(s.replace(/-/g, '_'));
+    return escapeModuleName(s.replace(/-/g, '_'));
 }
 
 function getValueTypes(value: any): ValueTypes {
