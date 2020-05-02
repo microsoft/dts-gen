@@ -38,7 +38,7 @@ const expressions: { [s: string]: any } = {
 };
 
 function checkDeclarationBaseline(name: string, content: string) {
-    const filename = path.join(__dirname, `../../baselines/${name}`);
+    const filename = path.join(__dirname, `../baselines/${name}`);
     const existing = fs.existsSync(filename) ? fs.readFileSync(filename, 'utf-8') : '<none>';
     if (existing !== content) {
         fs.writeFileSync(filename, content, 'utf-8');

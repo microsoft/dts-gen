@@ -1,6 +1,6 @@
 import * as dom from 'dts-dom';
 import { create, reservedWords } from 'dts-dom';
-import { getDTName } from './names';
+import { escapeModuleName } from './names';
 import * as ts from 'typescript';
 
 const enum ValueTypes {
@@ -22,7 +22,7 @@ const builtins: { [name: string]: (new (...args: any[]) => any) | undefined } = 
 
 function forceAsIdentifier(s: string): string {
     // TODO: Make this more comprehensive
-    return getDTName(s.replace(/-/g, '_'));
+    return escapeModuleName(s.replace(/-/g, '_'));
 }
 
 function getValueTypes(value: any): ValueTypes {
@@ -370,11 +370,10 @@ function inferParameterType(_fn: ts.FunctionExpression, _param: ts.ParameterDecl
 
 function parseFunctionBody(fn: any): ts.FunctionExpression {
     const setup = `const myFn = ${fn.toString()};`;
-    const srcFile = ts.createSourceFile('test.ts', setup, ts.ScriptTarget.Latest, true);
+    const srcFile = ts.createSourceFile('', setup, ts.ScriptTarget.Latest, true);
     const statement = srcFile.statements[0] as ts.VariableStatement;
     const decl = statement.declarationList.declarations[0];
-    const init = decl.initializer as ts.FunctionExpression;
-    return init;
+    return decl.initializer as ts.FunctionExpression;
 }
 
 function isNativeFunction(fn: any) {

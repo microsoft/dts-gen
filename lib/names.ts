@@ -1,4 +1,4 @@
-export function getDTName(s: string) {
+export function escapeModuleName(s: string) {
     if (s.indexOf('@') === 0 && s.indexOf('/') !== -1) {
         // we have a scoped module, e.g. @bla/foo
         // which should be converted to   bla__foo
