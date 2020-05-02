@@ -1,7 +1,6 @@
 {
     "include": [
-        "lib",
-        "tests"
+        "lib"
     ],
     "compilerOptions": {
         "lib": [

@@ -37,7 +37,7 @@ export class FileReadStream {
 
     close(cb: any): void;
 
-    open(): void;
+    open(args: any): any;
 
     static ReadableState(options: any, stream: any, isDuplex: any): void;
 
@@ -46,6 +46,8 @@ export class FileReadStream {
     static captureRejections: boolean;
 
     static defaultMaxListeners: number;
+
+    static errorMonitor: any;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -72,13 +74,15 @@ export class FileWriteStream {
 
     destroySoon(chunk: any, encoding: any, cb: any): any;
 
-    open(): void;
+    open(args: any): any;
 
     static captureRejectionSymbol: any;
 
     static captureRejections: boolean;
 
     static defaultMaxListeners: number;
+
+    static errorMonitor: any;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -101,7 +105,7 @@ export class ReadStream {
 
     close(cb: any): void;
 
-    open(): void;
+    open(args: any): any;
 
     static ReadableState(options: any, stream: any, isDuplex: any): void;
 
@@ -110,6 +114,8 @@ export class ReadStream {
     static captureRejections: boolean;
 
     static defaultMaxListeners: number;
+
+    static errorMonitor: any;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -143,13 +149,15 @@ export class WriteStream {
 
     destroySoon(chunk: any, encoding: any, cb: any): any;
 
-    open(): void;
+    open(args: any): any;
 
     static captureRejectionSymbol: any;
 
     static captureRejections: boolean;
 
     static defaultMaxListeners: number;
+
+    static errorMonitor: any;
 
     static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -311,7 +319,7 @@ export function lstatSync(path: any, options: any): any;
 
 export function mkdir(path: any, options: any, callback: any): void;
 
-export function mkdirSync(path: any, options: any): void;
+export function mkdirSync(path: any, options: any): any;
 
 export function mkdtemp(prefix: any, options: any, callback: any): void;
 
@@ -325,7 +333,7 @@ export function opendir(path: any, options: any, callback: any): void;
 
 export function opendirSync(path: any, options: any): any;
 
-export function read(fd: any, buffer: any, offset: any, length: any, position: any, callback: any): any;
+export function read(fd: any, buffer: any, offset: any, length: any, position: any, callback: any, ...args: any[]): any;
 
 export function readFile(path: any, options: any, callback: any): void;
 
@@ -415,6 +423,8 @@ export namespace FileReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
@@ -474,6 +484,8 @@ export namespace FileReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
@@ -498,6 +510,8 @@ export namespace FileReadStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -562,6 +576,8 @@ export namespace FileReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
@@ -593,6 +609,8 @@ export namespace FileReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static init(opts: any): void;
@@ -623,6 +641,8 @@ export namespace FileReadStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -666,6 +686,8 @@ export namespace FileReadStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -725,6 +747,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -751,6 +775,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -817,6 +843,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -850,6 +878,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -882,6 +912,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -927,6 +959,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -985,6 +1019,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -1055,6 +1091,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -1098,6 +1136,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -1140,6 +1180,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1197,6 +1239,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1258,6 +1302,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -1294,6 +1340,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1338,6 +1386,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -1380,6 +1430,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1437,6 +1489,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1498,6 +1552,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -1534,6 +1590,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1610,6 +1668,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -1654,6 +1714,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1711,6 +1773,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1772,6 +1836,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -1808,6 +1874,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1884,6 +1952,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -1926,6 +1996,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -1981,6 +2053,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -2042,6 +2116,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -2078,6 +2154,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -2154,6 +2232,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -2197,6 +2277,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -2239,6 +2321,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -2295,6 +2379,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -2353,6 +2439,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static init(opts: any): void;
 
@@ -2413,6 +2501,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -2446,6 +2536,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -2478,6 +2570,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -2523,6 +2617,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -2582,6 +2678,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -2651,6 +2749,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -2694,6 +2794,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -2736,6 +2838,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -2793,6 +2897,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -2848,6 +2954,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -2907,6 +3015,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -2943,6 +3053,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -2986,6 +3098,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -3043,6 +3157,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -3098,6 +3214,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -3156,6 +3274,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -3226,6 +3346,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -3270,6 +3392,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -3327,6 +3451,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -3382,6 +3508,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -3440,6 +3568,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -3510,6 +3640,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -3552,6 +3684,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -3608,6 +3742,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -3661,6 +3797,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -3720,6 +3858,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -3790,6 +3930,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -3833,6 +3975,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -3875,6 +4019,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -3931,6 +4077,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -3990,6 +4138,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -4016,6 +4166,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -4050,6 +4202,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -4082,6 +4236,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -4127,6 +4283,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -4186,6 +4344,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -4222,6 +4382,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4266,6 +4428,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -4308,6 +4472,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4365,6 +4531,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4420,6 +4588,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -4479,6 +4649,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -4515,6 +4687,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4558,6 +4732,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4615,6 +4791,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4670,6 +4848,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -4729,6 +4909,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -4765,6 +4947,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4810,6 +4994,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4867,6 +5053,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -4922,6 +5110,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -4981,6 +5171,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -5017,6 +5209,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5060,6 +5254,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5116,6 +5312,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -5169,6 +5367,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5229,6 +5429,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -5265,6 +5467,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5309,6 +5513,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -5351,6 +5557,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5407,6 +5615,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -5466,6 +5676,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -5492,6 +5704,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -5558,6 +5772,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -5592,6 +5808,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -5637,6 +5855,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -5696,6 +5916,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -5732,6 +5954,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5808,6 +6032,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -5852,6 +6078,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5909,6 +6137,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -5964,6 +6194,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -6022,6 +6254,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -6092,6 +6326,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -6136,6 +6372,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6193,6 +6431,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6248,6 +6488,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -6307,6 +6549,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -6343,6 +6587,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6388,6 +6634,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6445,6 +6693,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6500,6 +6750,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -6559,6 +6811,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -6595,6 +6849,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6670,6 +6926,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6728,6 +6986,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -6781,6 +7041,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6841,6 +7103,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -6877,6 +7141,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -6953,6 +7219,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -6997,6 +7265,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -7053,6 +7323,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -7112,6 +7384,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -7138,6 +7412,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -7204,6 +7480,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -7236,6 +7514,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -7279,6 +7559,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -7338,6 +7620,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -7374,6 +7658,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -7450,6 +7736,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -7492,6 +7780,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -7547,6 +7837,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -7602,6 +7894,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -7660,6 +7954,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -7730,6 +8026,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -7772,6 +8070,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -7827,6 +8127,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -7882,6 +8184,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -7941,6 +8245,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -7977,6 +8283,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8020,6 +8328,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8075,6 +8385,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8130,6 +8442,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -8189,6 +8503,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -8225,6 +8541,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8300,6 +8618,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8358,6 +8678,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -8411,6 +8733,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8471,6 +8795,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -8507,6 +8833,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8583,6 +8911,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -8625,6 +8955,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -8678,6 +9010,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -8738,6 +9072,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -8764,6 +9100,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -8830,6 +9168,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -8863,6 +9203,8 @@ export namespace FileReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -8895,6 +9237,8 @@ export namespace FileReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -8963,6 +9307,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -8999,6 +9345,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -9075,6 +9423,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -9118,6 +9468,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -9160,6 +9512,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -9217,6 +9571,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -9275,6 +9631,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -9345,6 +9703,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -9388,6 +9748,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -9430,6 +9792,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -9487,6 +9851,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -9546,6 +9912,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -9582,6 +9950,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -9626,6 +9996,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -9668,6 +10040,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -9725,6 +10099,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -9784,6 +10160,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -9820,6 +10198,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -9896,6 +10276,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -9940,6 +10322,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -9997,6 +10381,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -10056,6 +10442,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -10092,6 +10480,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -10168,6 +10558,8 @@ export namespace FileReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -10210,6 +10602,8 @@ export namespace FileReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -10257,6 +10651,8 @@ export namespace FileWriteStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
@@ -10316,6 +10712,8 @@ export namespace FileWriteStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
@@ -10340,6 +10738,8 @@ export namespace FileWriteStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -10404,6 +10804,8 @@ export namespace FileWriteStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
@@ -10435,6 +10837,8 @@ export namespace FileWriteStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static init(opts: any): void;
@@ -10465,6 +10869,8 @@ export namespace FileWriteStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -10508,6 +10914,8 @@ export namespace FileWriteStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -10574,6 +10982,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -10600,6 +11010,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -10666,6 +11078,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -10699,6 +11113,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -10731,6 +11147,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -10776,6 +11194,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -10834,6 +11254,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -10904,6 +11326,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -10947,6 +11371,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -10989,6 +11415,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11046,6 +11474,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11107,6 +11537,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -11143,6 +11575,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11187,6 +11621,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -11229,6 +11665,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11286,6 +11724,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11347,6 +11787,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -11383,6 +11825,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11459,6 +11903,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -11503,6 +11949,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11560,6 +12008,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11621,6 +12071,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -11657,6 +12109,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11733,6 +12187,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -11775,6 +12231,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11830,6 +12288,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -11891,6 +12351,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -11927,6 +12389,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -12003,6 +12467,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -12046,6 +12512,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -12088,6 +12556,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -12144,6 +12614,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -12202,6 +12674,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static init(opts: any): void;
 
@@ -12262,6 +12736,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -12295,6 +12771,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -12327,6 +12805,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -12372,6 +12852,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -12431,6 +12913,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -12500,6 +12984,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -12543,6 +13029,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -12585,6 +13073,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -12642,6 +13132,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -12697,6 +13189,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -12756,6 +13250,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -12792,6 +13288,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -12835,6 +13333,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -12892,6 +13392,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -12947,6 +13449,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -13005,6 +13509,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -13075,6 +13581,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -13119,6 +13627,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -13176,6 +13686,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -13231,6 +13743,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -13289,6 +13803,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -13359,6 +13875,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -13401,6 +13919,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -13457,6 +13977,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -13510,6 +14032,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -13569,6 +14093,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -13639,6 +14165,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -13682,6 +14210,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -13724,6 +14254,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -13780,6 +14312,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -13839,6 +14373,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -13865,6 +14401,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -13899,6 +14437,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -13931,6 +14471,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -13976,6 +14518,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -14035,6 +14579,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -14071,6 +14617,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14115,6 +14663,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -14157,6 +14707,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14214,6 +14766,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14269,6 +14823,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -14328,6 +14884,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -14364,6 +14922,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14407,6 +14967,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14464,6 +15026,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14519,6 +15083,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -14578,6 +15144,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -14614,6 +15182,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14659,6 +15229,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14716,6 +15288,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14771,6 +15345,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -14830,6 +15406,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -14866,6 +15444,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14909,6 +15489,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -14965,6 +15547,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -15018,6 +15602,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -15078,6 +15664,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -15114,6 +15702,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -15158,6 +15748,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -15200,6 +15792,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -15256,6 +15850,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -15315,6 +15911,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -15341,6 +15939,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -15407,6 +16007,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -15441,6 +16043,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -15486,6 +16090,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -15545,6 +16151,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -15581,6 +16189,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -15657,6 +16267,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -15701,6 +16313,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -15758,6 +16372,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -15813,6 +16429,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -15871,6 +16489,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -15941,6 +16561,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -15985,6 +16607,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16042,6 +16666,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16097,6 +16723,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -16156,6 +16784,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -16192,6 +16822,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16237,6 +16869,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16294,6 +16928,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16349,6 +16985,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -16408,6 +17046,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -16444,6 +17084,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16519,6 +17161,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16577,6 +17221,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -16630,6 +17276,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16690,6 +17338,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -16726,6 +17376,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16802,6 +17454,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -16846,6 +17500,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -16902,6 +17558,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -16961,6 +17619,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -16987,6 +17647,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -17053,6 +17715,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -17085,6 +17749,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -17128,6 +17794,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -17187,6 +17855,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -17223,6 +17893,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17299,6 +17971,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -17341,6 +18015,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17396,6 +18072,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17451,6 +18129,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -17509,6 +18189,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -17579,6 +18261,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -17621,6 +18305,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17676,6 +18362,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17731,6 +18419,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -17790,6 +18480,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -17826,6 +18518,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17869,6 +18563,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17924,6 +18620,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -17979,6 +18677,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -18038,6 +18738,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -18074,6 +18776,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -18149,6 +18853,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -18207,6 +18913,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -18260,6 +18968,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -18320,6 +19030,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -18356,6 +19068,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -18432,6 +19146,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -18474,6 +19190,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -18527,6 +19245,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -18587,6 +19307,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -18613,6 +19335,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -18679,6 +19403,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -18712,6 +19438,8 @@ export namespace FileWriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -18744,6 +19472,8 @@ export namespace FileWriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -18812,6 +19542,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -18848,6 +19580,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -18924,6 +19658,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -18967,6 +19703,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -19009,6 +19747,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -19066,6 +19806,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -19124,6 +19866,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -19194,6 +19938,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -19237,6 +19983,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -19279,6 +20027,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -19336,6 +20086,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -19395,6 +20147,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -19431,6 +20185,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -19475,6 +20231,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -19517,6 +20275,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -19574,6 +20334,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -19633,6 +20395,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -19669,6 +20433,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -19745,6 +20511,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -19789,6 +20557,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -19846,6 +20616,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -19905,6 +20677,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -19941,6 +20715,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -20017,6 +20793,8 @@ export namespace FileWriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -20059,6 +20837,8 @@ export namespace FileWriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -20106,6 +20886,8 @@ export namespace ReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
@@ -20165,6 +20947,8 @@ export namespace ReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
@@ -20189,6 +20973,8 @@ export namespace ReadStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -20253,6 +21039,8 @@ export namespace ReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
@@ -20284,6 +21072,8 @@ export namespace ReadStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static init(opts: any): void;
@@ -20314,6 +21104,8 @@ export namespace ReadStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -20357,6 +21149,8 @@ export namespace ReadStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -20416,6 +21210,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -20442,6 +21238,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -20508,6 +21306,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -20541,6 +21341,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -20573,6 +21375,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -20618,6 +21422,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -20676,6 +21482,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -20746,6 +21554,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -20789,6 +21599,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -20831,6 +21643,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -20888,6 +21702,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -20949,6 +21765,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -20985,6 +21803,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21029,6 +21849,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -21071,6 +21893,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21128,6 +21952,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21189,6 +22015,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -21225,6 +22053,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21301,6 +22131,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -21345,6 +22177,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21402,6 +22236,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21463,6 +22299,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -21499,6 +22337,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21575,6 +22415,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -21617,6 +22459,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21672,6 +22516,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21733,6 +22579,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -21769,6 +22617,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21845,6 +22695,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -21888,6 +22740,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -21930,6 +22784,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -21986,6 +22842,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -22044,6 +22902,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static init(opts: any): void;
 
@@ -22104,6 +22964,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -22137,6 +22999,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -22169,6 +23033,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -22214,6 +23080,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -22273,6 +23141,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -22342,6 +23212,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -22385,6 +23257,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -22427,6 +23301,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -22484,6 +23360,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -22539,6 +23417,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -22598,6 +23478,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -22634,6 +23516,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -22677,6 +23561,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -22734,6 +23620,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -22789,6 +23677,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -22847,6 +23737,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -22917,6 +23809,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -22961,6 +23855,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -23018,6 +23914,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -23073,6 +23971,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -23131,6 +24031,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -23201,6 +24103,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -23243,6 +24147,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -23299,6 +24205,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -23352,6 +24260,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -23411,6 +24321,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -23481,6 +24393,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -23524,6 +24438,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -23566,6 +24482,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -23622,6 +24540,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -23681,6 +24601,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -23707,6 +24629,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -23741,6 +24665,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -23773,6 +24699,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -23818,6 +24746,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -23877,6 +24807,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -23913,6 +24845,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -23957,6 +24891,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -23999,6 +24935,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24056,6 +24994,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24111,6 +25051,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -24170,6 +25112,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -24206,6 +25150,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24249,6 +25195,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24306,6 +25254,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24361,6 +25311,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -24420,6 +25372,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -24456,6 +25410,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24501,6 +25457,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24558,6 +25516,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24613,6 +25573,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -24672,6 +25634,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -24708,6 +25672,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24751,6 +25717,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24807,6 +25775,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -24860,6 +25830,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -24920,6 +25892,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -24956,6 +25930,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -25000,6 +25976,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -25042,6 +26020,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -25098,6 +26078,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -25157,6 +26139,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -25183,6 +26167,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -25249,6 +26235,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -25283,6 +26271,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -25328,6 +26318,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -25387,6 +26379,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -25423,6 +26417,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -25499,6 +26495,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -25543,6 +26541,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -25600,6 +26600,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -25655,6 +26657,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -25713,6 +26717,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -25783,6 +26789,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -25827,6 +26835,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -25884,6 +26894,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -25939,6 +26951,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -25998,6 +27012,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -26034,6 +27050,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26079,6 +27097,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26136,6 +27156,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26191,6 +27213,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -26250,6 +27274,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -26286,6 +27312,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26361,6 +27389,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26419,6 +27449,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -26472,6 +27504,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26532,6 +27566,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -26568,6 +27604,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26644,6 +27682,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -26688,6 +27728,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -26744,6 +27786,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -26803,6 +27847,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -26829,6 +27875,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -26895,6 +27943,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -26927,6 +27977,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -26970,6 +28022,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -27029,6 +28083,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -27065,6 +28121,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27141,6 +28199,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -27183,6 +28243,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27238,6 +28300,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27293,6 +28357,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -27351,6 +28417,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -27421,6 +28489,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -27463,6 +28533,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27518,6 +28590,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27573,6 +28647,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -27632,6 +28708,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -27668,6 +28746,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27711,6 +28791,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27766,6 +28848,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27821,6 +28905,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -27880,6 +28966,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -27916,6 +29004,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -27991,6 +29081,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -28049,6 +29141,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -28102,6 +29196,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -28162,6 +29258,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -28198,6 +29296,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -28274,6 +29374,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -28316,6 +29418,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -28369,6 +29473,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -28429,6 +29535,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -28455,6 +29563,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -28521,6 +29631,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -28554,6 +29666,8 @@ export namespace ReadStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -28586,6 +29700,8 @@ export namespace ReadStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -28654,6 +29770,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -28690,6 +29808,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -28766,6 +29886,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -28809,6 +29931,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -28851,6 +29975,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -28908,6 +30034,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -28966,6 +30094,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -29036,6 +30166,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -29079,6 +30211,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -29121,6 +30255,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -29178,6 +30314,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -29237,6 +30375,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -29273,6 +30413,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -29317,6 +30459,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -29359,6 +30503,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -29416,6 +30562,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -29475,6 +30623,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -29511,6 +30661,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -29587,6 +30739,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -29631,6 +30785,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -29688,6 +30844,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -29747,6 +30905,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -29783,6 +30943,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -29859,6 +31021,8 @@ export namespace ReadStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -29901,6 +31065,8 @@ export namespace ReadStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -29947,6 +31113,8 @@ export namespace WriteStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -30007,6 +31175,8 @@ export namespace WriteStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static init(opts: any): void;
 
         static listenerCount(emitter: any, type: any): any;
@@ -30031,6 +31201,8 @@ export namespace WriteStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -30095,6 +31267,8 @@ export namespace WriteStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static from(iterable: any, opts: any): any;
@@ -30126,6 +31300,8 @@ export namespace WriteStream {
 
         static defaultMaxListeners: number;
 
+        static errorMonitor: any;
+
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
         static init(opts: any): void;
@@ -30156,6 +31332,8 @@ export namespace WriteStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -30199,6 +31377,8 @@ export namespace WriteStream {
         static captureRejections: boolean;
 
         static defaultMaxListeners: number;
+
+        static errorMonitor: any;
 
         static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -30265,6 +31445,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -30291,6 +31473,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -30357,6 +31541,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -30390,6 +31576,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -30422,6 +31610,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -30467,6 +31657,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -30525,6 +31717,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -30595,6 +31789,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -30638,6 +31834,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -30680,6 +31878,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -30737,6 +31937,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -30798,6 +32000,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -30834,6 +32038,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -30878,6 +32084,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -30920,6 +32128,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -30977,6 +32187,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31038,6 +32250,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -31074,6 +32288,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31150,6 +32366,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -31194,6 +32412,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31251,6 +32471,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31312,6 +32534,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -31348,6 +32572,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31424,6 +32650,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -31466,6 +32694,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31521,6 +32751,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31582,6 +32814,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -31618,6 +32852,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31694,6 +32930,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -31737,6 +32975,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -31779,6 +33019,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -31835,6 +33077,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -31893,6 +33137,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static init(opts: any): void;
 
@@ -31953,6 +33199,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -31986,6 +33234,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -32018,6 +33268,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -32063,6 +33315,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -32122,6 +33376,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -32191,6 +33447,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -32234,6 +33492,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -32276,6 +33536,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -32333,6 +33595,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -32388,6 +33652,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -32447,6 +33713,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -32483,6 +33751,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -32526,6 +33796,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -32583,6 +33855,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -32638,6 +33912,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -32696,6 +33972,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -32766,6 +34044,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -32810,6 +34090,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -32867,6 +34149,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -32922,6 +34206,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -32980,6 +34266,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -33050,6 +34338,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -33092,6 +34382,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -33148,6 +34440,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -33201,6 +34495,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -33260,6 +34556,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -33330,6 +34628,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -33373,6 +34673,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -33415,6 +34717,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -33471,6 +34775,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -33530,6 +34836,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -33556,6 +34864,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -33590,6 +34900,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -33622,6 +34934,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -33667,6 +34981,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -33726,6 +35042,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -33762,6 +35080,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -33806,6 +35126,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -33848,6 +35170,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -33905,6 +35229,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -33960,6 +35286,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -34019,6 +35347,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -34055,6 +35385,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34098,6 +35430,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34155,6 +35489,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34210,6 +35546,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -34269,6 +35607,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -34305,6 +35645,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34350,6 +35692,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34407,6 +35751,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34462,6 +35808,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -34521,6 +35869,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -34557,6 +35907,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34600,6 +35952,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34656,6 +36010,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -34709,6 +36065,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34769,6 +36127,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -34805,6 +36165,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34849,6 +36211,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -34891,6 +36255,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -34947,6 +36313,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -35006,6 +36374,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -35032,6 +36402,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -35098,6 +36470,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -35132,6 +36506,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -35177,6 +36553,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -35236,6 +36614,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -35272,6 +36652,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -35348,6 +36730,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -35392,6 +36776,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -35449,6 +36835,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -35504,6 +36892,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -35562,6 +36952,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -35632,6 +37024,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -35676,6 +37070,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -35733,6 +37129,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -35788,6 +37186,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -35847,6 +37247,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -35883,6 +37285,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -35928,6 +37332,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -35985,6 +37391,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -36040,6 +37448,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -36099,6 +37509,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -36135,6 +37547,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -36210,6 +37624,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -36268,6 +37684,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -36321,6 +37739,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -36381,6 +37801,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -36417,6 +37839,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -36493,6 +37917,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -36537,6 +37963,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -36593,6 +38021,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -36652,6 +38082,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -36678,6 +38110,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -36744,6 +38178,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -36776,6 +38212,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -36819,6 +38257,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -36878,6 +38318,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -36914,6 +38356,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -36990,6 +38434,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -37032,6 +38478,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37087,6 +38535,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37142,6 +38592,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -37200,6 +38652,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -37270,6 +38724,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -37312,6 +38768,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37367,6 +38825,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37422,6 +38882,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -37481,6 +38943,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -37517,6 +38981,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37560,6 +39026,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37615,6 +39083,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37670,6 +39140,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -37729,6 +39201,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -37765,6 +39239,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37840,6 +39316,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -37898,6 +39376,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -37951,6 +39431,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -38011,6 +39493,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -38047,6 +39531,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -38123,6 +39609,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -38165,6 +39653,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -38218,6 +39708,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -38278,6 +39770,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static init(opts: any): void;
 
             static listenerCount(emitter: any, type: any): any;
@@ -38304,6 +39798,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -38370,6 +39866,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static from(iterable: any, opts: any): any;
@@ -38403,6 +39901,8 @@ export namespace WriteStream {
 
             static defaultMaxListeners: number;
 
+            static errorMonitor: any;
+
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
             static init(opts: any): void;
@@ -38435,6 +39935,8 @@ export namespace WriteStream {
             static captureRejections: boolean;
 
             static defaultMaxListeners: number;
+
+            static errorMonitor: any;
 
             static finished(stream: any, opts: any, callback: any, ...args: any[]): any;
 
@@ -38503,6 +40005,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -38539,6 +40043,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -38615,6 +40121,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -38658,6 +40166,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -38700,6 +40210,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -38757,6 +40269,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -38815,6 +40329,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static init: any;
 
@@ -38885,6 +40401,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -38928,6 +40446,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -38970,6 +40490,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -39027,6 +40549,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -39086,6 +40610,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -39122,6 +40648,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -39166,6 +40694,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static init: any;
@@ -39208,6 +40738,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -39265,6 +40797,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -39324,6 +40858,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -39360,6 +40896,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -39436,6 +40974,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -39480,6 +41020,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -39537,6 +41079,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -39596,6 +41140,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static init: any;
 
                 static listenerCount: any;
@@ -39632,6 +41178,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 
@@ -39708,6 +41256,8 @@ export namespace WriteStream {
 
                 static defaultMaxListeners: any;
 
+                static errorMonitor: any;
+
                 static finished: any;
 
                 static from: any;
@@ -39750,6 +41300,8 @@ export namespace WriteStream {
                 static captureRejections: any;
 
                 static defaultMaxListeners: any;
+
+                static errorMonitor: any;
 
                 static finished: any;
 

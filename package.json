@@ -33,7 +33,7 @@
   ],
   "preferGlobal": true,
   "scripts": {
-    "test": "mocha bin/tests/",
+    "test": "ts-mocha tests/*.spec.ts",
     "build": "tsc",
     "build-browser": "tsc -p browser && webpack",
     "lint": "tslint --project tsconfig.json --format stylish"

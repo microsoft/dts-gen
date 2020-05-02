@@ -7,6 +7,7 @@ declare namespace yargs {
 
     const argv: {
         $0: string;
+        r: string;
     };
 
     const parsed: {
@@ -16,6 +17,7 @@ declare namespace yargs {
         };
         argv: {
             $0: string;
+            r: string;
         };
         configuration: {
             "boolean-negation": boolean;
