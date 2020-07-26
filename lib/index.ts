@@ -368,8 +368,10 @@ function inferParameterType(_fn: ts.FunctionExpression, _param: ts.ParameterDecl
     return dom.type.any;
 }
 
+const stringifyFunction: (fn: Function) => string = Function.prototype.call.bind(Function.prototype.toString);
+
 function parseFunctionBody(fn: any): ts.FunctionExpression {
-    const setup = `const myFn = ${fn.toString()};`;
+    const setup = `const myFn = ${stringifyFunction(fn)};`;
     const srcFile = ts.createSourceFile('test.ts', setup, ts.ScriptTarget.Latest, true);
     const statement = srcFile.statements[0] as ts.VariableStatement;
     const decl = statement.declarationList.declarations[0];
@@ -378,5 +380,5 @@ function parseFunctionBody(fn: any): ts.FunctionExpression {
 }
 
 function isNativeFunction(fn: any) {
-    return fn.toString().indexOf('{ [native code] }') > 0;
+    return stringifyFunction(fn).indexOf('{ [native code] }') > 0;
 }
