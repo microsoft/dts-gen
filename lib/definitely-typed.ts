@@ -75,6 +75,8 @@ async function getIndex(content: string, packageName: string): Promise<string> {
             const url = parseUrl(repoGitConfig['remote "origin"'].url);
             if (url.hostname === 'github.com' && url.pathname) {
                 authorUserName = url.pathname.split('/')[1] || authorUserName;
+            } else if (url.pathname?.startsWith('git@github.com')) {
+                authorUserName = url.pathname.split(':')?.[1].split('/')?.[0] || authorUserName;
             }
         }
     } catch (e) {
