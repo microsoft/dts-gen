@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { get, STATUS_CODES } from "http";
+import { get, IncomingMessage, STATUS_CODES } from "http";
 import { homedir } from 'os';
 import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
@@ -131,15 +131,31 @@ interface Package {
 }
 
 function loadString(url: string): Promise<string> {
+    // This is horrible, and it would be better to just use node-fetch or something:
     return new Promise((resolve, reject) => {
-        get(url, res => {
+        const doGet = (url: string) => {
+            get(url, onResponse).on('error', reject);
+        };
+
+        const onResponse = (res: IncomingMessage) => {
             if (res.statusCode !== 200) {
+                if (res.statusCode! >= 300 && res.statusCode! < 400) {
+                    // Follow redirects:
+                    const { location } = res.headers;
+                    if (location) {
+                        return doGet(location);
+                    }
+                }
+
                 return reject(
                     new Error(`HTTP Error ${res.statusCode}: ${STATUS_CODES[res.statusCode || 500]} for ${url}`));
             }
+
             let rawData = "";
             res.on("data", (chunk: any) => rawData += chunk);
             res.on("end", () => resolve(rawData));
-        }).on("error", (e: Error) => reject(e));
+        };
+
+        return doGet(url);
     });
 }
