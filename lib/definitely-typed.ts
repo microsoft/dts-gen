@@ -48,7 +48,7 @@ async function getIndex(content: string, packageName: string): Promise<string> {
         "(Does not have to be to GitHub, " +
         "but prefer linking to a source code repository rather than to a project website.)";
     try {
-        const reg: Registry = JSON.parse(await loadString(`http://registry.npmjs.org/${packageName}`));
+        const reg: Registry = JSON.parse(await loadString(`https://registry.npmjs.org/${packageName}`));
         const { latest } = reg["dist-tags"];
         const { homepage } = reg.versions[latest];
 
