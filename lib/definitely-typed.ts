@@ -34,7 +34,7 @@ async function run(indexDtsContent: string, packageName: string, dtName: string,
         ["index.d.ts", await getIndex(indexDtsContent, packageName)],
         [`${dtName}-tests.ts`, ""],
         ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
-        ["tslint.json", '{ "extends": "dtslint/dt.json" }\n'],
+        ["tslint.json", '{ "extends": "@definitelytyped/dtslint/dt.json" }\n'],
     ];
 
     for (const [name, text] of files) {
