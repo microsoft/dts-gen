@@ -1,7 +1,7 @@
 import * as dom from 'dts-dom';
 import { create, reservedWords } from 'dts-dom';
-import { getDTName } from './names';
 import * as ts from 'typescript';
+import { getDTName } from './names';
 
 const enum ValueTypes {
     None = 0,
