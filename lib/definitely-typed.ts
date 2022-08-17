@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { get, STATUS_CODES } from "https";
+import { STATUS_CODES } from 'http';
+import { get } from "https";
 import { homedir } from 'os';
 import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
