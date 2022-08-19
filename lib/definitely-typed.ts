@@ -1,5 +1,6 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { get, IncomingMessage, STATUS_CODES } from "http";
+import { IncomingMessage, STATUS_CODES } from "http";
+import { get } from "https";
 import { homedir } from 'os';
 import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
@@ -34,7 +35,7 @@ async function run(indexDtsContent: string, packageName: string, dtName: string,
         ["index.d.ts", await getIndex(indexDtsContent, packageName)],
         [`${dtName}-tests.ts`, ""],
         ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
-        ["tslint.json", '{ "extends": "dtslint/dt.json" }\n'],
+        ["tslint.json", '{ "extends": "@definitelytyped/dtslint/dt.json" }\n'],
     ];
 
     for (const [name, text] of files) {
@@ -48,7 +49,7 @@ async function getIndex(content: string, packageName: string): Promise<string> {
         "(Does not have to be to GitHub, " +
         "but prefer linking to a source code repository rather than to a project website.)";
     try {
-        const reg: Registry = JSON.parse(await loadString(`http://registry.npmjs.org/${packageName}`));
+        const reg: Registry = JSON.parse(await loadString(`https://registry.npmjs.org/${packageName}`));
         const { latest } = reg["dist-tags"];
         const { homepage } = reg.versions[latest];
 
@@ -75,6 +76,8 @@ async function getIndex(content: string, packageName: string): Promise<string> {
             const url = parseUrl(repoGitConfig['remote "origin"'].url);
             if (url.hostname === 'github.com' && url.pathname) {
                 authorUserName = url.pathname.split('/')[1] || authorUserName;
+            } else if (url.pathname?.startsWith('git@github.com')) {
+                authorUserName = url.pathname.split(':')?.[1].split('/')?.[0] || authorUserName;
             }
         }
     } catch (e) {
