@@ -31,10 +31,12 @@ export default function writeDefinitelyTypedPackage(
 }
 
 async function run(indexDtsContent: string, packageName: string, dtName: string, packageDir: string): Promise<void> {
+    const { index, version } = await getIndex(indexDtsContent, packageName);
     const files: Array<[string, string]> = [
-        ["index.d.ts", await getIndex(indexDtsContent, packageName)],
+        ["index.d.ts", index],
         [`${dtName}-tests.ts`, ""],
         ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
+        ["package.json", `${JSON.stringify(getPackageJson(packageName, version), undefined, 4)}\n`],
         ["tslint.json", '{ "extends": "@definitelytyped/dtslint/dt.json" }\n'],
     ];
 
@@ -43,7 +45,11 @@ async function run(indexDtsContent: string, packageName: string, dtName: string,
     }
 }
 
-async function getIndex(content: string, packageName: string): Promise<string> {
+async function getInfo() {
+
+}
+
+async function getIndex(content: string, packageName: string): Promise<{ index: string; version: string }> {
     let version = "x.x";
     let project = "https://github.com/baz/foo " +
         "(Does not have to be to GitHub, " +
@@ -89,12 +95,17 @@ async function getIndex(content: string, packageName: string): Promise<string> {
         pathname: authorUserName,
     });
 
-    return `// Type definitions for ${packageName} ${version}
+    const index = `// Type definitions for ${packageName} ${version}
 // Project: ${project}
 // Definitions by: ${authorName} <${authorUrl}>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 ${content}`;
+
+    return {
+        index,
+        version,
+    }
 }
 
 function getTSConfig(dtName: string): {} {
@@ -106,8 +117,6 @@ function getTSConfig(dtName: string): {} {
             noImplicitThis: true,
             strictFunctionTypes: true,
             strictNullChecks: true,
-            baseUrl: "../",
-            typeRoots: ["../"],
             types: [],
             noEmit: true,
             forceConsistentCasingInFileNames: true,
@@ -116,6 +125,17 @@ function getTSConfig(dtName: string): {} {
             "index.d.ts",
             `${dtName}-tests.ts`,
         ],
+    };
+}
+
+function getPackageJson(packageName: string, version: string): {} {
+    return {
+        private: true,
+        name: packageName,
+        version: `${version}.0`,
+        devDependencies: {
+            [packageName]: "workspace:."
+        }
     };
 }
 
