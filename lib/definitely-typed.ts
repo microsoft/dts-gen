@@ -108,7 +108,7 @@ async function getPackageJson(packageName: string): Promise<{}> {
     return {
         private: true,
         name: packageName,
-        version: `${version}.0`,
+        version: `${version}.0.99999`,
         projects: [project],
         devDependencies: {
             [packageName]: "workspace:."
