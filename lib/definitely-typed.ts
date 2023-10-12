@@ -35,7 +35,7 @@ async function run(indexDtsContent: string, packageName: string, dtName: string,
         ["index.d.ts", indexDtsContent],
         [`${dtName}-tests.ts`, ""],
         ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
-        ["package.json", `${JSON.stringify(await getPackageJson(packageName), undefined, 4)}\n`],
+        ["package.json", `${JSON.stringify(await getPackageJson(dtName, packageName), undefined, 4)}\n`],
         ["tslint.json", '{ "extends": "@definitelytyped/dtslint/dt.json" }\n'],
     ];
 
@@ -64,7 +64,7 @@ function getTSConfig(dtName: string): {} {
     };
 }
 
-async function getPackageJson(packageName: string): Promise<{}> {
+async function getPackageJson(dtName: string, packageName: string): Promise<{}> {
     let version = "x.x";
     let project = "https://github.com/baz/foo " +
         "(Does not have to be to GitHub, " +
@@ -107,11 +107,11 @@ async function getPackageJson(packageName: string): Promise<{}> {
 
     return {
         private: true,
-        name: packageName,
+        name: `@types/${dtName}`,
         version: `${version}.0.99999`,
         projects: [project],
         devDependencies: {
-            [packageName]: "workspace:."
+            [`@types/${dtName}`]: "workspace:."
         },
         contributors: [
             {
