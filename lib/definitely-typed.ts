@@ -4,7 +4,7 @@ import { get } from "https";
 import { homedir } from 'os';
 import parseGitConfig = require('parse-git-config');
 import { join as joinPaths } from "path";
-import { format as formatUrl, parse as parseUrl } from 'url';
+import { parse as parseUrl } from 'url';
 import { getDTName } from './names';
 
 export default function writeDefinitelyTypedPackage(
@@ -32,9 +32,10 @@ export default function writeDefinitelyTypedPackage(
 
 async function run(indexDtsContent: string, packageName: string, dtName: string, packageDir: string): Promise<void> {
     const files: Array<[string, string]> = [
-        ["index.d.ts", await getIndex(indexDtsContent, packageName)],
+        ["index.d.ts", indexDtsContent],
         [`${dtName}-tests.ts`, ""],
         ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
+        ["package.json", `${JSON.stringify(await getPackageJson(dtName, packageName), undefined, 4)}\n`],
         ["tslint.json", '{ "extends": "@definitelytyped/dtslint/dt.json" }\n'],
     ];
 
@@ -43,7 +44,27 @@ async function run(indexDtsContent: string, packageName: string, dtName: string,
     }
 }
 
-async function getIndex(content: string, packageName: string): Promise<string> {
+function getTSConfig(dtName: string): {} {
+    return {
+        compilerOptions: {
+            module: "commonjs",
+            lib: ["es6"],
+            noImplicitAny: true,
+            noImplicitThis: true,
+            strictFunctionTypes: true,
+            strictNullChecks: true,
+            types: [],
+            noEmit: true,
+            forceConsistentCasingInFileNames: true,
+        },
+        files: [
+            "index.d.ts",
+            `${dtName}-tests.ts`,
+        ],
+    };
+}
+
+async function getPackageJson(dtName: string, packageName: string): Promise<{}> {
     let version = "x.x";
     let project = "https://github.com/baz/foo " +
         "(Does not have to be to GitHub, " +
@@ -83,39 +104,21 @@ async function getIndex(content: string, packageName: string): Promise<string> {
     } catch (e) {
         console.warn(`Warning: Could not retrieve author's user name: ${e.message}`);
     }
-    const authorUrl = formatUrl({
-        protocol: 'https',
-        hostname: 'github.com',
-        pathname: authorUserName,
-    });
 
-    return `// Type definitions for ${packageName} ${version}
-// Project: ${project}
-// Definitions by: ${authorName} <${authorUrl}>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-
-${content}`;
-}
-
-function getTSConfig(dtName: string): {} {
     return {
-        compilerOptions: {
-            module: "commonjs",
-            lib: ["es6"],
-            noImplicitAny: true,
-            noImplicitThis: true,
-            strictFunctionTypes: true,
-            strictNullChecks: true,
-            baseUrl: "../",
-            typeRoots: ["../"],
-            types: [],
-            noEmit: true,
-            forceConsistentCasingInFileNames: true,
+        private: true,
+        name: `@types/${dtName}`,
+        version: `${version}.0.99999`,
+        projects: [project],
+        devDependencies: {
+            [`@types/${dtName}`]: "workspace:."
         },
-        files: [
-            "index.d.ts",
-            `${dtName}-tests.ts`,
-        ],
+        contributors: [
+            {
+                name: authorName,
+                githubUsername: authorUserName
+            }
+        ]
     };
 }
 
