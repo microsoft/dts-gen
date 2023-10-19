@@ -113,7 +113,7 @@ async function getPackageJson(dtName: string, packageName: string): Promise<{}> 
         devDependencies: {
             [`@types/${dtName}`]: "workspace:."
         },
-        contributors: [
+        owners: [
             {
                 name: authorName,
                 githubUsername: authorUserName
