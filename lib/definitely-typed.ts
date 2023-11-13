@@ -109,7 +109,7 @@ async function getPackageJson(dtName: string, packageName: string): Promise<{}> 
     return {
         private: true,
         name: `@types/${dtName}`,
-        version: `${version}.0.99999`,
+        version: `${version}.0.9999`,
         projects: [project],
         devDependencies: {
             [`@types/${dtName}`]: "workspace:."
