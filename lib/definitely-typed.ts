@@ -37,6 +37,7 @@ async function run(indexDtsContent: string, packageName: string, dtName: string,
         ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
         ["package.json", `${JSON.stringify(await getPackageJson(dtName, packageName), undefined, 4)}\n`],
         ["tslint.json", '{ "extends": "@definitelytyped/dtslint/dt.json" }\n'],
+        [".npmignore", ["*", "!**/*.d.ts", "!**/*.d.cts", "!**/*.d.mts", "!**/*.d.*.ts"].join('\n') + '\n'],
     ];
 
     for (const [name, text] of files) {
@@ -108,7 +109,7 @@ async function getPackageJson(dtName: string, packageName: string): Promise<{}> 
     return {
         private: true,
         name: `@types/${dtName}`,
-        version: `${version}.0.99999`,
+        version: `${version}.0.9999`,
         projects: [project],
         devDependencies: {
             [`@types/${dtName}`]: "workspace:."
