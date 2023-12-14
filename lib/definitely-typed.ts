@@ -36,7 +36,6 @@ async function run(indexDtsContent: string, packageName: string, dtName: string,
         [`${dtName}-tests.ts`, ""],
         ["tsconfig.json", `${JSON.stringify(getTSConfig(dtName), undefined, 4)}\n`],
         ["package.json", `${JSON.stringify(await getPackageJson(dtName, packageName), undefined, 4)}\n`],
-        ["tslint.json", '{ "extends": "@definitelytyped/dtslint/dt.json" }\n'],
         [".npmignore", ["*", "!**/*.d.ts", "!**/*.d.cts", "!**/*.d.mts", "!**/*.d.*.ts"].join('\n') + '\n'],
     ];
 
